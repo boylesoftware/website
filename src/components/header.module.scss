@@ -1,0 +1,18 @@
+@import 'src/css/all.scss';
+.logo {
+	font-family: 'West';
+	text-decoration: none;
+}
+.logoType {
+	color: black;
+	font-size: 2rem;
+	font-weight: 800;
+	line-height: 2rem;
+	text-transform: uppercase;
+}
+.logoTagline {
+	color: rgba(0, 0, 0, 0.3);
+	font-size: 0.875rem;
+	font-weight: 400;
+	line-height: 1.5rem;
+}

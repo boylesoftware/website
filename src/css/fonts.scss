@@ -1,0 +1,27 @@
+@font-face {
+	font-display: swap;
+	font-family: West;
+	font-weight: 400;
+	src: local(West-Regular),
+		url(../../static/fonts/West-Regular.woff2) format('woff2');
+}
+@font-face {
+	font-display: swap;
+	font-family: West;
+	font-weight: 500;
+	src: local(West-Medium),
+		url(../../static/fonts/West-Medium.woff2) format('woff2');
+}
+@font-face {
+	font-display: swap;
+	font-family: West;
+	font-weight: 700;
+	src: local(West-Bold), url(../../static/fonts/West-Bold.woff2) format('woff2');
+}
+@font-face {
+	font-display: swap;
+	font-family: West;
+	font-weight: 800;
+	src: local(West-ExtraBold),
+		url(../../static/fonts/West-ExtraBold.woff2) format('woff2');
+}
