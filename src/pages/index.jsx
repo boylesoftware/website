@@ -12,17 +12,19 @@ const IndexPage = () => {
 
 	return (
 		<Layout>
-			<main>
+			<>
 				<h1 className={s.test}>hello matt, how are you today?</h1>
 				{content.map((c) => (
 					<div key={c.id}>
 						<div>{c.title}</div>
 						{c.content.map((c) => (
-							<div className={s.test}>{renderRichText(c.text)}</div>
+							<div key={c.id} className={s.test}>
+								{renderRichText(c.text)}
+							</div>
 						))}
 					</div>
 				))}
-			</main>
+			</>
 		</Layout>
 	);
 };
@@ -37,6 +39,7 @@ export const query = graphql`
 					title
 					content {
 						... on ContentfulText {
+							id
 							internalTitle
 							text {
 								raw
