@@ -14,11 +14,16 @@ const Header = ({ siteTitle }) => (
 				A <strong>Beyondsoft</strong> Company
 			</div>
 		</Link>
-		<ul>
-			<li>
-				<Link to='/about'>about</Link>
-			</li>
-		</ul>
+		<nav aria-labelledby='primary-navigation'>
+			<h2 id='primary-navigation' className={s.visuallyHidden}>
+				Primary navigation
+			</h2>
+			<ul>
+				<li>
+					<Link to='/about'>about</Link>
+				</li>
+			</ul>
+		</nav>
 	</header>
 );
 

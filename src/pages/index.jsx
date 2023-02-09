@@ -3,6 +3,8 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 // import type { HeadFC, PageProps } from 'gatsby';
 import * as s from './index.module.scss';
+import '../css/all.scss';
+
 import Layout from '../components/layout';
 
 const IndexPage = () => {
@@ -13,16 +15,16 @@ const IndexPage = () => {
 	return (
 		<Layout>
 			<>
-				<h1 className={s.test}>hello matt, how are you today?</h1>
+				<h1 className='visually-hidden'>Homepage</h1>
 				{content.map((c) => (
-					<div key={c.id}>
-						<div>{c.title}</div>
+					<section key={c.id} className={c.class}>
+						{c.title ? <h2>{c.title}</h2> : null}
 						{c.content.map((c) => (
 							<div key={c.id} className={s.test}>
 								{renderRichText(c.text)}
 							</div>
 						))}
-					</div>
+					</section>
 				))}
 			</>
 		</Layout>
@@ -37,6 +39,7 @@ export const query = graphql`
 				... on ContentfulSection {
 					id
 					title
+					class
 					content {
 						... on ContentfulText {
 							id
