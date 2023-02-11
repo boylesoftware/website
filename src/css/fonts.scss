@@ -43,6 +43,13 @@
 @font-face {
 	font-display: swap;
 	font-family: DMSans;
+	font-weight: 500;
+	src: local(DMSans-Medium),
+		url(../../static/fonts/DMSans-Medium.ttf) format('truetype');
+}
+@font-face {
+	font-display: swap;
+	font-family: DMSans;
 	font-weight: 700;
 	src: local(DMSans-Bold),
 		url(../../static/fonts/DMSans-Bold.ttf) format('truetype');

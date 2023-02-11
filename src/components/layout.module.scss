@@ -1,5 +1,9 @@
 @import 'src/css/all.scss';
 
+body {
+	margin: 0;
+}
+
 main {
 	background: #fff;
 	font-family: 'DMSans';
@@ -12,9 +16,5 @@ main {
 }
 
 section {
-	padding: 0.875rem 1.25rem;
-
-	@include desktop() {
-		padding: 1.6875rem 7.75rem;
-	}
+	@include defaultPadding;
 }

@@ -7,7 +7,7 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import Layout from '../components/layout';
 
 function ArticleTemplate({ data: { contentfulArticle } }) {
-	const image = getImage(contentfulArticle.mainImage);
+	const image = getImage(contentfulArticle.image);
 	// const options = {
 	// 	renderMark: {
 	// 		[MARKS.BOLD]: (text) => <b className='font-bold'>{text}</b>,
@@ -40,7 +40,7 @@ export const query = graphql`
 	query ($slug: String!) {
 		contentfulArticle(slug: { eq: $slug }) {
 			title
-			mainImage {
+			image {
 				gatsbyImageData(width: 800, placeholder: BLURRED)
 				description
 			}

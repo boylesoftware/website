@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import { GatsbyImage } from 'gatsby-plugin-image';
+
 // import type { HeadFC, PageProps } from 'gatsby';
-import * as s from './index.module.scss';
+// import * as s from './index.module.scss';
 import '../css/all.scss';
 
 import Layout from '../components/layout';
@@ -20,9 +22,18 @@ const IndexPage = () => {
 					<section key={c.id} className={c.class}>
 						{c.title ? <h2>{c.title}</h2> : null}
 						{c.content.map((c) => (
-							<div key={c.id} className={s.test}>
-								{renderRichText(c.text)}
-							</div>
+							<>
+								<div>
+									{c.text ? (
+										<div key={c.id}>{renderRichText(c.text)}</div>
+									) : null}
+								</div>
+								<div>{c.title ? <div key={c.id}>{c.title}</div> : null}</div>
+								<div>{c.intro ? renderRichText(c.intro) : null}</div>
+								<div>
+									{/* <GatsbyImage image={c.image} alt={c.description} /> */}
+								</div>
+							</>
 						))}
 					</section>
 				))}
@@ -43,9 +54,19 @@ export const query = graphql`
 					content {
 						... on ContentfulText {
 							id
-							internalTitle
 							text {
 								raw
+							}
+						}
+						... on ContentfulArticle {
+							id
+							title
+							intro {
+								raw
+							}
+							image {
+								gatsbyImageData(width: 800, placeholder: BLURRED)
+								description
 							}
 						}
 					}

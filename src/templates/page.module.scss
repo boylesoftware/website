@@ -1,0 +1,19 @@
+@import '/src/css/all.scss';
+
+h1 {
+	background-color: black;
+	border-left: 0.4375rem solid #979797;
+	color: white;
+	font-size: 2rem;
+	font-weight: 500;
+	letter-spacing: 1px;
+	line-height: 2.25rem;
+	margin: 0;
+	padding: 4.5rem 2rem;
+	@include desktop {
+		border-left: 22px solid #979797;
+		font-size: 3.5625rem;
+		line-height: 4.625rem;
+		padding: 159px 116px 147px;
+	}
+}
