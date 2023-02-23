@@ -7,7 +7,7 @@ body {
 main {
 	background: #fff;
 	font-family: 'DMSans';
-	font-size: clamp(1.25rem, 2vw, 1.5rem);
+	font-size: clamp(1rem, 2vw, 1.5rem);
 	line-height: 1.4;
 	margin: 0 auto;
 	max-width: 1920px;
@@ -17,4 +17,9 @@ main {
 
 section {
 	@include defaultPadding;
+}
+
+h2 {
+	font-size: 2.25rem;
+	line-height: 2.75rem;
 }

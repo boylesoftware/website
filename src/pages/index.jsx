@@ -2,6 +2,7 @@ import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import { ContainerFactory } from '../components/container-factory';
 
 // import type { HeadFC, PageProps } from 'gatsby';
 // import * as s from './index.module.scss';
@@ -20,76 +21,27 @@ const IndexPage = () => {
 				<h1 className='visually-hidden'>Homepage</h1>
 				{content.map((section) => (
 					<section key={section.id} className={section.class}>
+						<ContainerFactory content={section} />
+
 						{section.title ? <h2>{section.title}</h2> : null}
 						{section.content.map((sectionContent) => (
-							<>
-								<div>
-									{sectionContent.text ? (
-										<div key={sectionContent.id}>
-											{renderRichText(sectionContent.text)}
-										</div>
-									) : null}
-								</div>
-								<div>
-									{sectionContent.title ? (
-										<div key={sectionContent.id}>{sectionContent.title}</div>
-									) : null}
-								</div>
-								<div>
-									{sectionContent.intro
-										? renderRichText(sectionContent.intro)
-										: null}
-								</div>
-								{/* {sectionContent.image?.url ? (
-									<StaticImage
-										src={sectionContent.image?.url}
-										alt='uwe'
-										placeholder='blurred'
-										layout='fixed'
-										width={200}
-										height={200}
-									/>
-								) : null} */}
-								<div>
-									{console.log(sectionContent.image?.gatsbyImageData)}
-									<GatsbyImage
-										image={sectionContent.image?.gatsbyImageData}
-										alt='uwe'
-									/>
-								</div>
-							</>
+							<div key={sectionContent.id}>
+								<GatsbyImage
+									image={sectionContent.image?.gatsbyImageData}
+									alt='uwe'
+								/>
+								{sectionContent.title ? <h3>{sectionContent.title}</h3> : null}
+
+								{sectionContent.text
+									? renderRichText(sectionContent.text)
+									: null}
+								{sectionContent.intro
+									? renderRichText(sectionContent.intro)
+									: null}
+							</div>
 						))}
 					</section>
 				))}
-				<form name='contact' method='POST' data-netlify='true'>
-					<p>
-						<label>
-							Your Name: <input type='text' name='name' />
-						</label>
-					</p>
-					<p>
-						<label>
-							Your Email: <input type='email' name='email' />
-						</label>
-					</p>
-					<p>
-						<label>
-							Your Role:{' '}
-							<select name='role[]' multiple>
-								<option value='leader'>Leader</option>
-								<option value='follower'>Follower</option>
-							</select>
-						</label>
-					</p>
-					<p>
-						<label>
-							Message: <textarea name='message'></textarea>
-						</label>
-					</p>
-					<p>
-						<button type='submit'>Send</button>
-					</p>
-				</form>
 			</>
 		</Layout>
 	);
