@@ -1,24 +1,27 @@
 import { Link } from 'gatsby';
 import React from 'react';
 
-import * as s from './header.module.scss';
+import * as styles from './header.module.scss';
 
 const Header = ({ siteTitle }) => (
 	<header>
-		<Link to='/' className={s.logo}>
-			<div className={s.logoType}>
+		<Link to='/' className={styles.logo}>
+			<div className={styles.logoType}>
 				Boyle
 				<br /> Software
 			</div>
-			<div className={s.logoTagline}>
+			<div className={styles.logoTagline}>
 				A <strong>Beyondsoft</strong> Company
 			</div>
 		</Link>
-		<nav aria-labelledby='primary-navigation'>
-			<h2 id='primary-navigation' className={s.visuallyHidden}>
+		<nav aria-labelledby='primary-navigation' className={styles.primaryNav}>
+			<h2 id='primary-navigation' className={styles.visuallyHidden}>
 				Primary navigation
 			</h2>
 			<ul>
+				<li>
+					<Link to='/services'>services</Link>
+				</li>
 				<li>
 					<Link to='/about'>about</Link>
 				</li>

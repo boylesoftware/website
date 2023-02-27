@@ -9,6 +9,8 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './header';
+import Footer from './footer';
+
 import './layout.module.scss';
 
 const Layout = ({ children }) => {
@@ -25,9 +27,8 @@ const Layout = ({ children }) => {
 	return (
 		<div itemScope itemType='https://schema.org/WebPage'>
 			<Header siteTitle={data.site.siteMetadata.title} />
-
 			<main>{children}</main>
-			<footer>© {new Date().getFullYear()}</footer>
+			<Footer />
 		</div>
 	);
 };

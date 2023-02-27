@@ -33,13 +33,7 @@
 	src: local(DMSans-Regular),
 		url(../../static/fonts/DMSans-Regular.ttf) format('truetype');
 }
-@font-face {
-	font-display: swap;
-	font-family: DMSans;
-	font-weight: 400;
-	src: local(DMSans-Italic),
-		url(../../static/fonts/DMSans-Italic.ttf) format('truetype');
-}
+
 @font-face {
 	font-display: swap;
 	font-family: DMSans;

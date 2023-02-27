@@ -1,1 +1,5 @@
-export const TypeName = Object.freeze({ SECTION: 'ContentfulSection' });
+export const TypeName = Object.freeze({
+	GRID: 'ContentfulGrid',
+	SECTION: 'ContentfulSection',
+	SERVICE: 'ContentfulService',
+});

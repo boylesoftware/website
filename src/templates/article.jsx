@@ -30,7 +30,6 @@ function ArticleTemplate({ data: { contentfulArticle } }) {
 	return (
 		<Layout>
 			<h1>{contentfulArticle.title}</h1>
-			{console.log(image)}
 			<GatsbyImage image={image} alt={image.description} />
 			{renderRichText(contentfulArticle.intro)}
 		</Layout>
