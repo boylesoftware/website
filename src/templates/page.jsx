@@ -17,7 +17,7 @@ function PageTemplate({ data: { contentfulPage } }) {
 				<h1>{contentfulPage.title}</h1>
 			</div>
 			{contentfulPage.intro ? renderRichText(contentfulPage.intro) : null}
-			{contentfulPage.content.map((section) => (
+			{contentfulPage.content?.map((section) => (
 				<section key={section.id} className={section.cssClass}>
 					<ContainerFactory content={section} />
 				</section>
