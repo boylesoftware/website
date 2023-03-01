@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { renderRichText } from 'gatsby-source-contentful/rich-text';
-import { GatsbyImage } from 'gatsby-plugin-image';
 import { ContainerFactory } from '../components/container-factory';
 
 // import type { HeadFC, PageProps } from 'gatsby';
@@ -20,27 +18,9 @@ const IndexPage = () => {
 			<>
 				<h1 className='visually-hidden'>Homepage</h1>
 				{content.map((section) => (
-					<section key={section.id} className={section.class}>
+					<div key={section.id}>
 						<ContainerFactory content={section} />
-
-						{section.title ? <h2>{section.title}</h2> : null}
-						{section.content.map((sectionContent) => (
-							<div key={sectionContent.id}>
-								<GatsbyImage
-									image={sectionContent.image?.gatsbyImageData}
-									alt='uwe'
-								/>
-								{sectionContent.title ? <h3>{sectionContent.title}</h3> : null}
-
-								{sectionContent.text
-									? renderRichText(sectionContent.text)
-									: null}
-								{sectionContent.intro
-									? renderRichText(sectionContent.intro)
-									: null}
-							</div>
-						))}
-					</section>
+					</div>
 				))}
 			</>
 		</Layout>
@@ -55,7 +35,7 @@ export const query = graphql`
 				... on ContentfulSection {
 					id
 					title
-					class
+					cssClass
 					content {
 						... on ContentfulText {
 							id
@@ -66,13 +46,42 @@ export const query = graphql`
 						... on ContentfulArticle {
 							id
 							title
+							slug
 							intro {
 								raw
 							}
 							image {
-								gatsbyImageData(width: 800, placeholder: BLURRED)
+								gatsbyImageData(width: 400, placeholder: BLURRED)
 								description
-								url
+								file {
+									url
+								}
+							}
+						}
+					}
+				}
+				... on ContentfulGrid {
+					title
+					linkGridItems
+					cssClass
+					intro {
+						raw
+					}
+					content {
+						... on ContentfulTechnology {
+							id
+							title
+							slug
+							image {
+								gatsbyImageData(width: 400, placeholder: BLURRED)
+								description
+								file {
+									contentType
+									url
+								}
+								svg {
+									content
+								}
 							}
 						}
 					}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { INLINES, BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { graphql } from 'gatsby';
 import { ContainerFactory } from '../components/container-factory';
 

@@ -1,29 +1,33 @@
 import React from 'react';
-import { GatsbyImage } from 'gatsby-plugin-image';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import { Image } from './image';
+import { Link } from 'gatsby';
+import * as styles from './section.module.scss';
 
-export function Section({ title, content }) {
+export function Section({ title, cssClass, content }) {
 	return (
-		<>
-			<h2>{title}</h2>
+		<section className={styles[cssClass]}>
+			{title ? <h2>[section] {title}</h2> : null}
 			{content.map((sectionContent) => (
-				<>
-					<div key={sectionContent.id}>{sectionContent.title}</div>
-					{sectionContent.logo?.gatsbyImageData ? (
-						<GatsbyImage
-							image={sectionContent.logo?.gatsbyImageData}
-							alt={sectionContent.logo?.description}
-						/>
-					) : (
-						<img
-							alt={sectionContent.logo?.description}
-							src={sectionContent.logo?.file.url}
-						/>
-					)}
+				<div key={sectionContent.id}>
+					{sectionContent.image?.gatsbyImageData ? (
+						<Link to={sectionContent.slug}>
+							<Image
+								media={sectionContent.image}
+								alt={sectionContent.image.description}
+							/>
+						</Link>
+					) : null}
+					<h3 className={styles.articleHeading}>
+						<Link to={sectionContent.slug}>
+							{sectionContent.title ? sectionContent.title : null}
+						</Link>
+					</h3>
 
+					{sectionContent.intro ? renderRichText(sectionContent.intro) : null}
 					{sectionContent.text ? renderRichText(sectionContent.text) : null}
-				</>
+				</div>
 			))}
-		</>
+		</section>
 	);
 }

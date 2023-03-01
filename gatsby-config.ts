@@ -28,6 +28,7 @@ const config: GatsbyConfig = {
 		'gatsby-plugin-sharp',
 		'gatsby-transformer-sharp',
 		'gatsby-plugin-sitemap',
+		'gatsby-transformer-inline-svg',
 		{
 			resolve: 'gatsby-plugin-manifest',
 			options: {
@@ -41,6 +42,14 @@ const config: GatsbyConfig = {
 				path: './src/images/',
 			},
 			__key: 'images',
+		},
+		{
+			resolve: 'gatsby-plugin-react-svg',
+			options: {
+				rule: {
+					include: /assets/,
+				},
+			},
 		},
 	],
 };

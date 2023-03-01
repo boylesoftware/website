@@ -64,6 +64,9 @@ export const query = graphql`
 					id
 					title
 					cssClass
+					intro {
+						raw
+					}
 					content {
 						... on ContentfulTechnology {
 							title
@@ -71,10 +74,14 @@ export const query = graphql`
 							description {
 								raw
 							}
-							logo {
+							image {
 								gatsbyImageData(width: 300, placeholder: BLURRED)
 								file {
+									contentType
 									url
+								}
+								svg {
+									content
 								}
 							}
 						}

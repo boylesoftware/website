@@ -10,7 +10,6 @@ import Layout from '../components/layout';
 import * as styles from './service.module.scss';
 
 function TechnologyTemplate({ data: { contentfulTechnology } }) {
-	console.log(contentfulTechnology);
 	return (
 		<Layout>
 			<div className={styles.pageHeader}>
@@ -29,15 +28,15 @@ function TechnologyTemplate({ data: { contentfulTechnology } }) {
 				{contentfulTechnology.description
 					? renderRichText(contentfulTechnology.description)
 					: null}
-				{contentfulTechnology.logo?.gatsbyImageData ? (
+				{contentfulTechnology.image?.gatsbyImageData ? (
 					<GatsbyImage
-						image={contentfulTechnology.logo?.gatsbyImageData}
-						alt={contentfulTechnology.logo?.description}
+						image={contentfulTechnology.image?.gatsbyImageData}
+						alt={contentfulTechnology.image?.description}
 					/>
 				) : (
 					<img
-						alt={contentfulTechnology.logo?.description}
-						src={contentfulTechnology.logo?.file.url}
+						alt={contentfulTechnology.image?.description}
+						src={contentfulTechnology.image?.file.url}
 					/>
 				)}
 			</section>
@@ -52,7 +51,7 @@ export const query = graphql`
 	query ($slug: String!) {
 		contentfulTechnology(slug: { eq: $slug }) {
 			title
-			logo {
+			image {
 				id
 				gatsbyImageData(
 					width: 600

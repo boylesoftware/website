@@ -1,35 +1,39 @@
 import React from 'react';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { Image } from './image';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { Link } from 'gatsby';
 
-export function Grid({ title, intro, cssClass, content }) {
+import * as styles from './grid.module.scss';
+
+export function Grid({ title, intro, cssClass, linkGridItems, content }) {
 	return (
 		<>
-			<h2>[GRID] {title}</h2>
-			{content.map((sectionContent) => (
-				<>
-					<div key={sectionContent.id}>{sectionContent.title}</div>
-					{sectionContent.logo?.gatsbyImageData ? (
-						<Link to={sectionContent.slug}>
-							<GatsbyImage
-								image={sectionContent.logo?.gatsbyImageData}
-								alt={sectionContent.logo?.description}
-							/>
-						</Link>
-					) : (
-						<Link to={sectionContent.slug}>
-							<img
-								alt={sectionContent.logo?.description}
-								src={sectionContent.logo?.file.url}
-							/>
-						</Link>
-					)}
+			<section className={styles[cssClass]}>
+				<h2>[grid] {title}</h2>
+				{intro ? (
+					<div className={styles.intro}>{renderRichText(intro)}</div>
+				) : null}
+				<div className={styles.grid}>
+					{content.map((gridContent) => (
+						<div key={gridContent.id}>
+							<h3>{gridContent.title}</h3>
+							{gridContent.image ? (
+								<Link to={gridContent.slug}>
+									<Image
+										media={gridContent.image}
+										alt={gridContent.image.description}
+									/>
+								</Link>
+							) : null}
 
-					{sectionContent.text ? renderRichText(sectionContent.text) : null}
-					<Link to={sectionContent.slug}>Learn more</Link>
-				</>
-			))}
+							{gridContent.text ? renderRichText(gridContent.text) : null}
+							{linkGridItems === true ? (
+								<Link to={gridContent.slug}>Learn more</Link>
+							) : null}
+						</div>
+					))}
+				</div>
+			</section>
 		</>
 	);
 }

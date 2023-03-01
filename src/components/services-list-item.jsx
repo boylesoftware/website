@@ -1,5 +1,5 @@
 import React from 'react';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { Image } from './image';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { Link } from 'gatsby';
 
@@ -8,7 +8,8 @@ export function ServiceList({ title, image, slug, intro, highlights }) {
 		<>
 			<h2>{title}</h2>
 			<Link to={slug}>
-				<GatsbyImage image={image?.gatsbyImageData} alt={image?.description} />
+				{/* <GatsbyImage image={image?.gatsbyImageData} alt={image?.description} /> */}
+				<Image media={image} alt={image.description} />
 			</Link>
 			{intro ? renderRichText(intro) : null}
 			{highlights ? renderRichText(highlights) : null}
