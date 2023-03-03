@@ -56,6 +56,9 @@ export const query = graphql`
 								file {
 									url
 								}
+								svg {
+									content
+								}
 							}
 						}
 					}
