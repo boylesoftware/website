@@ -22,7 +22,8 @@ function PageTemplate({ data: { contentfulPage } }) {
 				</section>
 			))}
 
-			<form name='contact' method='POST' data-netlify='true' success='/'>
+			<form name='contact' method='POST' data-netlify='true' action='/'>
+				<input type='hidden' name='form-name' value='contact' />
 				<p>
 					<label>
 						Your Name: <input type='text' name='name' />
