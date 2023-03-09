@@ -9,8 +9,19 @@ const ContactForm = () => {
 				<h2>Let's work together</h2>
 				<span>-------- Get in touch</span>
 			</div>
-			<form name='contact' method='POST' data-netlify='true' action='/'>
+			<form
+				name='contact'
+				method='POST'
+				data-netlify='true'
+				action='/'
+				netlify-honeypot='bot-field'>
 				<input type='hidden' name='contact' value='contact' />
+				<div className={styles.hiddenField}>
+					<label for='bot-field' id='botField'>
+						Don't fill this out if you're human:{' '}
+						<input aria-labelledby='botField' name='bot-field' id='bot-field' />
+					</label>
+				</div>
 
 				<div className={styles.formGroup}>
 					<input
@@ -56,7 +67,7 @@ const ContactForm = () => {
 					</label>
 				</div>
 				<div className={styles.msg}>
-					<label id='msgLabel' for='msg' className={styles.msgLabel}>
+					<label id='msgLabel' for='msg'>
 						Message
 					</label>
 					<textarea aria-labelledby='msgLabel' id='msg' name='msg'></textarea>
@@ -65,59 +76,6 @@ const ContactForm = () => {
 					Submit
 				</button>
 			</form>
-			{/* <form name='contact' method='POST' data-netlify='true' action='/'>
-				<input type='hidden' name='form-name' value='contact' />
-				<div className={styles.formGroup}>
-					<input
-						aria-labelledby='nameLabel'
-						id='name'
-						type='text'
-						name='name'
-						required='required'
-					/>
-					<label id='nameLabel' for='name'>
-						Name:
-					</label>
-				</div>
-
-				<div className={styles.formGroup}>
-					<input aria-labelledby='orgLabel' id='org' type='text' name='org' />
-					<label id='orgLabel' for='org'>
-						Organization:
-					</label>
-				</div>
-
-				<div className={styles.formGroup}>
-					<input
-						aria-labelledby='emailLabel'
-						id='email'
-						type='email'
-						name='email'
-						required='required'
-					/>
-					<label id='emailLabel' for='email'>
-						Email:
-					</label>
-				</div>
-				<div className={styles.formGroup}>
-					<input
-						aria-labelledby='phoneLabel'
-						id='phone'
-						type='tel'
-						name='phone'
-					/>
-					<label id='phoneLabel' for='phone'>
-						Phone number:
-					</label>
-				</div>
-				<div>
-					<label id='msgLabel' for='msg'>
-						Message:
-					</label>
-					<textarea aria-labelledby='msgLabel' id='msg' name='msg'></textarea>
-				</div>
-				<button type='submit'>Send</button>
-			</form> */}
 		</section>
 	);
 };
