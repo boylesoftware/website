@@ -7,7 +7,7 @@ header {
 	font-family: 'West';
 	padding: 0.875rem 1.25rem;
 
-	@include desktop() {
+	@include tablet-and-desktop {
 		padding: 1.6875rem 7.75rem;
 	}
 	li {
@@ -23,7 +23,7 @@ header {
 	font-weight: 700;
 	line-height: 1.375rem;
 	text-transform: uppercase;
-	@include desktop() {
+	@include tablet-and-desktop {
 		font-size: 2rem;
 		font-weight: 800;
 		line-height: 2rem;

@@ -1,14 +1,23 @@
 @import './fonts';
 
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1224px;
+
+@mixin tablet-and-desktop {
+	@media (min-width: #{$breakpoint-tablet}) {
+		@content;
+	}
+}
+
 @mixin desktop {
-	@media (min-width: 720px) {
+	@media (min-width: #{$breakpoint-desktop}) {
 		@content;
 	}
 }
 
 @mixin defaultPadding {
 	padding: 0.875rem 1.25rem;
-	@include desktop() {
+	@include tablet-and-desktop() {
 		padding: 1.6875rem 7.75rem;
 	}
 }
@@ -38,7 +47,7 @@
 		line-height: 42px;
 	}
 
-	@include desktop {
+	@include tablet-and-desktop {
 		border-left: 22px solid #979797;
 		.crumbs {
 			font-size: 26px;
@@ -64,7 +73,7 @@
 }
 
 .col2 {
-	@include desktop() {
+	@include tablet-and-desktop {
 		display: flex;
 		justify-content: space-between;
 		& > div {
