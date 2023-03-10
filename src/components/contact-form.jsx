@@ -3,20 +3,31 @@ import React from 'react';
 import * as styles from './contact-form.module.scss';
 
 const ContactForm = () => {
+	const msg = '';
+	const handleSubmit = () => {
+		msg = 'hallo';
+		return;
+	};
 	return (
 		<section className={styles.contactForm}>
 			<div className={styles.formHeading}>
 				<h2>Let's work together</h2>
 				<span>-------- Get in touch</span>
 			</div>
-			<form name='contact' method='POST' data-netlify='true' action='/'>
+			<div>Should be here: {msg}</div>
+			<form
+				name='contact'
+				method='POST'
+				data-netlify='true'
+				action='/'
+				onSubmit={handleSubmit}>
 				<input type='hidden' name='form-name' value='contact' />
-				{/* <div className={styles.hiddenField}>
+				<div className={styles.hiddenField}>
 					<label for='bot-field' id='botField'>
 						Don't fill this out if you're human:{' '}
 						<input aria-labelledby='botField' name='bot-field' id='bot-field' />
 					</label>
-				</div> */}
+				</div>
 
 				<div className={styles.formGroup}>
 					<input
