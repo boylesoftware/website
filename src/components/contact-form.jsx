@@ -8,7 +8,6 @@ const ContactForm = () => {
 		msg = 'ja';
 		return msg;
 	};
-	const url = window.location.href;
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
 			const url = window.location.href;
@@ -31,7 +30,7 @@ const ContactForm = () => {
 				<input type='hidden' name='form-name' value='contact' />
 				<div className={styles.hiddenField}>
 					<label for='bot-field' id='botField'>
-						Don't fill this out if you're human: {url}
+						Don't fill this out if you're human: {url ? url : null}
 						<input aria-labelledby='botField' name='bot-field' id='bot-field' />
 					</label>
 				</div>
