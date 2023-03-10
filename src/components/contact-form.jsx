@@ -3,11 +3,18 @@ import React from 'react';
 import * as styles from './contact-form.module.scss';
 
 const ContactForm = () => {
-	const msg = '';
+	const msg = 'no';
 	const handleSubmit = () => {
-		msg = 'hallo';
-		return;
+		msg = 'ja';
+		return msg;
 	};
+
+	function getCurrentURL() {
+		return window.location.href;
+	}
+
+	const url = getCurrentURL();
+
 	return (
 		<section className={styles.contactForm}>
 			<div className={styles.formHeading}>
@@ -24,7 +31,7 @@ const ContactForm = () => {
 				<input type='hidden' name='form-name' value='contact' />
 				<div className={styles.hiddenField}>
 					<label for='bot-field' id='botField'>
-						Don't fill this out if you're human:{' '}
+						Don't fill this out if you're human:{url}
 						<input aria-labelledby='botField' name='bot-field' id='bot-field' />
 					</label>
 				</div>
