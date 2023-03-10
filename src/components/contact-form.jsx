@@ -44,8 +44,14 @@ const ContactForm = () => {
 					</label>
 				</div>
 				<div className={styles.formGroup}>
-					<input id='email' type='email' placeholder=' ' required='required' />
-					<label for='email' className={styles.placeholder}>
+					<input
+						aria-labelledby='emailLabel'
+						id='email'
+						type='email'
+						placeholder=' '
+						required='required'
+					/>
+					<label id='emailLabel' for='email' className={styles.placeholder}>
 						Email address
 					</label>
 				</div>
