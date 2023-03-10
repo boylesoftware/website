@@ -9,7 +9,10 @@ export function Grid({ title, intro, cssClass, linkGridItems, content }) {
 	return (
 		<>
 			<section className={styles[cssClass]}>
-				<h2>[grid] {title}</h2>
+				<h2>
+					{title}
+					<sup>[grid]</sup>
+				</h2>
 				{intro ? (
 					<div className={styles.intro}>{renderRichText(intro)}</div>
 				) : null}

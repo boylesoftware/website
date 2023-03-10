@@ -7,7 +7,12 @@ import * as styles from './section.module.scss';
 export function Section({ title, cssClass, content }) {
 	return (
 		<section className={styles[cssClass]}>
-			{title ? <h2>[section] {title}</h2> : null}
+			{title ? (
+				<h2>
+					{title}
+					<sup>[section]</sup>
+				</h2>
+			) : null}
 			{content.map((sectionContent) => (
 				<div key={sectionContent.id}>
 					{sectionContent.image?.gatsbyImageData ? (

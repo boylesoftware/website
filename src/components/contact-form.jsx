@@ -9,19 +9,14 @@ const ContactForm = () => {
 				<h2>Let's work together</h2>
 				<span>-------- Get in touch</span>
 			</div>
-			<form
-				name='contact'
-				method='POST'
-				data-netlify='true'
-				action='/'
-				netlify-honeypot='bot-field'>
+			<form name='contact' method='POST' data-netlify='true' action='/'>
 				<input type='hidden' name='contact' value='contact' />
-				<div className={styles.hiddenField}>
+				{/* <div className={styles.hiddenField}>
 					<label for='bot-field' id='botField'>
 						Don't fill this out if you're human:{' '}
 						<input aria-labelledby='botField' name='bot-field' id='bot-field' />
 					</label>
-				</div>
+				</div> */}
 
 				<div className={styles.formGroup}>
 					<input

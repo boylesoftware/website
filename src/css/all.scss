@@ -3,6 +3,14 @@
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1224px;
 
+// TEMPORARY
+h2 sup {
+	color: #ccc;
+	font-size: 12px;
+}
+
+///
+
 @mixin tablet-and-desktop {
 	@media (min-width: #{$breakpoint-tablet}) {
 		@content;
