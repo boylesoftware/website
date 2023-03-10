@@ -3,7 +3,7 @@
 .contactForm {
 	background-color: #424244;
 	padding-bottom: 68px;
-	@include tablet-and-desktop {
+	@include desktop {
 		display: grid;
 		grid-template-columns: repeat(12, 1fr);
 	}

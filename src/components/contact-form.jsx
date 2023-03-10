@@ -47,7 +47,7 @@ const ContactForm = () => {
 					<input
 						aria-labelledby='emailLabel'
 						id='email'
-						type='email'
+						type='text'
 						placeholder=' '
 						required='required'
 					/>
