@@ -3,16 +3,16 @@ import React, { useEffect } from 'react';
 import * as styles from './contact-form.module.scss';
 
 const ContactForm = () => {
-	const msg = 'no';
-	const handleSubmit = () => {
-		msg = 'ja';
-		return msg;
-	};
-	useEffect(() => {
-		if (typeof window !== 'undefined') {
-			const url = window.location.href;
-		}
-	}, []);
+	// const msg = 'no';
+	// const handleSubmit = () => {
+	// 	msg = 'ja';
+	// 	return msg;
+	// };
+	// useEffect(() => {
+	// 	if (typeof window !== 'undefined') {
+	// 		const url = window.location.href;
+	// 	}
+	// }, []);
 
 	return (
 		<section className={styles.contactForm}>
@@ -20,7 +20,7 @@ const ContactForm = () => {
 				<h2>Let's work together</h2>
 				<span>-------- Get in touch</span>
 			</div>
-			<div>Should be here: {msg}</div>
+			{/* <div>Should be here: {msg}</div> */}
 			<form
 				name='contact'
 				method='POST'
@@ -30,7 +30,7 @@ const ContactForm = () => {
 				<input type='hidden' name='form-name' value='contact' />
 				<div className={styles.hiddenField}>
 					<label for='bot-field' id='botField'>
-						Don't fill this out if you're human: {url ? url : null}
+						Don't fill this out if you're human:
 						<input aria-labelledby='botField' name='bot-field' id='bot-field' />
 					</label>
 				</div>
