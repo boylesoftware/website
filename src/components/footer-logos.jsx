@@ -11,6 +11,7 @@ const query = graphql`
 			cssClass
 			content {
 				... on ContentfulMedia {
+					id
 					title
 					media {
 						gatsbyImageData(width: 400, placeholder: BLURRED)

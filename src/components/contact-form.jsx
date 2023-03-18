@@ -20,13 +20,11 @@ const ContactForm = () => {
 				<h2>Let's work together</h2>
 				<span>-------- Get in touch</span>
 			</div>
-			{/* <div>Should be here: {msg}</div> */}
 			<form
 				name='contact'
 				method='POST'
 				data-netlify='true'
-				action='/thank-you'
-				onSubmit={handleSubmit}>
+				action='/thank-you'>
 				<input type='hidden' name='form-name' value='contact' />
 				<div className={styles.hiddenField}>
 					<label for='bot-field' id='botField'>

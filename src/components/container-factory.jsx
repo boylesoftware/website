@@ -3,7 +3,7 @@ import ContactForm from './contact-form';
 import { Grid } from './grid';
 
 import { Section } from './section';
-import { ServiceList } from './services-list-item';
+import { ServiceList } from './service-summary';
 
 import { TypeName } from './type-name';
 

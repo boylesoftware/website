@@ -8,7 +8,7 @@ export function Section({ title, cssClass, content }) {
 	return (
 		<section className={styles[cssClass]}>
 			{title ? (
-				<h2>
+				<h2 className={styles.sectionHeading}>
 					{title}
 					<sup>[section]</sup>
 				</h2>

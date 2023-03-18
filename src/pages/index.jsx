@@ -63,32 +63,7 @@ export const query = graphql`
 						}
 					}
 				}
-				... on ContentfulGrid {
-					title
-					linkGridItems
-					cssClass
-					intro {
-						raw
-					}
-					content {
-						... on ContentfulTechnology {
-							id
-							title
-							slug
-							image {
-								gatsbyImageData(width: 400, placeholder: BLURRED)
-								description
-								file {
-									contentType
-									url
-								}
-								svg {
-									content
-								}
-							}
-						}
-					}
-				}
+				...contentfulGrid
 			}
 		}
 	}

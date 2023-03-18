@@ -1,5 +1,8 @@
 @import 'src/css/all.scss';
 
+.sectionHeading + p {
+	margin-bottom: 4rem;
+}
 .articleHeading {
 	margin-bottom: 0;
 	a {
@@ -54,4 +57,8 @@
 			}
 		}
 	}
+}
+
+.intro {
+	margin-bottom: 4rem;
 }

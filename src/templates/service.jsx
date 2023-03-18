@@ -60,33 +60,7 @@ export const query = graphql`
 			}
 			content {
 				__typename
-				... on ContentfulGrid {
-					id
-					title
-					cssClass
-					intro {
-						raw
-					}
-					content {
-						... on ContentfulTechnology {
-							title
-							slug
-							description {
-								raw
-							}
-							image {
-								gatsbyImageData(width: 300, placeholder: BLURRED)
-								file {
-									contentType
-									url
-								}
-								svg {
-									content
-								}
-							}
-						}
-					}
-				}
+				...contentfulGrid
 			}
 		}
 	}

@@ -1,11 +1,24 @@
+@import '/src/css/all.scss';
+
 .grid {
 	display: grid;
 	gap: 1rem;
 	grid-template-columns: 1fr 1fr;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: center;
+	@include tablet {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+	@include desktop {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
 	div {
-		max-width: 150px;
+		display: grid;
+		align-items: center;
+		justify-content: center;
+		svg {
+			width: 120px;
+		}
 	}
 }
 

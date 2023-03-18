@@ -15,10 +15,11 @@ function PageTemplate({ data: { contentfulPage } }) {
 				<div className={styles.crumbs}></div>
 				<h1>{contentfulPage.title}</h1>
 			</div>
+			{console.log(contentfulPage.content)}
 			{contentfulPage.intro ? renderRichText(contentfulPage.intro) : null}
 			{contentfulPage.content?.map((section) => (
-				<section key={section.id} className={section.cssClass}>
-					<ContainerFactory content={section} />
+				<section key={section.id} className={styles[section.cssClass]}>
+					<ContainerFactory content={section} key={section.id} />
 				</section>
 			))}
 		</Layout>
@@ -35,6 +36,7 @@ export const query = graphql`
 			content {
 				... on ContentfulService {
 					__typename
+					id
 					title
 					slug
 					intro {
@@ -53,6 +55,7 @@ export const query = graphql`
 						description
 					}
 				}
+				...contentfulGrid
 			}
 		}
 	}

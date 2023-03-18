@@ -9,7 +9,11 @@ h2 sup {
 	font-size: 12px;
 }
 
-///
+@mixin tablet {
+	@media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) {
+		@content;
+	}
+}
 
 @mixin tablet-and-desktop {
 	@media (min-width: #{$breakpoint-tablet}) {
@@ -70,7 +74,8 @@ h2 sup {
 	}
 }
 
-.visually-hidden {
+.visually-hidden,
+%visually-hidden {
 	clip: rect(0 0 0 0);
 	clip-path: inset(50%);
 	height: 1px;
