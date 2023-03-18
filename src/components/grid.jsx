@@ -8,15 +8,16 @@ import * as styles from './grid.module.scss';
 export function Grid({ title, intro, cssClass, content }) {
 	console.log('cssClass?', cssClass);
 	return (
-		<>
-			<h2>
-				{title}
-				<sup>[grid]</sup>
-			</h2>
-			{intro ? (
-				<div className={styles.intro}>{renderRichText(intro)}</div>
-			) : null}
-
+		<section className={styles[cssClass]}>
+			<div className={styles.gridInfo}>
+				<h2 className={styles.gridHeading}>
+					{title}
+					<sup>[grid]</sup>
+				</h2>
+				{intro ? (
+					<div className={styles.intro}>{renderRichText(intro)}</div>
+				) : null}
+			</div>
 			<div className={styles.grid}>
 				{content.map((item) => (
 					<div key={item.id}>
@@ -36,6 +37,6 @@ export function Grid({ title, intro, cssClass, content }) {
 					</div>
 				))}
 			</div>
-		</>
+		</section>
 	);
 }

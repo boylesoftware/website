@@ -7,7 +7,7 @@ import * as styles from './service-summary.module.scss';
 
 export function ServiceList({ title, image, slug, intro, highlights }) {
 	return (
-		<div className={styles.service}>
+		<section className={styles.service}>
 			<div className={styles.summaryImage}>
 				<Link to={slug}>
 					<Image media={image} alt={image.description} />
@@ -28,6 +28,6 @@ export function ServiceList({ title, image, slug, intro, highlights }) {
 					<span>Learn more</span>
 				</Link>
 			</div>
-		</div>
+		</section>
 	);
 }

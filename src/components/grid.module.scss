@@ -26,15 +26,19 @@
 	margin-bottom: 3rem;
 }
 
-.selectClients {
-	// For logo-only grid keep heading for screenreaders
+.selectClients,
+.technologies {
 	h3 {
-		clip: rect(0 0 0 0);
-		clip-path: inset(50%);
-		height: 1px;
-		overflow: hidden;
-		position: absolute;
-		white-space: nowrap;
-		width: 1px;
+		@extend %visually-hidden;
+	}
+	@include desktop {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		.gridInfo {
+			grid-column: 1 / 5;
+		}
+		.grid {
+			grid-column: 6 / 13;
+		}
 	}
 }
