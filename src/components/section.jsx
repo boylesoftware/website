@@ -13,26 +13,37 @@ export function Section({ title, cssClass, content }) {
 					<sup>[section]</sup>
 				</h2>
 			) : null}
-			{content.map((sectionContent) => (
-				<div key={sectionContent.id}>
-					{sectionContent.image?.gatsbyImageData ? (
-						<Link to={sectionContent.slug}>
-							<Image
-								media={sectionContent.image}
-								alt={sectionContent.image.description}
-							/>
-						</Link>
-					) : null}
-					<h3 className={styles.articleHeading}>
-						<Link to={sectionContent.slug}>
-							{sectionContent.title ? sectionContent.title : null}
-						</Link>
-					</h3>
+			<div className={styles.sectionContent}>
+				{content.map((sectionContent) => (
+					<div className={styles.item} key={sectionContent.id}>
+						{sectionContent.image?.gatsbyImageData ? (
+							<Link to={sectionContent.slug}>
+								<Image
+									media={sectionContent.image}
+									alt={sectionContent.image.description}
+								/>
+							</Link>
+						) : null}
 
-					{sectionContent.intro ? renderRichText(sectionContent.intro) : null}
-					{sectionContent.text ? renderRichText(sectionContent.text) : null}
-				</div>
-			))}
+						{sectionContent.title ? (
+							<h3 className={styles.articleHeading}>
+								<Link to={sectionContent.slug}>{sectionContent.title}</Link>
+							</h3>
+						) : null}
+
+						{sectionContent.intro ? (
+							<div className={styles.intro}>
+								{renderRichText(sectionContent.intro)}
+							</div>
+						) : null}
+						{sectionContent.text ? (
+							<div className={styles.intro}>
+								{renderRichText(sectionContent.text)}
+							</div>
+						) : null}
+					</div>
+				))}
+			</div>
 		</section>
 	);
 }

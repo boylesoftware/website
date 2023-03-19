@@ -1,22 +1,26 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { ContainerFactory } from '../components/container-factory';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import Layout from '../components/layout';
 
 // import type { HeadFC, PageProps } from 'gatsby';
-// import * as s from './index.module.scss';
-import '../css/all.scss';
-
-import Layout from '../components/layout';
+import * as styles from './index.module.scss';
 
 const IndexPage = () => {
 	const {
-		contentfulHomepage: { content },
+		contentfulHomepage: { title, intro, content },
 	} = useStaticQuery(query);
 
 	return (
 		<Layout>
 			<>
-				<h1 className='visually-hidden'>Homepage</h1>
+				<section>
+					<h1 className={styles.pageHeading}>{title}</h1>
+					<div className={styles.intro}>
+						{intro ? renderRichText(intro) : null}
+					</div>
+				</section>
 				{content.map((section) => (
 					<div key={section.id}>
 						<ContainerFactory content={section} />
@@ -30,6 +34,10 @@ const IndexPage = () => {
 export const query = graphql`
 	query {
 		contentfulHomepage(contentful_id: { eq: "49ydOphXmgEVDUS2M9TyZg" }) {
+			title
+			intro {
+				raw
+			}
 			content {
 				__typename
 				... on ContentfulSection {

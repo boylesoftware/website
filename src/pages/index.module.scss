@@ -1,1 +1,21 @@
 @import 'src/css/all.scss';
+
+.pageHeading {
+	font-size: 2.125rem;
+	font-weight: 700;
+	line-height: 2.75rem;
+	@include desktop {
+		font-size: 4.1875rem;
+		line-height: 5.4375rem;
+	}
+}
+
+.intro {
+	font-size: 0.9375rem;
+	font-weight: 400;
+	line-height: 1.25rem;
+	@include desktop {
+		font-size: 2.25rem;
+		line-height: 2.9375rem;
+	}
+}

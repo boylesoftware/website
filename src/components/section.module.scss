@@ -1,7 +1,16 @@
 @import 'src/css/all.scss';
 
-.sectionHeading + p {
-	margin-bottom: 4rem;
+.sectionHeading {
+	font-size: 1.5rem;
+	font-weight: 500;
+	line-height: 3.875rem;
+	& + p {
+		margin-bottom: 4rem;
+	}
+	@include desktop {
+		font-size: 3.875rem;
+		line-height: 7.6875rem;
+	}
 }
 .articleHeading {
 	margin-bottom: 0;
@@ -14,6 +23,16 @@
 	}
 }
 
+.sectionContent {
+	@include desktop {
+		display: flex;
+		justify-content: space-between;
+		& > div {
+			max-width: 30%;
+		}
+	}
+}
+
 .gradgreenblue {
 	background: linear-gradient(
 		180deg,
@@ -22,8 +41,35 @@
 		#008cf1 58.72%
 	);
 	color: white;
-	@include tablet-and-desktop {
+	.intro h2 {
+		font-size: 2.25rem;
+		font-weight: 700;
+		line-height: 3.875rem;
+	}
+	.intro > p {
+		font-size: 1.125rem;
+		line-height: 1.4375rem;
+		margin-bottom: 3rem;
+	}
+	.intro li {
+		font-size: 1.125rem;
+		line-height: 1.4375rem;
+	}
+	@include desktop {
 		background: linear-gradient(91.06deg, #3dc55d 38.38%, #008cf1 70.07%);
+		display: flex;
+		justify-content: space-between;
+		& > div {
+			max-width: 45%;
+		}
+		.intro h2 {
+			font-size: 46px;
+			line-height: 62px;
+		}
+		.intro p {
+			font-size: 20px;
+			line-height: 26px;
+		}
 	}
 	& > div {
 		margin-bottom: 8rem;

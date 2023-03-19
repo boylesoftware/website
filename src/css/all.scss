@@ -2,6 +2,7 @@
 
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1224px;
+$layout-max: 1920px;
 
 // TEMPORARY
 h2 sup {
@@ -34,6 +35,19 @@ h2 sup {
 	}
 }
 
+%global-layout {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1rem;
+	max-width: $layout-max;
+	padding: 0.875rem 1.25rem;
+	@include tablet-and-desktop {
+		grid-template-columns: repeat(12, 1fr);
+
+		padding: 1.6875rem 7.75rem;
+	}
+}
+
 %page-header {
 	background-color: black;
 	border-left: 0.4375rem solid #979797;
@@ -52,6 +66,17 @@ h2 sup {
 			}
 		}
 	}
+
+	%sectionHeading {
+		font-size: 1.5rem;
+		font-weight: 500;
+		line-height: 3.875rem;
+		@include desktop {
+			font-size: 3.875rem;
+			line-height: 7.6875rem;
+		}
+	}
+
 	h1 {
 		font-size: 2rem;
 		font-weight: 500;

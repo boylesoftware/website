@@ -1,0 +1,9 @@
+@import 'src/css/all.scss';
+
+.newsSection {
+	background-color: #9743ff;
+	color: white;
+	h2 {
+		@extend %sectionHeading;
+	}
+}
