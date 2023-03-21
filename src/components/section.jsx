@@ -5,6 +5,7 @@ import { Link } from 'gatsby';
 import * as styles from './section.module.scss';
 
 export function Section({ title, cssClass, content }) {
+	console.log('faust', cssClass);
 	return (
 		<section className={styles[cssClass]}>
 			{title ? (

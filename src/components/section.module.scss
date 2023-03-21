@@ -109,3 +109,11 @@
 .intro {
 	margin-bottom: 4rem;
 }
+
+.moreFromBs .sectionContent {
+	@include tablet {
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
