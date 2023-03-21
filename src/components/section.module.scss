@@ -8,8 +8,8 @@
 		margin-bottom: 4rem;
 	}
 	@include desktop {
-		font-size: 3.875rem;
-		line-height: 7.6875rem;
+		font-size: 2.5rem;
+		line-height: 3.875rem;
 	}
 }
 .articleHeading {
@@ -23,15 +23,15 @@
 	}
 }
 
-.sectionContent {
-	@include desktop {
-		display: flex;
-		justify-content: space-between;
-		& > div {
-			max-width: 30%;
-		}
-	}
-}
+// .sectionContent {
+// 	@include desktop {
+// 		display: flex;
+// 		justify-content: space-between;
+// 		& > div {
+// 			max-width: 30%;
+// 		}
+// 	}
+// }
 
 .gradgreenblue {
 	background: linear-gradient(
@@ -111,7 +111,7 @@
 }
 
 .moreFromBs .sectionContent {
-	@include tablet {
+	@include tablet-and-desktop {
 		display: grid;
 		gap: 1rem;
 		grid-template-columns: 1fr 1fr 1fr;
