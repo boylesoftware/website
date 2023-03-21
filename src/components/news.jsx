@@ -16,12 +16,22 @@ export function News() {
 	return (
 		<section className={styles.newsSection}>
 			<h2>{title}</h2>
+			<div className={styles.articleList}>
+				{nodes.map((article) => (
+					<div key={article.id} className={styles.article}>
+						<div className={styles.published}>{article.publishDate}</div>
+						{article.image?.gatsbyImageData ? (
+							<div className={styles.articleImage}>
+								<Link to={article.slug}>
+									<Image
+										media={article.image}
+										alt={article.image.description}
+									/>
+								</Link>
+							</div>
+						) : null}
 
-			{nodes.map((article) => (
-				<div key={article.id}>
-					{article.title}
-					<div className={styles.tags}>
-						<section className={styles.tags}>
+						<div className={styles.tags}>
 							<label htmlFor='tags-list'>Tags</label>
 							<ul id='tags-list'>
 								{article.tags.map((tag) => (
@@ -34,19 +44,20 @@ export function News() {
 											}>
 											{tag}
 										</Link>
+										<span>•</span>
 									</li>
 								))}
 							</ul>
-						</section>
+						</div>
+						<h3 className={styles.articleHeading}>
+							<Link to={article.slug}>{article.title}</Link>
+						</h3>
+						<div className={styles.intro}>
+							{article.intro ? renderRichText(article.intro) : null}
+						</div>
 					</div>
-
-					{article.image?.gatsbyImageData ? (
-						<Link to={article.slug}>
-							<Image media={article.image} alt={article.image.description} />
-						</Link>
-					) : null}
-				</div>
-			))}
+				))}
+			</div>
 		</section>
 	);
 }
@@ -60,6 +71,11 @@ export const query = graphql`
 			nodes {
 				id
 				title
+				slug
+				publishDate(formatString: "D MMM, YYYY")
+				intro {
+					raw
+				}
 				image {
 					gatsbyImageData(width: 400, placeholder: BLURRED)
 					description

@@ -1,5 +1,36 @@
 @import '/src/css/all.scss';
 
+// layout for the grid section
+.selectClients,
+.technologies {
+	// h3 is only present for screen readers
+	h3 {
+		@extend %visually-hidden;
+	}
+	.gridIntro {
+		margin-bottom: 3rem;
+	}
+
+	@include desktop {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		.gridHeading {
+			grid-column: 1 / 6;
+			margin-top: 0;
+		}
+		.gridIntro {
+			grid-column: 7 / 13;
+			p {
+				margin-top: 0;
+			}
+		}
+		.grid {
+			grid-column: 1 / 13;
+		}
+	}
+}
+
+// layout for the actual grid (icons/logos)
 .grid {
 	display: grid;
 	gap: 1rem;
@@ -18,27 +49,6 @@
 		justify-content: center;
 		svg {
 			width: 120px;
-		}
-	}
-}
-
-.intro {
-	margin-bottom: 3rem;
-}
-
-.selectClients,
-.technologies {
-	h3 {
-		@extend %visually-hidden;
-	}
-	@include desktop {
-		display: grid;
-		grid-template-columns: repeat(12, 1fr);
-		.gridInfo {
-			grid-column: 1 / 5;
-		}
-		.grid {
-			grid-column: 6 / 13;
 		}
 	}
 }

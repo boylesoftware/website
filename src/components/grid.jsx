@@ -8,15 +8,13 @@ import * as styles from './grid.module.scss';
 export function Grid({ title, intro, cssClass, content }) {
 	return (
 		<section className={styles[cssClass]}>
-			<div className={styles.gridInfo}>
-				<h2 className={styles.gridHeading}>
-					{title}
-					<sup>[grid]</sup>
-				</h2>
-				{intro ? (
-					<div className={styles.intro}>{renderRichText(intro)}</div>
-				) : null}
-			</div>
+			<h2 className={styles.gridHeading}>
+				{title}
+				<sup>[grid]</sup>
+			</h2>
+			{intro ? (
+				<div className={styles.gridIntro}>{renderRichText(intro)}</div>
+			) : null}
 			<div className={styles.grid}>
 				{content.map((item) => (
 					<div key={item.id}>

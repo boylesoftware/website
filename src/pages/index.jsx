@@ -55,6 +55,7 @@ export const query = graphql`
 							id
 							title
 							slug
+							publishDate
 							intro {
 								raw
 							}
@@ -64,9 +65,9 @@ export const query = graphql`
 								file {
 									url
 								}
-								svg {
-									content
-								}
+								# svg {
+								# 	content
+								# }
 							}
 						}
 					}
