@@ -16,13 +16,13 @@ export function News() {
 	return (
 		<section className={styles.newsSection}>
 			<h2>{title}</h2>
-			<div className={styles.articleList}>
+			<ul className={styles.articleList}>
 				{nodes.map((article) => (
-					<div key={article.id} className={styles.article}>
+					<li key={article.id} className={styles.article}>
 						<div className={styles.published}>{article.publishDate}</div>
 						{article.image?.gatsbyImageData ? (
 							<div className={styles.articleImage}>
-								<Link to={article.slug}>
+								<Link to={`/news/${article.slug}`}>
 									<Image
 										media={article.image}
 										alt={article.image.description}
@@ -55,9 +55,10 @@ export function News() {
 						<div className={styles.intro}>
 							{article.intro ? renderRichText(article.intro) : null}
 						</div>
-					</div>
+					</li>
 				))}
-			</div>
+			</ul>
+			<Link to='/news'>More news</Link>
 		</section>
 	);
 }
