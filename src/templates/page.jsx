@@ -55,6 +55,14 @@ export const query = graphql`
 						description
 					}
 				}
+				... on ContentfulTestimonial {
+					__typename
+					name
+					company
+					quote {
+						quote
+					}
+				}
 				...contentfulGrid
 			}
 		}

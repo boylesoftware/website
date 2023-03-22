@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { Image } from './image';
@@ -58,7 +58,9 @@ export function News() {
 					</li>
 				))}
 			</ul>
-			<Link to='/news'>More news</Link>
+			<Link to='/news' className={styles.cta}>
+				<span>More news</span>
+			</Link>
 		</section>
 	);
 }

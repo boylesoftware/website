@@ -29,8 +29,8 @@ const NewsPage = ({ data: { allContentfulArticle } }) => (
 								)}
 							</div>
 							<div className={styles.articleInfo}>
-								<div className={styles.published}>{article.publishDate}</div>
-
+								<span className={styles.published}>{article.publishDate}</span>
+								<span>|</span>
 								<div className={styles.tags}>
 									<label htmlFor='tags-list'>Tags</label>
 									<ul id='tags-list'>
@@ -49,7 +49,6 @@ const NewsPage = ({ data: { allContentfulArticle } }) => (
 										))}
 									</ul>
 								</div>
-
 								<h2 className={styles.articleTitle}>
 									<Link to={`/news/${article.slug}`}>{article.title}</Link>
 								</h2>
@@ -67,7 +66,7 @@ const NewsPage = ({ data: { allContentfulArticle } }) => (
 
 export const query = graphql`
 	{
-		allContentfulArticle(sort: { fields: [publishDate], order: DESC }) {
+		allContentfulArticle(sort: { publishDate: DESC }) {
 			edges {
 				node {
 					id

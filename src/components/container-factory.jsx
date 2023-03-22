@@ -2,9 +2,9 @@ import React, { memo } from 'react';
 import ContactForm from './contact-form';
 import { Grid } from './grid';
 import { News } from './news';
-
 import { Section } from './section';
 import { ServiceList } from './service-summary';
+import { Testimonial } from './testimonial';
 
 import { TypeName } from './type-name';
 
@@ -21,7 +21,8 @@ export const ContainerFactory = memo(({ content, ...rest }) => {
 			return <Section {...content} />;
 		case TypeName.SERVICE:
 			return <ServiceList {...content} />;
-
+		case TypeName.TESTIMONIAL:
+			return <Testimonial {...content} />;
 		default:
 			return null;
 	}

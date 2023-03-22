@@ -13,6 +13,11 @@
 			text-decoration: none;
 		}
 	}
+	.articleList {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
 	.article {
 		margin-bottom: 3rem;
 	}
@@ -53,5 +58,21 @@
 			gap: 1rem;
 			grid-template-columns: 1fr 1fr 1fr;
 		}
+	}
+}
+
+.cta {
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 1.875rem;
+	color: white;
+	display: inline-flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 12px 10px 18px;
+	gap: 10px;
+	text-decoration: none;
+	span::after {
+		content: ' \2192';
 	}
 }
