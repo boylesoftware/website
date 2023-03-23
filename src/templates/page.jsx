@@ -62,6 +62,12 @@ export const query = graphql`
 						quote
 					}
 				}
+				... on ContentfulText {
+					__typename
+					text {
+						raw
+					}
+				}
 				...contentfulGrid
 			}
 		}

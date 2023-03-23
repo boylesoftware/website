@@ -5,6 +5,7 @@ import { News } from './news';
 import { Section } from './section';
 import { ServiceList } from './service-summary';
 import { Testimonial } from './testimonial';
+import { Text } from './text';
 
 import { TypeName } from './type-name';
 
@@ -23,6 +24,8 @@ export const ContainerFactory = memo(({ content, ...rest }) => {
 			return <ServiceList {...content} />;
 		case TypeName.TESTIMONIAL:
 			return <Testimonial {...content} />;
+		case TypeName.TEXT:
+			return <Text {...content} />;
 		default:
 			return null;
 	}

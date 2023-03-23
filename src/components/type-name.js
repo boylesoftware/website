@@ -5,4 +5,5 @@ export const TypeName = Object.freeze({
 	SECTION: 'ContentfulSection',
 	SERVICE: 'ContentfulService',
 	TESTIMONIAL: 'ContentfulTestimonial',
+	TEXT: 'ContentfulText',
 });
