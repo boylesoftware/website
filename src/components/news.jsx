@@ -34,7 +34,7 @@ export function News() {
 						<div className={styles.tags}>
 							<label htmlFor='tags-list'>Tags</label>
 							<ul id='tags-list'>
-								{article.tags.map((tag) => (
+								{article.tags?.map((tag) => (
 									<li key={tag}>
 										<Link
 											className={styles.tag}
