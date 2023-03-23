@@ -36,8 +36,12 @@ const Footer = () => (
 				Secondary navigation
 			</h2>
 			<ul>
-				<li>Accessibility statement</li>
-				<li>Legal information</li>
+				<li>
+					<Link to='/accessibility-statement'>Accessibility statement</Link>
+				</li>
+				<li>
+					<Link to='/legal-information'>Legal information</Link>
+				</li>
 				<li>Terms of Service</li>
 			</ul>
 		</nav>

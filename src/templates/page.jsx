@@ -15,7 +15,6 @@ function PageTemplate({ data: { contentfulPage } }) {
 				<div className={styles.crumbs}></div>
 				<h1>{contentfulPage.title}</h1>
 			</div>
-			{console.log(contentfulPage.content)}
 			{contentfulPage.intro ? renderRichText(contentfulPage.intro) : null}
 			{contentfulPage.content?.map((section) => (
 				<div key={section.id}>
