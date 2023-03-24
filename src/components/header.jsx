@@ -22,9 +22,9 @@ const Header = ({ siteTitle }) => (
 				<li>
 					<Link to='/services'>services</Link>
 				</li>
-				{/* <li>
+				<li>
 					<Link to='/about'>about</Link>
-				</li> */}
+				</li>
 			</ul>
 		</nav>
 	</header>
