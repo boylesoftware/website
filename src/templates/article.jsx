@@ -1,37 +1,52 @@
-import React from 'react';
-import { INLINES, BLOCKS, MARKS } from '@contentful/rich-text-types';
+import React, { useMemo } from 'react';
 import { graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
-
+import { Link } from 'gatsby';
 import Layout from '../components/layout';
+import * as styles from './article.module.scss';
 
 function ArticleTemplate({ data: { contentfulArticle } }) {
 	const image = getImage(contentfulArticle.image);
-	// const options = {
-	// 	renderMark: {
-	// 		[MARKS.BOLD]: (text) => <b className='font-bold'>{text}</b>,
-	// 	},
-	// 	renderNode: {
-	// 		[INLINES.HYPERLINK]: (node, children) => {
-	// 			const { uri } = node.data;
-	// 			return (
-	// 				<a href={uri} className='underline'>
-	// 					{children}
-	// 				</a>
-	// 			);
-	// 		},
-	// 		[BLOCKS.HEADING_2]: (node, children) => {
-	// 			return <h2>{children}</h2>;
-	// 		},
-	// 	},
-	// };
+
+	const renderBody = useMemo(() => {
+		if (!contentfulArticle.body) {
+			return null;
+		}
+
+		return (
+			<div
+				dangerouslySetInnerHTML={{
+					__html: contentfulArticle.body.internal.content,
+				}}
+			/>
+		);
+	}, [contentfulArticle]);
 
 	return (
 		<Layout>
-			<h1>{contentfulArticle.title}</h1>
-			<GatsbyImage image={image} alt={image.description} />
-			{renderRichText(contentfulArticle.intro)}
+			<div className={styles.pageHeader}>
+				<div className={styles.crumbs}>
+					<Link to='/news/'>News</Link>
+				</div>
+				<div className={styles.heading}>Article</div>
+			</div>
+			<article>
+				<h1 className={styles.articleHeading}>{contentfulArticle.title}</h1>
+				<div className={styles.published}>{contentfulArticle.publishDate}</div>
+
+				<GatsbyImage
+					image={image}
+					alt={image.description}
+					className={styles.articleImage}
+				/>
+				{contentfulArticle.intro ? (
+					<div className={styles.articleIntro}>
+						{renderRichText(contentfulArticle.intro)}
+					</div>
+				) : null}
+				<div className={styles.articleBody}>{renderBody}</div>
+			</article>
 		</Layout>
 	);
 }
@@ -47,6 +62,12 @@ export const query = graphql`
 			intro {
 				raw
 			}
+			body {
+				internal {
+					content
+				}
+			}
+			publishDate(formatString: "D MMM, YYYY")
 		}
 	}
 `;

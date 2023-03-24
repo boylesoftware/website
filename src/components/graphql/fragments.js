@@ -10,39 +10,47 @@ export const contentfulGrid = graphql`
 			raw
 		}
 		content {
-			# ... on ContentfulTechnology {
-			# 	id
-			# 	title
-			# 	slug
-			# 	image {
-			# 		gatsbyImageData(width: 400, placeholder: BLURRED)
-			# 		description
-			# 		file {
-			# 			contentType
-			# 			url
-			# 		}
-			# 		svg {
-			# 			content
-			# 		}
-			# 	}
-			# }
-			... on ContentfulMedia {
-				id
-				title
+			...contentfulMedia
+		}
+	}
+`;
+
+export const contentfulMedia = graphql`
+	fragment contentfulMedia on ContentfulMedia {
+		id
+		title
+		url
+		media {
+			id
+			gatsbyImageData(width: 400, placeholder: BLURRED)
+			description
+			file {
+				contentType
 				url
-				media {
-					id
-					gatsbyImageData(width: 400, placeholder: BLURRED)
-					description
-					file {
-						contentType
-						url
-					}
-					svg {
-						content
-					}
-				}
 			}
+			svg {
+				content
+			}
+		}
+	}
+`;
+
+export const contentfulTestimonial = graphql`
+	fragment contentfulTestimonial on ContentfulTestimonial {
+		__typename
+		name
+		company
+		quote {
+			quote
+		}
+	}
+`;
+
+export const contentfulText = graphql`
+	fragment contentfulText on ContentfulText {
+		__typename
+		text {
+			raw
 		}
 	}
 `;

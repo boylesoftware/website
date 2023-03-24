@@ -15,7 +15,9 @@ function PageTemplate({ data: { contentfulPage } }) {
 				<div className={styles.crumbs}></div>
 				<h1>{contentfulPage.title}</h1>
 			</div>
-			{contentfulPage.intro ? renderRichText(contentfulPage.intro) : null}
+			{contentfulPage.intro ? (
+				<section>{renderRichText(contentfulPage.intro)}</section>
+			) : null}
 			{contentfulPage.content?.map((section) => (
 				<div key={section.id}>
 					<ContainerFactory content={section} key={section.id} />
@@ -33,6 +35,16 @@ export const query = graphql`
 				raw
 			}
 			content {
+				... on ContentfulSection {
+					__typename
+					title
+					cssClass
+					layout
+					content {
+						...contentfulMedia
+						...contentfulText
+					}
+				}
 				... on ContentfulService {
 					__typename
 					id
@@ -54,20 +66,8 @@ export const query = graphql`
 						description
 					}
 				}
-				... on ContentfulTestimonial {
-					__typename
-					name
-					company
-					quote {
-						quote
-					}
-				}
-				... on ContentfulText {
-					__typename
-					text {
-						raw
-					}
-				}
+				...contentfulTestimonial
+				...contentfulText
 				...contentfulGrid
 			}
 		}

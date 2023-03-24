@@ -1,0 +1,40 @@
+@import '/src/css/all.scss';
+
+.pageHeader {
+	@extend %page-header;
+	margin-bottom: 2rem;
+}
+
+article {
+	@include desktop {
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: repeat(12, 1fr);
+	}
+
+	.published {
+		color: $grey;
+		font-weight: 500;
+		grid-column: 3 / 6;
+		grid-row: 1;
+	}
+	.articleHeading {
+		grid-column: 3 / 11;
+		grid-row: 2;
+		margin-bottom: 8.375rem;
+	}
+	.articleImage {
+		grid-column: 3 / 11;
+		grid-row: 3;
+	}
+	.articleIntro {
+		font-size: 1.5rem;
+		grid-column: 3 / 11;
+		grid-row: 4;
+	}
+	.articleBody {
+		font-size: 1.125rem;
+		grid-column: 3 / 11;
+		grid-row: 5;
+	}
+}

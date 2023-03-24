@@ -23,6 +23,19 @@
 	}
 }
 
+.imgLeft {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.sectionMedia {
+	grid-column: 1;
+}
+
+.sectionText {
+	grid-column: 2;
+}
+
 // .sectionContent {
 // 	@include desktop {
 // 		display: flex;

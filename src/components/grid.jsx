@@ -6,6 +6,7 @@ import { Link } from 'gatsby';
 import * as styles from './grid.module.scss';
 
 export function Grid({ title, intro, cssClass, content }) {
+	console.log('Grid content', content);
 	return (
 		<section className={styles[cssClass]}>
 			<h2 className={styles.gridHeading}>

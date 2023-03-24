@@ -14,7 +14,8 @@ main {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-section {
+section,
+article {
 	@include defaultPadding;
 }
 

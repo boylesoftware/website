@@ -61,7 +61,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 	// Create articles
 	articles.forEach(({ node }) => {
 		createPage({
-			path: `/${node.slug}`,
+			path: `/news/${node.slug}`,
 			component: ArticleTemplate,
 			context: {
 				slug: node.slug,
