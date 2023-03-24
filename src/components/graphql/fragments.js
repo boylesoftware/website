@@ -22,7 +22,7 @@ export const contentfulMedia = graphql`
 		url
 		media {
 			id
-			gatsbyImageData(width: 400, placeholder: BLURRED)
+			gatsbyImageData(width: 762, placeholder: BLURRED)
 			description
 			file {
 				contentType

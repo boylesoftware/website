@@ -24,18 +24,20 @@
 }
 
 .imgLeft {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-}
+	@include tablet-and-desktop {
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: repeat(12, 1fr);
 
-.sectionMedia {
-	grid-column: 1;
-}
+		& > div:first-of-type {
+			grid-column: 1 / 7;
+		}
 
-.sectionText {
-	grid-column: 2;
+		& > div:last-of-type {
+			grid-column: 8 / 13;
+		}
+	}
 }
-
 // .sectionContent {
 // 	@include desktop {
 // 		display: flex;
@@ -121,6 +123,9 @@
 
 .intro {
 	margin-bottom: 4rem;
+	h2 {
+		margin-top: 0;
+	}
 }
 
 .moreFromBs .sectionContent {
@@ -129,4 +134,14 @@
 		gap: 1rem;
 		grid-template-columns: 1fr 1fr 1fr;
 	}
+}
+
+.ourTeam,
+.hiring {
+	background-color: $grey-light;
+}
+
+.benefits {
+	background-color: black;
+	color: white;
 }

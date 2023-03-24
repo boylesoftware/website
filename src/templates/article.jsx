@@ -37,7 +37,7 @@ function ArticleTemplate({ data: { contentfulArticle } }) {
 
 				<GatsbyImage
 					image={image}
-					alt={image.description}
+					alt={image?.description}
 					className={styles.articleImage}
 				/>
 				{contentfulArticle.intro ? (

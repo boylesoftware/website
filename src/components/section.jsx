@@ -1,10 +1,13 @@
 import React from 'react';
+import classnames from 'classnames';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { Image } from './image';
 import { Link } from 'gatsby';
 import * as styles from './section.module.scss';
 
-export function Section({ title, cssClass, content }) {
+export function Section({ title, cssClass, layout, content }) {
+	console.log('Section class', cssClass);
+
 	return (
 		<section className={styles[cssClass]}>
 			{title ? (
@@ -13,7 +16,7 @@ export function Section({ title, cssClass, content }) {
 					<sup>[section]</sup>
 				</h2>
 			) : null}
-			<div className={styles.sectionContent}>
+			<div className={classnames(styles.sectionContent, styles[layout])}>
 				{content.map((sectionContent) => (
 					<div className={styles.item} key={sectionContent.id}>
 						{sectionContent.image?.gatsbyImageData ? (
@@ -21,6 +24,14 @@ export function Section({ title, cssClass, content }) {
 								<Image
 									media={sectionContent.image}
 									alt={sectionContent.image.description}
+								/>
+							</Link>
+						) : null}
+						{sectionContent.media?.gatsbyImageData ? (
+							<Link to={sectionContent.slug}>
+								<Image
+									media={sectionContent.media}
+									alt={sectionContent.media.description}
 								/>
 							</Link>
 						) : null}
