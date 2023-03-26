@@ -1,6 +1,8 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import FooterLogos from './footer-logos';
+import FooterBadges from './footer-badges';
+import FooterSocial from './footer-social';
+
 import * as styles from './footer.module.scss';
 
 const Footer = () => (
@@ -11,26 +13,16 @@ const Footer = () => (
 			</h2>
 			<ul className={styles.mainNav}>
 				<li>
-					<Link to='/services'>services</Link>
+					<Link to='/services'>Services</Link>
 				</li>
 				<li>
-					<Link to='/about'>about</Link>
+					<Link to='/about'>About</Link>
 				</li>
 			</ul>
 		</nav>
-		<div className={styles.social}>
-			<h2 className={styles.footerHeading}>Let's keep in touch</h2>
-			<a href='#' target='_blank'>
-				Linked In
-			</a>
-			<a href='#' target='_blank'>
-				Twitter
-			</a>
-			<a href='#' target='_blank'>
-				Facebook
-			</a>
-		</div>
-		<FooterLogos />
+
+		<FooterSocial />
+		<FooterBadges />
 		<nav aria-labelledby='secondary-navigation' className={styles.secondaryNav}>
 			<h2 id='secondary-navigation' className={styles.visuallyHidden}>
 				Secondary navigation
