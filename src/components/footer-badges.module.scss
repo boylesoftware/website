@@ -9,6 +9,10 @@
 		display: inline;
 		margin-right: 1.5rem;
 	}
+	@include desktop {
+		grid-column: 8 / 13;
+		grid-row: 1;
+	}
 }
 .logosHeading {
 	@extend %visually-hidden;

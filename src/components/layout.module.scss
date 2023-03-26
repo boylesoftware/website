@@ -15,7 +15,8 @@ main {
 }
 
 section,
-article {
+article,
+footer {
 	@include defaultPadding;
 }
 

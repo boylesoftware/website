@@ -19,6 +19,17 @@
 		height: 24px;
 		width: 24px;
 	}
+	@include desktop {
+		border: none;
+		grid-column: 4 / 7;
+		grid-row: 1;
+
+		padding: 0;
+		h2 {
+			margin-top: 0;
+			padding-top: 0;
+		}
+	}
 }
 
 .socialHeading {
