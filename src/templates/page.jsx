@@ -1,7 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 import { graphql } from 'gatsby';
 import { ContainerFactory } from '../components/container-factory';
-
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
 import Layout from '../components/layout';

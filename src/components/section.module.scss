@@ -128,6 +128,8 @@
 	}
 }
 
+// Individual components
+
 .moreFromBs .sectionContent {
 	@include tablet-and-desktop {
 		display: grid;
@@ -144,4 +146,31 @@
 .benefits {
 	background-color: black;
 	color: white;
+}
+
+.contactEmail .sectionContent {
+	& > div {
+		margin-bottom: 5rem;
+	}
+	@include desktop {
+		display: grid;
+		gap: 0 1rem;
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+.postalAddress .sectionContent {
+	display: grid;
+	gap: 0 1fr;
+	grid-template-columns: repeat(12, 1fr);
+	// .sectionHeading {
+	// 	grid-column: 4 / 8;
+	// 	grid-row: 1;
+	// }
+	& > :first-of-type {
+		grid-column: 1 / 4;
+	}
+	& > :last-of-type {
+		grid-column: 5 / 10;
+	}
 }

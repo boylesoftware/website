@@ -1,19 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import * as styles from './contact-form.module.scss';
 
 const ContactForm = () => {
-	// const msg = 'no';
-	// const handleSubmit = () => {
-	// 	msg = 'ja';
-	// 	return msg;
-	// };
-	// useEffect(() => {
-	// 	if (typeof window !== 'undefined') {
-	// 		const url = window.location.href;
-	// 	}
-	// }, []);
-
 	return (
 		<section className={styles.contactForm}>
 			<div className={styles.formHeading}>

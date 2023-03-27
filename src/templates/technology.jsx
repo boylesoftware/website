@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { ContainerFactory } from '../components/container-factory';
 
 import Layout from '../components/layout';
 

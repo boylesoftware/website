@@ -6,8 +6,6 @@ import { Link } from 'gatsby';
 import * as styles from './section.module.scss';
 
 export function Section({ title, cssClass, layout, content }) {
-	console.log('Section class', cssClass);
-
 	return (
 		<section className={styles[cssClass]}>
 			{title ? (
@@ -48,7 +46,7 @@ export function Section({ title, cssClass, layout, content }) {
 							</div>
 						) : null}
 						{sectionContent.text ? (
-							<div className={styles.intro}>
+							<div className={styles.text}>
 								{renderRichText(sectionContent.text)}
 							</div>
 						) : null}
