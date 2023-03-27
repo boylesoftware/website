@@ -8,6 +8,7 @@ import Layout from '../components/layout';
 import * as styles from './page.module.scss';
 
 function PageTemplate({ data: { contentfulPage } }) {
+	console.log('ContentfulPage', contentfulPage);
 	return (
 		<Layout>
 			<div className={styles.pageHeader}>
@@ -64,6 +65,9 @@ export const query = graphql`
 						)
 						description
 					}
+				}
+				... on ContentfulContactForm {
+					__typename
 				}
 				...contentfulTestimonial
 				...contentfulText
