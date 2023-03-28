@@ -35,10 +35,10 @@ const Footer = () => (
 			</h2>
 			<ul>
 				<li>
-					<Link to='/accessibility-statement'>Accessibility statement</Link>
+					<Link to='/accessibility-statement'>Accessibility Statement</Link>
 				</li>
 				<li>
-					<Link to='/legal-information'>Legal information</Link>
+					<Link to='/legal-information'>Legal Information</Link>
 				</li>
 				<li>Terms of Service</li>
 			</ul>

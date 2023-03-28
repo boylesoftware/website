@@ -8,12 +8,7 @@ import * as styles from './section.module.scss';
 export function Section({ title, cssClass, layout, content }) {
 	return (
 		<section className={styles[cssClass]}>
-			{title ? (
-				<h2 className={styles.sectionHeading}>
-					{title}
-					<sup>[section]</sup>
-				</h2>
-			) : null}
+			{title ? <h2 className={styles.sectionHeading}>{title}</h2> : null}
 			<div className={classnames(styles.sectionContent, styles[layout])}>
 				{content.map((sectionContent) => (
 					<div className={styles.item} key={sectionContent.id}>
