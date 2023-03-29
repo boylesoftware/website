@@ -13,7 +13,7 @@ export function Section({ title, cssClass, layout, content }) {
 				{content.map((sectionContent) => (
 					<div className={styles.item} key={sectionContent.id}>
 						{sectionContent.image?.gatsbyImageData ? (
-							<Link to={sectionContent.slug}>
+							<Link to={`/news/${sectionContent.slug}`}>
 								<Image
 									media={sectionContent.image}
 									alt={sectionContent.image.description}
@@ -21,7 +21,7 @@ export function Section({ title, cssClass, layout, content }) {
 							</Link>
 						) : null}
 						{sectionContent.media?.gatsbyImageData ? (
-							<Link to={sectionContent.slug}>
+							<Link to={`/news/${sectionContent.slug}`}>
 								<Image
 									media={sectionContent.media}
 									alt={sectionContent.media.description}
@@ -31,7 +31,9 @@ export function Section({ title, cssClass, layout, content }) {
 
 						{sectionContent.title ? (
 							<h3 className={styles.articleHeading}>
-								<Link to={sectionContent.slug}>{sectionContent.title}</Link>
+								<Link to={`/news/${sectionContent.slug}`}>
+									{sectionContent.title}
+								</Link>
 							</h3>
 						) : null}
 
