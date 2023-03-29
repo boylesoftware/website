@@ -16,7 +16,9 @@ function PageTemplate({ data: { contentfulPage } }) {
 				<h1>{contentfulPage.title}</h1>
 			</div>
 			{contentfulPage.intro ? (
-				<section>{renderRichText(contentfulPage.intro)}</section>
+				<section className={styles.intro}>
+					{renderRichText(contentfulPage.intro)}
+				</section>
 			) : null}
 			{contentfulPage.content?.map((section) => (
 				<div key={section.id}>
