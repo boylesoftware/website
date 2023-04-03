@@ -1,0 +1,29 @@
+@import '/src/css/all.scss';
+
+.textColumns {
+	column-gap: 1rem;
+
+	column-rule-style: solid;
+	column-rule-color: $grey-light;
+	@include tablet {
+		column-count: 2;
+	}
+	@include desktop {
+		column-count: 4;
+		column-gap: 70px;
+	}
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		li {
+			font-size: 1.5rem;
+			letter-spacing: -1px;
+			line-height: 2rem;
+			margin-bottom: 1rem;
+		}
+		p {
+			margin: 0;
+		}
+	}
+}

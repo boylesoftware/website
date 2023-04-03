@@ -82,6 +82,14 @@
 }
 
 .products h3 {
-	color: $grey;
-	font-weight: 300;
+	@extend %visually-hidden;
+}
+
+.cta {
+	@include ctaButton;
+	border: 1px solid $grey;
+	color: black;
+	@include desktop {
+		grid-column: 1/3;
+	}
 }

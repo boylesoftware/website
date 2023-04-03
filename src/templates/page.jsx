@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { ContainerFactory } from '../components/container-factory';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
@@ -9,10 +9,17 @@ import * as styles from './page.module.scss';
 
 function PageTemplate({ data: { contentfulPage } }) {
 	console.log('ContentfulPage', contentfulPage);
+	const category =
+		contentfulPage.category?.charAt(0).toUpperCase() +
+		contentfulPage.category?.slice(1);
 	return (
 		<Layout>
 			<div className={styles.pageHeader}>
-				<div className={styles.crumbs}></div>
+				{contentfulPage.category ? (
+					<div className={styles.crumbs}>
+						<Link to={`/${contentfulPage.category}`}>{category}</Link>
+					</div>
+				) : null}
 				<h1>{contentfulPage.title}</h1>
 			</div>
 			{contentfulPage.intro ? (
@@ -36,6 +43,7 @@ export const query = graphql`
 			intro {
 				raw
 			}
+			category
 			content {
 				... on ContentfulSection {
 					__typename

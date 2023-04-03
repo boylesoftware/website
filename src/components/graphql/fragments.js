@@ -6,6 +6,8 @@ export const contentfulGrid = graphql`
 		id
 		title
 		cssClass
+		ctaLink
+		ctaLabel
 		intro {
 			raw
 		}
@@ -52,5 +54,6 @@ export const contentfulText = graphql`
 		text {
 			raw
 		}
+		cssClass
 	}
 `;
