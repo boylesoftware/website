@@ -14,7 +14,7 @@ const NewsPage = ({ data: { allContentfulArticle } }) => (
 				<div className={styles.crumbs}></div>
 				<h1>News</h1>
 			</div>
-			<section className={styles.newsList}>
+			<section>
 				<ul className={styles.articleList}>
 					{allContentfulArticle.edges.map(({ node: article }) => (
 						<li key={article.id} className={styles.article}>

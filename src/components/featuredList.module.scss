@@ -1,0 +1,51 @@
+@import '/src/css/all.scss';
+
+.listHeading {
+	@extend %sectionHeading;
+	& + p {
+		margin-bottom: 4rem;
+	}
+	@include desktop {
+		font-size: 2.5rem;
+		line-height: 3.875rem;
+	}
+}
+.articleHeading {
+	font-size: 1.25rem;
+	line-height: 1.625rem;
+	margin: 1rem 0 0;
+	a {
+		color: black;
+		text-decoration: none;
+	}
+	@include desktop {
+		font-size: 1.5rem;
+		line-height: 1.9375rem;
+	}
+}
+
+.listContent {
+	@include tablet-and-desktop {
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+	@include desktop {
+		gap: 4.375rem;
+	}
+}
+
+.item {
+	margin-bottom: 5.25rem;
+	@include desktop {
+		margin-bottom: 0;
+	}
+}
+
+.intro {
+	font-size: 1rem;
+	line-height: 1.625rem;
+	& > p:first-of-type {
+		margin-top: 0;
+	}
+}

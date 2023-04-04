@@ -1,5 +1,8 @@
 @import '/src/css/all.scss';
 
+.gridHeading {
+	@extend %sectionHeading;
+}
 // layout for the grid section
 .selectClients,
 .technologies {
@@ -12,15 +15,15 @@
 	}
 
 	@include desktop {
-		display: grid;
-		gap: 1rem;
-		grid-template-columns: repeat(12, 1fr);
-		.gridHeading {
-			grid-column: 1 / 6;
-			margin-top: 0;
-		}
+		// display: grid;
+		// gap: 1rem;
+		// grid-template-columns: repeat(12, 1fr);
+		// .gridHeading {
+		// 	grid-column: 1 / 6;
+		// 	margin-top: 0;
+		// }
 		.gridIntro {
-			grid-column: 7 / 13;
+			// grid-column: 7 / 13;
 			p {
 				font-size: 1.25rem;
 				line-height: 1.625rem;

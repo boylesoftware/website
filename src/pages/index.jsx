@@ -51,11 +51,17 @@ export const query = graphql`
 								raw
 							}
 						}
+					}
+				}
+				...contentfulGrid
+				... on ContentfulFeaturedList {
+					title
+					cssClass
+					content {
 						... on ContentfulArticle {
 							id
 							title
 							slug
-							publishDate
 							intro {
 								raw
 							}
@@ -65,14 +71,25 @@ export const query = graphql`
 								file {
 									url
 								}
-								# svg {
-								# 	content
-								# }
+							}
+						}
+						... on ContentfulService {
+							id
+							title
+							slug
+							intro {
+								raw
+							}
+							image {
+								gatsbyImageData(width: 400, placeholder: BLURRED)
+								description
+								file {
+									url
+								}
 							}
 						}
 					}
 				}
-				...contentfulGrid
 			}
 		}
 	}

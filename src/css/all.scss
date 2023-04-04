@@ -7,12 +7,6 @@ $layout-max: 1920px;
 $grey: #7f7f7f;
 $grey-light: rgba(217, 217, 217, 0.5);
 
-// TEMPORARY
-h2 sup {
-	color: #ccc;
-	font-size: 12px;
-}
-
 @mixin tablet {
 	@media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) {
 		@content;
@@ -87,7 +81,7 @@ h2 sup {
 	}
 
 	%sectionHeading {
-		font-size: 1.5rem;
+		font-size: 24px;
 		font-weight: 500;
 		line-height: 3.875rem;
 		@include desktop {
@@ -130,12 +124,12 @@ h2 sup {
 	width: 1px;
 }
 
-.col2 {
-	@include tablet-and-desktop {
-		display: flex;
-		justify-content: space-between;
-		& > div {
-			width: 40%;
-		}
-	}
-}
+// .col2 {
+// 	@include tablet-and-desktop {
+// 		display: flex;
+// 		justify-content: space-between;
+// 		& > div {
+// 			width: 40%;
+// 		}
+// 	}
+// }

@@ -6,8 +6,6 @@ import { Link } from 'gatsby';
 import * as styles from './grid.module.scss';
 
 export function Grid({ title, intro, cssClass, ctaLink, ctaLabel, content }) {
-	console.log('Grid link', ctaLink);
-
 	return (
 		<section className={styles[cssClass]}>
 			<h2 className={styles.gridHeading}>{title}</h2>

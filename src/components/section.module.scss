@@ -1,9 +1,8 @@
 @import 'src/css/all.scss';
 
 .sectionHeading {
-	font-size: 1.5rem;
-	font-weight: 500;
-	line-height: 3.875rem;
+	@extend %sectionHeading;
+
 	& + p {
 		margin-bottom: 4rem;
 	}
@@ -125,17 +124,6 @@
 }
 
 // Individual components
-
-.moreFromBs .sectionContent {
-	@include tablet-and-desktop {
-		display: grid;
-		gap: 1rem;
-		grid-template-columns: 1fr 1fr 1fr;
-	}
-	@include desktop {
-		gap: 4.375rem;
-	}
-}
 
 .ourTeam,
 .hiring {

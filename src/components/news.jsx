@@ -12,7 +12,7 @@ export function News() {
 		contentfulNews: { title },
 		NEWS: { nodes },
 	} = useStaticQuery(query);
-
+	console.log(nodes);
 	return (
 		<section className={styles.newsSection}>
 			<h2>{title}</h2>
@@ -21,14 +21,9 @@ export function News() {
 					<li key={article.id} className={styles.article}>
 						<div className={styles.published}>{article.publishDate}</div>
 						{article.image?.gatsbyImageData ? (
-							<div className={styles.articleImage}>
-								<Link to={`/news/${article.slug}`}>
-									<Image
-										media={article.image}
-										alt={article.image.description}
-									/>
-								</Link>
-							</div>
+							<Link to={`/news/${article.slug}`}>
+								<Image media={article.image} alt={article.image.description} />
+							</Link>
 						) : null}
 
 						<div className={styles.tags}>
@@ -37,7 +32,6 @@ export function News() {
 								{article.tags?.map((tag) => (
 									<li key={tag}>
 										<Link
-											className={styles.tag}
 											to={
 												// @ts-ignore
 												`/tag/${toKabobCase(tag)}`
@@ -49,7 +43,7 @@ export function News() {
 								))}
 							</ul>
 						</div>
-						<h3 className={styles.articleHeading}>
+						<h3>
 							<Link to={article.slug}>{article.title}</Link>
 						</h3>
 						<div className={styles.intro}>
