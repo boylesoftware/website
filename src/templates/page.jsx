@@ -22,8 +22,8 @@ function PageTemplate({ data: { contentfulPage } }) {
 						' '
 					)}
 				</div>
-
 				<h1>{contentfulPage.title}</h1>
+				<div></div> {/* Keep this empty div for layout puropose */}
 			</div>
 			{contentfulPage.intro ? (
 				<section className={styles.intro}>
