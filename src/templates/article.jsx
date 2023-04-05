@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
@@ -9,21 +9,6 @@ import * as styles from './article.module.scss';
 function ArticleTemplate({ data: { contentfulArticle } }) {
 	console.log(contentfulArticle);
 	const image = getImage(contentfulArticle.image);
-
-	// const renderBody = useMemo(() => {
-	// 	if (!contentfulArticle.body) {
-	// 		return null;
-	// 	}
-
-	// 	return (
-	// 		<div
-	// 			dangerouslySetInnerHTML={{
-	// 				__html: contentfulArticle.body.internal.content,
-	// 			}}
-	// 		/>
-	// 	);
-	// }, [contentfulArticle]);
-
 	return (
 		<Layout>
 			<div className={styles.pageHeader}>
@@ -46,9 +31,12 @@ function ArticleTemplate({ data: { contentfulArticle } }) {
 						{renderRichText(contentfulArticle.intro)}
 					</div>
 				) : null}
-				<div className={styles.articleBody}>
-					{contentfulArticle.body.childMarkdownRemark.internal.content}
-				</div>
+				<div
+					className={styles.articleBody}
+					dangerouslySetInnerHTML={{
+						__html: contentfulArticle.body.childMarkdownRemark.html,
+					}}
+				/>
 			</article>
 		</Layout>
 	);
@@ -59,7 +47,7 @@ export const query = graphql`
 		contentfulArticle(slug: { eq: $slug }) {
 			title
 			image {
-				gatsbyImageData(width: 800, placeholder: BLURRED)
+				gatsbyImageData(width: 250, placeholder: BLURRED)
 				description
 			}
 			intro {
@@ -67,9 +55,7 @@ export const query = graphql`
 			}
 			body {
 				childMarkdownRemark {
-					internal {
-						content
-					}
+					html
 				}
 			}
 			publishDate(formatString: "D MMM, YYYY")
