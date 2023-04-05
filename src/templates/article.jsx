@@ -15,12 +15,10 @@ function ArticleTemplate({ data: { contentfulArticle } }) {
 				<div className={styles.crumbs}>
 					<Link to='/news/'>News</Link>
 				</div>
-				<div className={styles.heading}>Article</div>
+				<h1 className={styles.heading}>{contentfulArticle.title}</h1>
+				<div className={styles.published}>{contentfulArticle.publishDate}</div>
 			</div>
 			<article>
-				<h1 className={styles.articleHeading}>{contentfulArticle.title}</h1>
-				<div className={styles.published}>{contentfulArticle.publishDate}</div>
-
 				<GatsbyImage
 					image={image}
 					alt={image?.description}

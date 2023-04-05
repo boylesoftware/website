@@ -63,7 +63,14 @@ $grey-light: rgba(217, 217, 217, 0.5);
 
 %page-header {
 	background-color: black;
-	border-left: 0.4375rem solid #979797;
+	// border-left: 0.4375rem solid #979797;
+	border-image: linear-gradient(
+			to bottom,
+			#3dc55d 1.71%,
+			#157efa 50.6%,
+			#6542bf 101.58%
+		)
+		1 100%;
 	color: white;
 	margin: 0;
 	padding: 2rem;
