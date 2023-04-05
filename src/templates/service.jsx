@@ -17,6 +17,7 @@ function ServiceTemplate({ data: { contentfulService } }) {
 					<Link to='/services'>Services</Link>
 				</div>
 				<h1>{contentfulService.title}</h1>
+				<div></div> {/* Keep this empty div for layout puropose */}
 			</div>
 			<section>
 				{contentfulService.intro ? (

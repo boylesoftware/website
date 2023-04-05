@@ -15,11 +15,14 @@ function PageTemplate({ data: { contentfulPage } }) {
 	return (
 		<Layout>
 			<div className={styles.pageHeader}>
-				{contentfulPage.category ? (
-					<div className={styles.crumbs}>
+				<div className={styles.crumbs}>
+					{contentfulPage.category ? (
 						<Link to={`/${contentfulPage.category}`}>{category}</Link>
-					</div>
-				) : null}
+					) : (
+						' '
+					)}
+				</div>
+
 				<h1>{contentfulPage.title}</h1>
 			</div>
 			{contentfulPage.intro ? (
