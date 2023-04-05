@@ -52,6 +52,19 @@ const config: GatsbyConfig = {
 				},
 			},
 		},
+		{
+			resolve: `gatsby-transformer-remark`,
+			options: {
+				plugins: [
+					{
+						resolve: `gatsby-remark-images-contentful`,
+						options: {
+							maxWidth: 800,
+						},
+					},
+				],
+			},
+		},
 	],
 };
 

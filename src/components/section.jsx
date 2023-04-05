@@ -23,15 +23,15 @@ export function Section({ title, cssClass, layout, content }) {
 							</Link>
 						) : null}
 
-						{c.title ? (
+						{/* {c.title ? (
 							<h3 className={styles.articleHeading}>
 								<Link to={`/news/${c.slug}`}>{c.title}</Link>
 							</h3>
-						) : null}
-
+						) : null} */}
+						{/* 
 						{c.intro ? (
 							<div className={styles.intro}>{renderRichText(c.intro)}</div>
-						) : null}
+						) : null} */}
 						{c.text ? (
 							<div className={styles.text}>{renderRichText(c.text)}</div>
 						) : null}

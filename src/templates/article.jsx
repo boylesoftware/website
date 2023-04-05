@@ -7,21 +7,22 @@ import Layout from '../components/layout';
 import * as styles from './article.module.scss';
 
 function ArticleTemplate({ data: { contentfulArticle } }) {
+	console.log(contentfulArticle);
 	const image = getImage(contentfulArticle.image);
 
-	const renderBody = useMemo(() => {
-		if (!contentfulArticle.body) {
-			return null;
-		}
+	// const renderBody = useMemo(() => {
+	// 	if (!contentfulArticle.body) {
+	// 		return null;
+	// 	}
 
-		return (
-			<div
-				dangerouslySetInnerHTML={{
-					__html: contentfulArticle.body.internal.content,
-				}}
-			/>
-		);
-	}, [contentfulArticle]);
+	// 	return (
+	// 		<div
+	// 			dangerouslySetInnerHTML={{
+	// 				__html: contentfulArticle.body.internal.content,
+	// 			}}
+	// 		/>
+	// 	);
+	// }, [contentfulArticle]);
 
 	return (
 		<Layout>
@@ -45,7 +46,9 @@ function ArticleTemplate({ data: { contentfulArticle } }) {
 						{renderRichText(contentfulArticle.intro)}
 					</div>
 				) : null}
-				<div className={styles.articleBody}>{renderBody}</div>
+				<div className={styles.articleBody}>
+					{contentfulArticle.body.childMarkdownRemark.internal.content}
+				</div>
 			</article>
 		</Layout>
 	);
@@ -63,8 +66,10 @@ export const query = graphql`
 				raw
 			}
 			body {
-				internal {
-					content
+				childMarkdownRemark {
+					internal {
+						content
+					}
 				}
 			}
 			publishDate(formatString: "D MMM, YYYY")
