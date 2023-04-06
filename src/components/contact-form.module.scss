@@ -11,10 +11,9 @@
 
 .formHeading {
 	h2 {
+		@extend %sectionHeading;
+
 		color: white;
-		font-size: 45px;
-		font-weight: 500;
-		line-height: 62px;
 	}
 	span {
 		color: rgba(151, 151, 151, 1);
@@ -23,9 +22,6 @@
 	}
 	@include desktop {
 		grid-column: 1 / 5;
-		h2 {
-			font-size: 62px;
-		}
 	}
 }
 
@@ -50,7 +46,6 @@ form {
 
 input {
 	background-color: transparent;
-	// border-radius: 12px;
 	border: 1px solid rgba(255, 255, 255, 0.3);
 	border-width: 0 0 1px 0;
 	box-sizing: border-box;
