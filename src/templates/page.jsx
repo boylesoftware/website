@@ -52,7 +52,6 @@ export const query = graphql`
 					__typename
 					title
 					cssClass
-					layout
 					content {
 						...contentfulMedia
 						...contentfulText
