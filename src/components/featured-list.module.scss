@@ -1,7 +1,7 @@
 @import '/src/css/all.scss';
 
 .listHeading {
-	@extend %sectionHeading;
+	@extend %section-title;
 	& + p {
 		margin-bottom: 4rem;
 	}

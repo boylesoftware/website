@@ -6,7 +6,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 
 import Layout from '../components/layout';
 
-import * as styles from './service.module.scss';
+import * as styles from './technology.module.scss';
 
 function TechnologyTemplate({ data: { contentfulTechnology } }) {
 	return (
@@ -39,9 +39,22 @@ function TechnologyTemplate({ data: { contentfulTechnology } }) {
 					/>
 				)}
 			</section>
-			{contentfulTechnology.relatedCaseStudies.map((study) => (
-				<section key={study.id}>faust</section>
-			))}
+			{contentfulTechnology.relatedCaseStudies ? (
+				<section className={styles.relatedCaseStudies}>
+					<h2 className={styles.sectionHeading}>Related case studies</h2>
+					<div className={styles.gridStudies}>
+						{contentfulTechnology.relatedCaseStudies.map((study) => (
+							<div className={styles.study} key={study.id}>
+								<GatsbyImage
+									image={study.image?.gatsbyImageData}
+									alt={study.image?.description}
+								/>
+								<h3 className={styles.studyTitle}>{study.title}</h3>
+							</div>
+						))}
+					</div>
+				</section>
+			) : null}
 		</Layout>
 	);
 }
@@ -78,6 +91,18 @@ export const query = graphql`
 				... on ContentfulCaseStudy {
 					id
 					title
+					image {
+						id
+						gatsbyImageData(
+							width: 500
+							placeholder: BLURRED
+							formats: [AUTO, WEBP, AVIF]
+						)
+						file {
+							url
+						}
+						description
+					}
 				}
 			}
 		}

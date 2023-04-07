@@ -1,7 +1,7 @@
 @import '/src/css/all.scss';
 
 .gridHeading {
-	@extend %sectionHeading;
+	@extend %section-title;
 }
 // layout for the grid section
 .selectClients,

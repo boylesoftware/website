@@ -1,23 +1,13 @@
 @import 'src/css/all.scss';
 
 .sectionHeading {
-	@extend %sectionHeading;
+	@extend %section-title;
 	margin-top: 0;
 
 	& + p {
 		margin-bottom: 4rem;
 	}
 }
-// .articleHeading {
-// 	margin: 30px 0 0;
-// 	a {
-// 		color: black;
-// 		text-decoration: none;
-// 	}
-// 	& + p {
-// 		margin-top: 0.25rem;
-// 	}
-// }
 
 // applies to all section content
 .sectionContent .intro p {

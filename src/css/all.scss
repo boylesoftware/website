@@ -4,6 +4,7 @@ $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1224px;
 $layout-max: 1920px;
 
+$bs-blue: #157efa;
 $grey: #7f7f7f;
 $grey-light: rgba(217, 217, 217, 0.5);
 
@@ -124,7 +125,7 @@ $grey-light: rgba(217, 217, 217, 0.5);
 	}
 }
 
-%sectionHeading {
+%section-title {
 	font-family: 'West';
 	font-size: 1.5rem;
 	font-weight: 500;

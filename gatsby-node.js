@@ -91,7 +91,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 	// Create technologies
 	technologies.forEach(({ node }) => {
 		createPage({
-			path: `/services/${node.service.slug}/${node.slug}`,
+			path: `/${node.slug}`,
 			component: TechnologyTemplate,
 			context: {
 				slug: node.slug,
@@ -99,3 +99,5 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 		});
 	});
 };
+
+// services/${node.service.slug}/

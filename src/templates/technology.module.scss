@@ -1,0 +1,39 @@
+@import '/src/css/all.scss';
+
+.pageHeader {
+	@extend %page-header;
+}
+
+.sectionHeading {
+	@extend %section-title;
+	@include desktop {
+		padding-bottom: 3.125rem;
+	}
+}
+
+.relatedCaseStudies {
+	background-color: $bs-blue;
+	color: white;
+
+	.sectionHeading {
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+		margin-bottom: 2rem;
+	}
+	.gridStudies {
+		@include desktop {
+			display: grid;
+			gap: 1rem;
+			grid-template-columns: repeat(12, 1fr);
+			justify-content: center;
+			align-items: center;
+		}
+	}
+	.study {
+		margin-bottom: 6rem;
+		grid-column: span 4;
+	}
+	.studyTitle {
+		font-size: 1rem;
+		font-weight: 500;
+	}
+}

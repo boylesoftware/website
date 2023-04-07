@@ -11,7 +11,7 @@
 
 .formHeading {
 	h2 {
-		@extend %sectionHeading;
+		@extend %section-title;
 
 		color: white;
 	}
