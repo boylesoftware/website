@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import { Image } from './image';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
-import * as styles from './featuredList.module.scss';
+import * as styles from './featured-list.module.scss';
 
 export function FeaturedList({ title, cssClass, content }) {
 	console.log('Featured', content);

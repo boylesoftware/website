@@ -1,8 +1,8 @@
 @import 'src/css/all.scss';
 
-.sectionHeading,
-.sectionContent h2 {
+.sectionHeading {
 	@extend %sectionHeading;
+	margin-top: 0;
 
 	& + p {
 		margin-bottom: 4rem;
@@ -18,22 +18,6 @@
 // 		margin-top: 0.25rem;
 // 	}
 // }
-
-.imgLeft {
-	@include tablet-and-desktop {
-		display: grid;
-		gap: 1rem;
-		grid-template-columns: repeat(12, 1fr);
-
-		& > div:first-of-type {
-			grid-column: 1 / 7;
-		}
-
-		& > div:last-of-type {
-			grid-column: 8 / 13;
-		}
-	}
-}
 
 // applies to all section content
 .sectionContent .intro p {

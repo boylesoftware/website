@@ -1,7 +1,10 @@
 import React, { memo } from 'react';
 import ContactForm from './contact-form';
-import { FeaturedList } from './featuredList';
+import { Cta } from './cta';
+import { FeaturedList } from './featured-list';
 import { Grid } from './grid';
+import { ImageWithText } from './image-with-text';
+
 import { News } from './news';
 import { Section } from './section';
 import { ServiceList } from './service-summary';
@@ -15,10 +18,14 @@ export const ContainerFactory = memo(({ content, ...rest }) => {
 	switch (content.__typename) {
 		case TypeName.CONTACT_FORM:
 			return <ContactForm {...content} />;
+		case TypeName.CTA:
+			return <Cta {...content} />;
 		case TypeName.FEATURED_LIST:
 			return <FeaturedList {...content} />;
 		case TypeName.GRID:
 			return <Grid {...content} />;
+		case TypeName.IMAGE_WITH_TEXT:
+			return <ImageWithText {...content} />;
 		case TypeName.NEWS:
 			return <News {...content} />;
 		case TypeName.SECTION:

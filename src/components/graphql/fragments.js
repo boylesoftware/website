@@ -19,6 +19,7 @@ export const contentfulGrid = graphql`
 
 export const contentfulMedia = graphql`
 	fragment contentfulMedia on ContentfulMedia {
+		__typename
 		id
 		title
 		url

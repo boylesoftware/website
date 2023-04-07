@@ -1,0 +1,54 @@
+@import '/src/css/all.scss';
+
+.sectionContent {
+	@include tablet-and-desktop {
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: repeat(12, 1fr);
+	}
+}
+.sectionHeading {
+	@extend %sectionHeading;
+	margin-top: 0;
+	& + p {
+		margin-bottom: 4rem;
+	}
+}
+
+.button a {
+	@include ctaButton;
+}
+
+.imgLeft {
+	.sectionImage {
+		grid-column: 1 / 7;
+		grid-row: 1;
+	}
+
+	.sectionText {
+		grid-column: 8 / 13;
+		grid-row: 1;
+	}
+}
+
+.imgRight {
+	.sectionText {
+		grid-column: 1 / 7;
+		grid-row: 1;
+	}
+	.sectionImage {
+		grid-column: 8 / 13;
+		grid-row: 1;
+	}
+}
+
+.imgFull {
+	.sectionText {
+		grid-column: 1 / 9;
+		grid-row: 1;
+	}
+	.sectionImage {
+		grid-column: 1 / 13;
+		grid-row: 2;
+	}
+}

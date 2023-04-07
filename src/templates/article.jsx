@@ -7,7 +7,6 @@ import Layout from '../components/layout';
 import * as styles from './article.module.scss';
 
 function ArticleTemplate({ data: { contentfulArticle } }) {
-	console.log(contentfulArticle);
 	const image = getImage(contentfulArticle.image);
 	return (
 		<Layout>

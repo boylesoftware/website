@@ -33,9 +33,9 @@ $grey-light: rgba(217, 217, 217, 0.5);
 }
 
 @mixin ctaButton {
-	border: 1px solid rgba(255, 255, 255, 0.5);
+	border: 1px solid $grey;
 	border-radius: 1.875rem;
-	color: white;
+	color: black;
 	display: inline-flex;
 	flex-direction: row;
 	justify-content: center;

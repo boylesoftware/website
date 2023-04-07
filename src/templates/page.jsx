@@ -56,6 +56,31 @@ export const query = graphql`
 					content {
 						...contentfulMedia
 						...contentfulText
+						... on ContentfulCta {
+							__typename
+							id
+							title
+						}
+					}
+				}
+				... on ContentfulImageWithText {
+					__typename
+					title
+					ctaLink
+					ctaLabel
+					cssClass
+					layout
+					image {
+						id
+						gatsbyImageData(
+							width: 564
+							placeholder: BLURRED
+							formats: [AUTO, WEBP, AVIF]
+						)
+						description
+					}
+					text {
+						raw
 					}
 				}
 				... on ContentfulService {
