@@ -56,11 +56,6 @@ export const query = graphql`
 					content {
 						...contentfulMedia
 						...contentfulText
-						... on ContentfulCta {
-							__typename
-							id
-							title
-						}
 					}
 				}
 				... on ContentfulImageWithText {
