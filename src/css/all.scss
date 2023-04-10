@@ -33,6 +33,12 @@ $grey-light: rgba(217, 217, 217, 0.5);
 	}
 }
 
+@mixin grid {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(12, 1fr);
+}
+
 @mixin ctaButton {
 	border: 1px solid $grey;
 	border-radius: 1.875rem;

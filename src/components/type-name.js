@@ -1,4 +1,5 @@
 export const TypeName = Object.freeze({
+	CASE_STUDIES: 'ContentfulCaseStudies',
 	CONTACT_FORM: 'ContentfulContactForm',
 	CTA: 'ContentfulCta',
 	FEATURED_LIST: 'ContentfulFeaturedList',

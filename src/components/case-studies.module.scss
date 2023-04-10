@@ -1,0 +1,32 @@
+@import 'src/css/all.scss';
+
+.sectionStudies {
+	background-color: $bs-blue;
+	color: white;
+
+	.sectionHeading {
+		@extend %section-title;
+		margin-bottom: 4rem;
+	}
+	.gridStudies {
+		@include desktop {
+			display: grid;
+			gap: 4.375rem;
+			grid-template-columns: 1fr 1fr 1fr;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+	.study {
+		margin-bottom: 6rem;
+		grid-column: span 4;
+	}
+	.studyTitle {
+		font-size: 1.25rem;
+		font-weight: 500;
+		a {
+			color: white;
+			text-decoration: none;
+		}
+	}
+}

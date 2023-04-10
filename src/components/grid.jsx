@@ -27,12 +27,8 @@ export function Grid({ title, intro, cssClass, ctaLink, ctaLabel, content }) {
 						) : (
 							<Image media={item.media} alt={item.media?.description} />
 						)}
-						<h3>{item.title}</h3>
-
-						{/* {gridContent.text ? renderRichText(gridContent.text) : null} */}
-						{/* {linkGridItems === true ? (
-								<Link to={gridContent.slug}>Learn more</Link>
-							) : null} */}
+						<div className={styles.itemTitle}>{item.title}</div>
+						{item.url ? <Link to={item.url}>Learn more</Link> : null}
 					</div>
 				))}
 			</div>

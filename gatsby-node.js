@@ -5,6 +5,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 	const { createPage } = actions;
 
 	const ArticleTemplate = path.resolve('src/templates/article.jsx');
+	const CaseStudyTemplate = path.resolve('src/templates/case-study.jsx');
 	const PageTemplate = path.resolve('src/templates/page.jsx');
 	const ServiceTemplate = path.resolve('src/templates/service.jsx');
 	const TechnologyTemplate = path.resolve('src/templates/technology.jsx');
@@ -12,6 +13,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 	const result = await graphql(`
 		{
 			articleContentful: allContentfulArticle(limit: 2000) {
+				edges {
+					node {
+						slug
+					}
+				}
+			}
+			caseStudyContentful: allContentfulCaseStudy(limit: 2000) {
 				edges {
 					node {
 						slug
@@ -54,6 +62,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 	}
 
 	const articles = result.data.articleContentful.edges;
+	const caseStudies = result.data.caseStudyContentful.edges;
 	const pages = result.data.pageContentful.edges;
 	const services = result.data.serviceContentful.edges;
 	const technologies = result.data.technologyContentful.edges;
@@ -63,6 +72,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 		createPage({
 			path: `/news/${node.slug}`,
 			component: ArticleTemplate,
+			context: {
+				slug: node.slug,
+			},
+		});
+	});
+	// Create case studies
+	caseStudies.forEach(({ node }) => {
+		createPage({
+			path: `/case-study/${node.slug}`,
+			component: CaseStudyTemplate,
 			context: {
 				slug: node.slug,
 			},

@@ -19,22 +19,28 @@ function ServiceTemplate({ data: { contentfulService } }) {
 				<h1>{contentfulService.title}</h1>
 				<div></div> {/* Keep this empty div for layout puropose */}
 			</div>
-			<section>
+			<section className={styles.serviceMain}>
 				{contentfulService.intro ? (
-					<p>{renderRichText(contentfulService.intro)}</p>
+					<div className={styles.serviceIntro}>
+						{renderRichText(contentfulService.intro)}
+					</div>
 				) : null}
 				{contentfulService.description ? (
-					<p>{renderRichText(contentfulService.description)}</p>
+					<div className={styles.serviceDescription}>
+						{renderRichText(contentfulService.description)}
+					</div>
 				) : null}
-				<GatsbyImage
-					image={contentfulService.image.gatsbyImageData}
-					alt={contentfulService.image.description}
-				/>
+				<div className={styles.serviceImage}>
+					<GatsbyImage
+						image={contentfulService.image.gatsbyImageData}
+						alt={contentfulService.image.description}
+					/>
+				</div>
 			</section>
 			{contentfulService.content.map((section) => (
-				<section key={section.id} className={section.class}>
+				<div key={section.id} className={section.class}>
 					<ContainerFactory content={section} />
-				</section>
+				</div>
 			))}
 		</Layout>
 	);

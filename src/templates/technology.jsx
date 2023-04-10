@@ -19,25 +19,32 @@ function TechnologyTemplate({ data: { contentfulTechnology } }) {
 					</Link>
 				</div>
 				<h1>{contentfulTechnology.title}</h1>
+				<div></div> {/* Keep this empty div for layout puropose */}
 			</div>
-			<section>
-				{contentfulTechnology.intro
-					? renderRichText(contentfulTechnology.intro)
-					: null}
-				{contentfulTechnology.description
-					? renderRichText(contentfulTechnology.description)
-					: null}
-				{contentfulTechnology.image?.gatsbyImageData ? (
-					<GatsbyImage
-						image={contentfulTechnology.image?.gatsbyImageData}
-						alt={contentfulTechnology.image?.description}
-					/>
-				) : (
-					<img
-						alt={contentfulTechnology.image?.description}
-						src={contentfulTechnology.image?.file.url}
-					/>
-				)}
+			<section className={styles.techMain}>
+				<div className={styles.techIntro}>
+					{contentfulTechnology.intro
+						? renderRichText(contentfulTechnology.intro)
+						: null}
+				</div>
+				<div className={styles.techDescription}>
+					{contentfulTechnology.description
+						? renderRichText(contentfulTechnology.description)
+						: null}
+				</div>
+				<div className={styles.techImage}>
+					{contentfulTechnology.image?.gatsbyImageData ? (
+						<GatsbyImage
+							image={contentfulTechnology.image?.gatsbyImageData}
+							alt={contentfulTechnology.image?.description}
+						/>
+					) : (
+						<img
+							alt={contentfulTechnology.image?.description}
+							src={contentfulTechnology.image?.file.url}
+						/>
+					)}
+				</div>
 			</section>
 			{contentfulTechnology.relatedCaseStudies ? (
 				<section className={styles.relatedCaseStudies}>
