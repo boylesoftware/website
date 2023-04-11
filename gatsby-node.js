@@ -1,6 +1,13 @@
 // Use the type definitions that are included with Gatsby.
 const path = require('path');
 
+const toKabobCase = (string) =>
+	string
+		.toLowerCase()
+		.trim()
+		.replace(/[^a-z0-9]+/g, '-')
+		.replace(/-$/, '');
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
 	const { createPage } = actions;
 
@@ -8,6 +15,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 	const CaseStudyTemplate = path.resolve('src/templates/case-study.jsx');
 	const PageTemplate = path.resolve('src/templates/page.jsx');
 	const ServiceTemplate = path.resolve('src/templates/service.jsx');
+	const TagsTemplate = path.resolve('src/templates/tags.jsx');
 	const TechnologyTemplate = path.resolve('src/templates/technology.jsx');
 
 	const result = await graphql(`
@@ -17,6 +25,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 					node {
 						slug
 					}
+				}
+			}
+			tagsGroup: allContentfulArticle(limit: 2000) {
+				group(field: { tags: SELECT }) {
+					fieldValue
 				}
 			}
 			caseStudyContentful: allContentfulCaseStudy(limit: 2000) {
@@ -66,6 +79,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 	const pages = result.data.pageContentful.edges;
 	const services = result.data.serviceContentful.edges;
 	const technologies = result.data.technologyContentful.edges;
+	const tags = result.data.tagsGroup.group;
 
 	// Create articles
 	articles.forEach(({ node }) => {
@@ -117,6 +131,17 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 			},
 		});
 	});
-};
+	// Create tag pages
+	tags.forEach((tag) => {
+		const tagSlug = toKabobCase(tag.fieldValue);
 
-// services/${node.service.slug}/
+		createPage({
+			path: `/tag/${tagSlug}`,
+			component: TagsTemplate,
+			context: {
+				tag: tag.fieldValue,
+				slug: tagSlug,
+			},
+		});
+	});
+};

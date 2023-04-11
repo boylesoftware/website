@@ -1,0 +1,5 @@
+@import '/src/css/all.scss';
+
+.pageHeader {
+	@extend %page-header;
+}

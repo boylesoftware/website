@@ -12,7 +12,9 @@ const NewsPage = ({ data: { allContentfulArticle } }) => (
 		<>
 			<div className={styles.pageHeader}>
 				<div className={styles.crumbs}></div>
+				{/* Keep the empty crumbs div for layout puropose */}
 				<h1>News</h1>
+				<div></div> {/* Keep this empty div for layout puropose */}
 			</div>
 			<section>
 				<ul className={styles.articleList}>
