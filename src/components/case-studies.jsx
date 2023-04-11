@@ -7,7 +7,6 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import * as styles from './case-studies.module.scss';
 
 export function CaseStudies({ title, content }) {
-	console.log('STUDY', content);
 	return (
 		<section className={styles.sectionStudies}>
 			{title ? <h2 className={styles.sectionHeading}>{title}</h2> : null}

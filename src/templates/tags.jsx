@@ -27,7 +27,7 @@ function TagsTemplate({ pageContext, data }) {
 						const { slug, title, image } = node;
 
 						return (
-							<li>
+							<li key={node.id} className={styles.article}>
 								<div className={styles.articleImage}>
 									{node.image && (
 										<Link to={`/news/${node.slug}`}>
@@ -35,7 +35,11 @@ function TagsTemplate({ pageContext, data }) {
 										</Link>
 									)}
 								</div>
-								{node.title}
+								<div className={styles.articleInfo}>
+									<h2 className={styles.articleTitle}>
+										<Link to={`/news/${node.slug}`}>{node.title}</Link>
+									</h2>
+								</div>
 							</li>
 						);
 					})}

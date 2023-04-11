@@ -12,7 +12,6 @@ export function News() {
 		contentfulNews: { title },
 		NEWS: { nodes },
 	} = useStaticQuery(query);
-	console.log(nodes);
 	return (
 		<section className={styles.newsSection}>
 			<h2>{title}</h2>

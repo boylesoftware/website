@@ -15,7 +15,6 @@ export function ImageWithText({
 	cssClass,
 	layout,
 }) {
-	console.log('ImageWithText', layout);
 	return (
 		<section className={styles[cssClass]}>
 			<div className={classnames(styles.sectionContent, styles[layout])}>
