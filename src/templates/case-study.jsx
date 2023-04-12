@@ -16,12 +16,17 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
 				<h1>{contentfulCaseStudy.title}</h1>
 				<div></div> {/* Keep this empty div for layout puropose */}
 			</div>
-			{/* {study.intro ? (
-				<section className={styles.intro}>
-					{renderRichText(study.intro)}
+			{contentfulCaseStudy.overview ? (
+				<section className={styles.overview}>
+					{renderRichText(contentfulCaseStudy.overview)}
 				</section>
 			) : null}
-			{study.content?.map((section) => (
+			{contentfulCaseStudy.metrics ? (
+				<section className={styles.metrics}>
+					{renderRichText(contentfulCaseStudy.metrics)}
+				</section>
+			) : null}
+			{/* {study.content?.map((section) => (
 				<div key={section.id}>
 					<ContainerFactory content={section} key={section.id} />
 				</div>
@@ -35,6 +40,12 @@ export const query = graphql`
 		contentfulCaseStudy(slug: { eq: $slug }) {
 			title
 			slug
+			overview {
+				raw
+			}
+			metrics {
+				raw
+			}
 		}
 	}
 `;

@@ -72,6 +72,9 @@
 
 .leadership {
 	background-color: $grey-light;
+	.grid div img {
+		width: 280px;
+	}
 }
 
 .associations {
