@@ -5,7 +5,15 @@ import { Link } from 'gatsby';
 
 import * as styles from './grid.module.scss';
 
-export function Grid({ title, intro, cssClass, ctaLink, ctaLabel, content }) {
+export function Grid({
+	title,
+	jobTitle,
+	intro,
+	cssClass,
+	ctaLink,
+	ctaLabel,
+	content,
+}) {
 	return (
 		<section className={styles[cssClass]}>
 			<h2 className={styles.gridHeading}>{title}</h2>
@@ -28,6 +36,9 @@ export function Grid({ title, intro, cssClass, ctaLink, ctaLabel, content }) {
 							<Image media={item.media} alt={item.media?.description} />
 						)}
 						<div className={styles.itemTitle}>{item.title}</div>
+						{item.jobTitle ? (
+							<div className={styles.jobTitle}>{item.jobTitle}</div>
+						) : null}
 						{item.url ? <Link to={item.url}>Learn more</Link> : null}
 					</div>
 				))}

@@ -22,6 +22,7 @@ export const contentfulMedia = graphql`
 		__typename
 		id
 		title
+		jobTitle
 		url
 		media {
 			id

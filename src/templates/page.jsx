@@ -8,6 +8,7 @@ import Layout from '../components/layout';
 import * as styles from './page.module.scss';
 
 function PageTemplate({ data: { contentfulPage } }) {
+	console.log(contentfulPage);
 	const category =
 		contentfulPage.category?.charAt(0).toUpperCase() +
 		contentfulPage.category?.slice(1);
