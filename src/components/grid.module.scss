@@ -106,3 +106,9 @@
 		grid-column: 1/3;
 	}
 }
+
+.selectClients .grid .itemTitle,
+.products .grid .itemTitle,
+.associations .grid .itemTitle {
+	@extend %visually-hidden;
+}
