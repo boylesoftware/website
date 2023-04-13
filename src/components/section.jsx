@@ -5,9 +5,11 @@ import { Image } from './image';
 import * as styles from './section.module.scss';
 
 export function Section({ title, cssClass, layout, content }) {
+	console.log(cssClass);
 	return (
 		<section className={styles[cssClass]}>
 			<div className={classnames(styles.sectionContent, styles[layout])}>
+				{title ? <h2>{title}</h2> : null}
 				{content.map((c) => (
 					<div key={c.id}>
 						{/* {c.image?.gatsbyImageData ? (
@@ -20,8 +22,8 @@ export function Section({ title, cssClass, layout, content }) {
 						) : null}
 
 						{c.text ? (
-							<div>
-								<h2 className={styles.sectionHeading}>{title}</h2>
+							<div className={c.cssClass}>
+								{/* <h2 className={styles.sectionHeading}>{title}</h2> */}
 								{renderRichText(c.text)}
 							</div>
 						) : null}

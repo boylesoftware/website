@@ -52,11 +52,15 @@ function TechnologyTemplate({ data: { contentfulTechnology } }) {
 					<div className={styles.gridStudies}>
 						{contentfulTechnology.relatedCaseStudies.map((study) => (
 							<div className={styles.study} key={study.id}>
-								<GatsbyImage
-									image={study.image?.gatsbyImageData}
-									alt={study.image?.description}
-								/>
-								<h3 className={styles.studyTitle}>{study.title}</h3>
+								<Link to={`/case-study/${study.slug}`}>
+									<GatsbyImage
+										image={study.image?.gatsbyImageData}
+										alt={study.image?.description}
+									/>
+								</Link>
+								<h3 className={styles.studyTitle}>
+									<Link to={`/case-study/${study.slug}`}>{study.title}</Link>
+								</h3>
 							</div>
 						))}
 					</div>
@@ -98,6 +102,7 @@ export const query = graphql`
 				... on ContentfulCaseStudy {
 					id
 					title
+					slug
 					image {
 						id
 						gatsbyImageData(

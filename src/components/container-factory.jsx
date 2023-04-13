@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import ContactForm from './contact-form';
 import { CaseStudies } from './case-studies';
 
-import { Cta } from './cta';
+import { Media } from './media';
 import { FeaturedList } from './featured-list';
 import { Grid } from './grid';
 import { ImageWithText } from './image-with-text';
@@ -22,14 +22,14 @@ export const ContainerFactory = memo(({ content, ...rest }) => {
 			return <ContactForm {...content} />;
 		case TypeName.CASE_STUDIES:
 			return <CaseStudies {...content} />;
-		case TypeName.CTA:
-			return <Cta {...content} />;
 		case TypeName.FEATURED_LIST:
 			return <FeaturedList {...content} />;
 		case TypeName.GRID:
 			return <Grid {...content} />;
 		case TypeName.IMAGE_WITH_TEXT:
 			return <ImageWithText {...content} />;
+		case TypeName.MEDIA:
+			return <Media {...content} />;
 		case TypeName.NEWS:
 			return <News {...content} />;
 		case TypeName.SECTION:

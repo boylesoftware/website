@@ -8,10 +8,15 @@ import Layout from '../components/layout';
 import * as styles from './page.module.scss';
 
 function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
+	console.log(contentfulCaseStudy.content);
+
 	return (
 		<Layout>
 			<div className={styles.pageHeader}>
-				<div className={styles.crumbs}></div>{' '}
+				<div className={styles.crumbs}>
+					<Link to='/work'>Work</Link> &gt;{' '}
+					<Link to='/case-studies'>Case Studies</Link>
+				</div>{' '}
 				{/* Keep this empty div for layout puropose */}
 				<h1>{contentfulCaseStudy.title}</h1>
 				<div></div> {/* Keep this empty div for layout puropose */}
@@ -26,11 +31,11 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
 					{renderRichText(contentfulCaseStudy.metrics)}
 				</section>
 			) : null}
-			{/* {study.content?.map((section) => (
+			{contentfulCaseStudy.content?.map((section) => (
 				<div key={section.id}>
 					<ContainerFactory content={section} key={section.id} />
 				</div>
-			))} */}
+			))}
 		</Layout>
 	);
 }
@@ -45,6 +50,36 @@ export const query = graphql`
 			}
 			metrics {
 				raw
+			}
+			content {
+				__typename
+				... on ContentfulSection {
+					__typename
+					id
+					title
+					cssClass
+					content {
+						... on ContentfulText {
+							id
+							cssClass
+							text {
+								raw
+							}
+						}
+					}
+				}
+				... on ContentfulMedia {
+					id
+					title
+					media {
+						gatsbyImageData(width: 1900, placeholder: BLURRED)
+						description
+						file {
+							contentType
+							url
+						}
+					}
+				}
 			}
 		}
 	}

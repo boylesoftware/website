@@ -19,11 +19,9 @@ export function CaseStudies({ title, content }) {
 							</Link>
 						) : null}
 
-						{c.title ? (
-							<h3 className={styles.studyTitle}>
-								<Link to={`/case-study/${c.slug}`}>{c.title}</Link>
-							</h3>
-						) : null}
+						<h3 className={styles.studyTitle}>
+							<Link to={`/case-study/${c.slug}`}>{c.title}</Link>
+						</h3>
 
 						{c.intro ? (
 							<div className={styles.intro}>{renderRichText(c.intro)}</div>
