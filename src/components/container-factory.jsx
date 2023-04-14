@@ -1,13 +1,12 @@
 import React, { memo } from 'react';
 import ContactForm from './contact-form';
 import { CaseStudies } from './case-studies';
-
 import { Media } from './media';
 import { FeaturedList } from './featured-list';
 import { Grid } from './grid';
 import { ImageWithText } from './image-with-text';
-
 import { News } from './news';
+import { Outcomes } from './outcomes';
 import { Section } from './section';
 import { ServiceList } from './service-summary';
 import { Testimonial } from './testimonial';
@@ -32,6 +31,8 @@ export const ContainerFactory = memo(({ content, ...rest }) => {
 			return <Media {...content} />;
 		case TypeName.NEWS:
 			return <News {...content} />;
+		case TypeName.OUTCOMES:
+			return <Outcomes {...content} />;
 		case TypeName.SECTION:
 			return <Section {...content} />;
 		case TypeName.SERVICE:

@@ -66,9 +66,22 @@ export const query = graphql`
 								raw
 							}
 						}
+						... on ContentfulMedia {
+							id
+							title
+							media {
+								gatsbyImageData(width: 600, placeholder: BLURRED)
+								description
+								file {
+									contentType
+									url
+								}
+							}
+						}
 					}
 				}
 				... on ContentfulMedia {
+					__typename
 					id
 					title
 					media {
@@ -77,6 +90,19 @@ export const query = graphql`
 						file {
 							contentType
 							url
+						}
+					}
+				}
+				... on ContentfulOutcomes {
+					__typename
+					id
+					text {
+						raw
+					}
+					highlights {
+						id
+						text {
+							raw
 						}
 					}
 				}

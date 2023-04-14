@@ -14,6 +14,16 @@
 	margin-top: 0;
 }
 
+.intro {
+	margin-bottom: 4rem;
+	h2 {
+		margin-top: 0;
+	}
+}
+
+// Individual components //
+///
+
 .gradgreenblue {
 	background: linear-gradient(
 		180deg,
@@ -90,15 +100,6 @@
 	}
 }
 
-.intro {
-	margin-bottom: 4rem;
-	h2 {
-		margin-top: 0;
-	}
-}
-
-// Individual components
-
 .ourTeam,
 .hiring {
 	background-color: $grey-light;
@@ -124,10 +125,6 @@
 	display: grid;
 	gap: 0 1fr;
 	grid-template-columns: repeat(12, 1fr);
-	// .sectionHeading {
-	// 	grid-column: 4 / 8;
-	// 	grid-row: 1;
-	// }
 	& > :first-of-type {
 		grid-column: 1 / 4;
 	}
@@ -156,8 +153,6 @@
 			grid-row: 1;
 		}
 		& > div:first-of-type {
-			// font-size: 3vw;
-			// line-height: 4vw;
 			grid-column: 1/5;
 			grid-row: 2;
 			letter-spacing: 1px;
@@ -168,6 +163,38 @@
 		& > div:last-of-type {
 			grid-column: 8/13;
 			grid-row: 2;
+		}
+	}
+}
+
+.csSolution {
+	background-color: $bs-blue;
+	color: white;
+	.sectionContent {
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: repeat(12, 1fr);
+		h2 {
+			color: black;
+			font-family: 'DMSans';
+			font-size: 1.125rem;
+			font-weight: 500;
+		}
+		h3 {
+			color: white;
+			font-family: 'West';
+			font-size: 3.5625rem;
+			font-weight: 500;
+			line-height: 4.6875rem;
+			margin-top: 0;
+		}
+		& > div:first-of-type {
+			grid-column: 1/6;
+			grid-row: 1;
+		}
+		& > div:last-of-type {
+			grid-column: 7/13;
+			grid-row: 1;
 		}
 	}
 }

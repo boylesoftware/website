@@ -5,7 +5,6 @@ import { Image } from './image';
 import * as styles from './section.module.scss';
 
 export function Section({ title, cssClass, layout, content }) {
-	console.log(cssClass);
 	return (
 		<section className={styles[cssClass]}>
 			<div className={classnames(styles.sectionContent, styles[layout])}>
