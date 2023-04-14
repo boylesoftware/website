@@ -1,0 +1,17 @@
+@import '/src/css/all.scss';
+
+.pageHeader {
+	@extend %page-header;
+	margin-bottom: 2rem;
+}
+
+.metrics {
+	ul {
+		margin: 2rem 0 4rem;
+		padding-left: 1rem;
+	}
+}
+.metricsHeading {
+	font-family: 'West';
+	font-size: 1.5rem;
+}

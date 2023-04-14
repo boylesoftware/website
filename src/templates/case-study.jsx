@@ -5,7 +5,7 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
 import Layout from '../components/layout';
 
-import * as styles from './page.module.scss';
+import * as styles from './case-study.module.scss';
 
 function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
 	console.log(contentfulCaseStudy.content);
@@ -28,6 +28,7 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
 			) : null}
 			{contentfulCaseStudy.metrics ? (
 				<section className={styles.metrics}>
+					<h2 className={styles.metricsHeading}>Project Outcome Metrics</h2>
 					{renderRichText(contentfulCaseStudy.metrics)}
 				</section>
 			) : null}
