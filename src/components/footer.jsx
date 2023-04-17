@@ -1,5 +1,7 @@
 import { Link } from 'gatsby';
 import React from 'react';
+import NavLinks from './nav-links';
+
 import FooterBadges from './footer-badges';
 import FooterSocial from './footer-social';
 
@@ -11,21 +13,7 @@ const Footer = () => (
 			<h2 id='primary-navigation' className={styles.visuallyHidden}>
 				Primary navigation
 			</h2>
-			<ul className={styles.mainNav}>
-				<li>
-					<Link to='/services'>Services</Link>
-				</li>
-				<li>
-					<Link to='/work'>Work</Link>
-				</li>
-				<li>
-					<Link to='/about'>About</Link>
-				</li>
-
-				<li>
-					<Link to='/contact'>Contact</Link>
-				</li>
-			</ul>
+			<NavLinks />
 		</nav>
 
 		<FooterSocial />

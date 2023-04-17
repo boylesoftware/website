@@ -49,3 +49,80 @@ nav.primaryNav {
 		}
 	}
 }
+
+.toggle {
+	display: none;
+	height: 100%;
+	cursor: pointer;
+	padding: 0 10vw;
+
+	@media (max-width: 768px) {
+		display: flex;
+		grid-column: 4;
+		grid-row: 1;
+	}
+}
+
+.toggleIcon {
+	background-color: black;
+	width: 30px;
+	height: 3px;
+	transition: all 0.3s linear;
+	align-self: center;
+	position: relative;
+	transform: inherit;
+	&.toggleIconOpen {
+		transform: rotate(-45deg);
+	}
+
+	&:before,
+	&:after {
+		width: 30px;
+		height: 3px;
+		background-color: black;
+		content: '';
+		position: absolute;
+		transition: all 0.3s linear;
+	}
+
+	&:before {
+		transform: rotate(0deg);
+
+		top: -10px;
+	}
+	&.toggleIconOpen:before {
+		transform: rotate(-90deg) translate(-10px, 0px);
+	}
+
+	&:after {
+		opacity: 1;
+		transform: rotate(0deg);
+		top: 10px;
+	}
+	&.toggleIconOpen:after {
+		opacity: 0;
+		transform: rotate(90deg);
+	}
+}
+
+.navbox {
+	display: flex;
+	height: 100%;
+	justify-content: flex-end;
+	align-items: center;
+
+	@media (max-width: 768px) {
+		background-color: white;
+		flex-direction: column;
+		position: fixed;
+		width: 100%;
+		justify-content: flex-start;
+		padding-top: 10vh;
+		transition: all 0.3s ease-in;
+		top: 8vh;
+		left: -100%;
+		&.navboxOpen {
+			left: 0;
+		}
+	}
+}
