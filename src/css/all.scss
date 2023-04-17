@@ -113,7 +113,7 @@ $grey-light: rgba(217, 217, 217, 0.5);
 		align-self: start;
 	}
 
-	@include tablet-and-desktop {
+	@include desktop {
 		border-left: 22px solid #979797;
 		height: 23.75rem;
 		padding: 0 7.25rem;

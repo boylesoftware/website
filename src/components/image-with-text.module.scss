@@ -33,11 +33,11 @@
 
 .imgRight {
 	.sectionText {
-		grid-column: 1 / 7;
+		grid-column: 1 / 7 !important;
 		grid-row: 1;
 	}
 	.sectionImage {
-		grid-column: 8 / 13;
+		grid-column: 8 / 13 !important;
 		grid-row: 1;
 	}
 }
@@ -50,5 +50,40 @@
 	.sectionImage {
 		grid-column: 1 / 13;
 		grid-row: 2;
+	}
+}
+
+.csSolution {
+	background-color: $bs-blue;
+	color: white;
+	.sectionContent {
+		h2 {
+			color: black;
+			font-family: 'DMSans';
+			font-size: 1.125rem;
+			font-weight: 500;
+		}
+		h3 {
+			color: white;
+			font-family: 'West';
+			font-size: 3.5625rem;
+			font-weight: 500;
+			line-height: 4.6875rem;
+			margin-top: 0;
+		}
+		@include desktop {
+			display: grid;
+			gap: 1rem;
+			grid-template-columns: repeat(12, 1fr);
+
+			& > div:first-of-type {
+				grid-column: 1/6;
+				grid-row: 1;
+			}
+			& > div:last-of-type {
+				grid-column: 7/13;
+				grid-row: 1;
+			}
+		}
 	}
 }

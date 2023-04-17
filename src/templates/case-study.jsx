@@ -81,6 +81,26 @@ export const query = graphql`
 						}
 					}
 				}
+				... on ContentfulImageWithText {
+					__typename
+					title
+					ctaLink
+					ctaLabel
+					cssClass
+					layout
+					image {
+						id
+						gatsbyImageData(
+							width: 564
+							placeholder: BLURRED
+							formats: [AUTO, WEBP, AVIF]
+						)
+						description
+					}
+					text {
+						raw
+					}
+				}
 				... on ContentfulMedia {
 					__typename
 					id

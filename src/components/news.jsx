@@ -43,7 +43,7 @@ export function News() {
 							</ul>
 						</div>
 						<h3>
-							<Link to={article.slug}>{article.title}</Link>
+							<Link to={`/news/${article.slug}`}>{article.title}</Link>
 						</h3>
 						<div className={styles.intro}>
 							{article.intro ? renderRichText(article.intro) : null}
