@@ -109,7 +109,6 @@ nav.primaryNav {
 	display: flex;
 	height: 100%;
 	justify-content: flex-end;
-	align-items: center;
 
 	@media (max-width: 768px) {
 		background-color: white;
@@ -123,6 +122,14 @@ nav.primaryNav {
 		left: -100%;
 		&.navboxOpen {
 			left: 0;
+			li {
+				font-size: 1.5rem;
+				margin-bottom: 2rem;
+				a:hover {
+					color: $bs-green;
+					text-decoration: underline;
+				}
+			}
 		}
 	}
 }

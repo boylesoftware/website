@@ -5,6 +5,8 @@ $breakpoint-desktop: 1224px;
 $layout-max: 1920px;
 
 $bs-blue: #157efa;
+$bs-green: #3dc55d;
+
 $grey: #7f7f7f;
 $grey-light: rgba(217, 217, 217, 0.5);
 
@@ -61,9 +63,8 @@ $grey-light: rgba(217, 217, 217, 0.5);
 	gap: 1rem;
 	max-width: $layout-max;
 	padding: 0.875rem 1.25rem;
-	@include tablet-and-desktop {
+	@include desktop {
 		grid-template-columns: repeat(12, 1fr);
-
 		padding: 1.6875rem 7.75rem;
 	}
 }
