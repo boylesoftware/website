@@ -109,6 +109,10 @@ nav.primaryNav {
 	display: flex;
 	height: 100%;
 	justify-content: flex-end;
+	li a:hover {
+		color: $bs-green;
+		text-decoration: underline;
+	}
 
 	@media (max-width: 768px) {
 		background-color: white;
@@ -116,7 +120,7 @@ nav.primaryNav {
 		position: fixed;
 		width: 100%;
 		justify-content: flex-start;
-		padding-top: 10vh;
+		padding-top: 0 0 0 10vh;
 		transition: all 0.3s ease-in;
 		top: 8vh;
 		left: -100%;
@@ -125,10 +129,6 @@ nav.primaryNav {
 			li {
 				font-size: 1.5rem;
 				margin-bottom: 2rem;
-				a:hover {
-					color: $bs-green;
-					text-decoration: underline;
-				}
 			}
 		}
 	}

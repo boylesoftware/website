@@ -35,10 +35,8 @@
 	@include desktop {
 		background: linear-gradient(91.06deg, #3dc55d 38.38%, #008cf1 70.07%);
 	}
-	.intro h2 {
-		font-size: 2.25rem;
-		font-weight: 700;
-		line-height: 3.875rem;
+	h2 {
+		@extend %section-title;
 	}
 	.intro > p {
 		font-size: 1.125rem;
@@ -55,10 +53,6 @@
 			justify-content: space-between;
 			& > div {
 				max-width: 45%;
-			}
-			.intro h2 {
-				font-size: 46px;
-				line-height: 62px;
 			}
 			.intro p {
 				font-size: 20px;
