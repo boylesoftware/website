@@ -24,7 +24,7 @@ const Header = ({ siteTitle }) => {
 					Primary navigation
 				</h2>
 
-				{navbarOpen ? (
+				{!navbarOpen ? (
 					<div className={styles.navbox}>
 						<NavLinks />
 					</div>
@@ -39,7 +39,7 @@ const Header = ({ siteTitle }) => {
 				className={styles.toggle}
 				navbarOpen={navbarOpen}
 				onClick={() => setNavbarOpen(!navbarOpen)}>
-				{!navbarOpen ? (
+				{navbarOpen ? (
 					<div
 						className={classnames(styles.toggleIcon, styles.toggleIconOpen)}
 						open></div>
