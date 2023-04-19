@@ -2,9 +2,9 @@
 
 header {
 	@extend %global-layout;
+	font-family: 'West';
 	grid-template-columns: repeat(3, 1fr);
 
-	font-family: 'West';
 	li {
 		list-style-type: none;
 	}
@@ -127,17 +127,24 @@ nav.primaryNav {
 		background-color: white;
 		flex-direction: column;
 		position: fixed;
+		height: calc(100% - 10vh);
 		width: 100%;
 		justify-content: flex-start;
 		padding-top: 0 0 0 10vh;
 		transition: all 0.3s ease-in;
-		top: 8vh;
+		top: 100px;
 		left: -100%;
+		z-index: 10;
 		&.navboxOpen {
 			left: 0;
+			ul {
+				display: block;
+				padding-left: 1rem;
+			}
 			li {
 				font-size: 1.5rem;
-				margin-bottom: 2rem;
+				margin-top: 2.5rem;
+				text-transform: capitalize;
 			}
 		}
 	}
