@@ -20,11 +20,7 @@ export function Grid({
 			{intro ? (
 				<div className={styles.gridIntro}>{renderRichText(intro)}</div>
 			) : null}
-			{ctaLink ? (
-				<Link to={ctaLink} className={styles.cta}>
-					<span>{ctaLabel}</span>
-				</Link>
-			) : null}
+
 			<div className={styles.grid}>
 				{content.map((item) => (
 					<div key={item.id}>
@@ -43,6 +39,11 @@ export function Grid({
 					</div>
 				))}
 			</div>
+			{ctaLink ? (
+				<Link to={ctaLink} className={styles.cta}>
+					<span>{ctaLabel}</span>
+				</Link>
+			) : null}
 		</section>
 	);
 }

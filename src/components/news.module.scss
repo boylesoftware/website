@@ -12,7 +12,7 @@
 		font-size: 1.5rem;
 		font-weight: 700;
 		line-height: 1.9375rem;
-		margin: 0;
+		margin: 0.625rem 0 0.75rem;
 		a {
 			color: white;
 			text-decoration: none;
@@ -27,7 +27,7 @@
 		margin-bottom: 3rem;
 	}
 	.published {
-		color: rgba($color: #ffffff, $alpha: 0.5);
+		color: #fdfcff; /** updated for a11y **/
 		margin: 1rem 0 1.5625rem;
 	}
 
@@ -49,7 +49,7 @@
 			display: inline;
 			a,
 			span {
-				color: rgba($color: #ffffff, $alpha: 0.5);
+				color: #fdfcff; /** updated for a11y **/
 				text-decoration: none;
 			}
 		}
@@ -63,8 +63,11 @@
 	@include tablet-and-desktop {
 		.articleList {
 			display: grid;
-			gap: 1rem;
+			gap: 4.375rem;
 			grid-template-columns: 1fr 1fr 1fr;
+		}
+		.article {
+			margin-bottom: 0;
 		}
 	}
 }

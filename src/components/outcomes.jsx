@@ -10,7 +10,7 @@ export function Outcomes({ text, highlights }) {
 				<h2 className={styles.sectionHeading}>Outcomes</h2>
 				{renderRichText(text)}
 			</div>
-			<div className={styles.bubbles}>
+			<div>
 				{highlights.map((c) => (
 					<div key={c.id}>{renderRichText(c.text)}</div>
 				))}
