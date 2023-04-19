@@ -62,9 +62,6 @@ export const query = graphql`
 							id
 							title
 							slug
-							intro {
-								raw
-							}
 							image {
 								gatsbyImageData(width: 400, placeholder: BLURRED)
 								description

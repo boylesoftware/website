@@ -31,35 +31,28 @@
 		margin: 1rem 0 1.5625rem;
 	}
 
-	.intro p {
-		font-size: 1.125rem;
-		font-weight: 400;
-		line-height: 1.4375rem;
-		margin: 0;
-	}
-
-	.tags label {
-		@extend %visually-hidden;
-	}
-	.tags ul {
-		list-style-type: none;
-		margin: 1.5625rem 0 0;
-		padding: 0;
-		li {
-			display: inline;
-			a,
-			span {
-				color: #fdfcff; /** updated for a11y **/
-				text-decoration: none;
-			}
-		}
-		span {
-			margin: 0 0.25rem;
-		}
-		li:last-of-type span {
-			display: none;
-		}
-	}
+	// .tags label {
+	// 	@extend %visually-hidden;
+	// }
+	// .tags ul {
+	// 	list-style-type: none;
+	// 	margin: 1.5625rem 0 0;
+	// 	padding: 0;
+	// 	li {
+	// 		display: inline;
+	// 		a,
+	// 		span {
+	// 			color: #fdfcff; /** updated for a11y **/
+	// 			text-decoration: none;
+	// 		}
+	// 	}
+	// 	span {
+	// 		margin: 0 0.25rem;
+	// 	}
+	// 	li:last-of-type span {
+	// 		display: none;
+	// 	}
+	// }
 	@include tablet-and-desktop {
 		.articleList {
 			display: grid;

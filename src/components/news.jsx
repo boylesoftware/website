@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { Image } from './image';
 import { Link } from 'gatsby';
-import { toKabobCase } from '../utils/strings';
+// import { toKabobCase } from '../utils/strings';
 
 import * as styles from './news.module.scss';
 
@@ -25,7 +25,7 @@ export function News() {
 							</Link>
 						) : null}
 
-						<div className={styles.tags}>
+						{/* <div className={styles.tags}>
 							<label htmlFor='tags-list'>Tags</label>
 							<ul id='tags-list'>
 								{article.tags?.map((tag) => (
@@ -41,13 +41,10 @@ export function News() {
 									</li>
 								))}
 							</ul>
-						</div>
+						</div> */}
 						<h3>
 							<Link to={`/news/${article.slug}`}>{article.title}</Link>
 						</h3>
-						<div className={styles.intro}>
-							{article.intro ? renderRichText(article.intro) : null}
-						</div>
 					</li>
 				))}
 			</ul>
@@ -79,7 +76,6 @@ export const query = graphql`
 						url
 					}
 				}
-				tags
 			}
 		}
 	}
