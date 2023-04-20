@@ -5,16 +5,19 @@ const NavLinks = () => {
 	return (
 		<ul>
 			<li>
-				<Link to='/services'>services</Link>
+				<Link to='/services'>Services</Link>
 			</li>
 			<li>
-				<Link to='/work'>work</Link>
+				<Link to='/work'>Work</Link>
 			</li>
 			<li>
-				<Link to='/about'>about</Link>
+				<Link to='/about'>About</Link>
 			</li>
 			<li>
-				<Link to='/contact'>contact</Link>
+				<Link to='/careers'>Careers</Link>
+			</li>
+			<li>
+				<Link to='/contact'>Contact</Link>
 			</li>
 		</ul>
 	);

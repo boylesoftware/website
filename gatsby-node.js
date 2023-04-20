@@ -132,16 +132,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 		});
 	});
 	// Create tag pages
-	tags.forEach((tag) => {
-		const tagSlug = toKabobCase(tag.fieldValue);
+	// tags.forEach((tag) => {
+	// 	const tagSlug = toKabobCase(tag.fieldValue);
 
-		createPage({
-			path: `/tag/${tagSlug}`,
-			component: TagsTemplate,
-			context: {
-				tag: tag.fieldValue,
-				slug: tagSlug,
-			},
-		});
-	});
+	// 	createPage({
+	// 		path: `/tag/${tagSlug}`,
+	// 		component: TagsTemplate,
+	// 		context: {
+	// 			tag: tag.fieldValue,
+	// 			slug: tagSlug,
+	// 		},
+	// 	});
+	// });
 };
