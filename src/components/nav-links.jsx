@@ -14,6 +14,9 @@ const NavLinks = () => {
 				<Link to='/about'>About</Link>
 			</li>
 			<li>
+				<Link to='/news'>News</Link>
+			</li>
+			<li>
 				<Link to='/careers'>Careers</Link>
 			</li>
 			<li>
