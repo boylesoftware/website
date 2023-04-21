@@ -3,6 +3,7 @@ import React from 'react';
 import NavLinks from './nav-links';
 
 import FooterBadges from './footer-badges';
+import FooterPwa from './footer-pwa';
 import FooterSocial from './footer-social';
 
 import * as styles from './footer.module.scss';
@@ -16,12 +17,7 @@ const Footer = () => (
 			<NavLinks />
 		</nav>
 		<FooterSocial />
-		<div className={styles.pwa}>
-			Take us mobile
-			<Link to='' className={styles.pwaCta}>
-				<span>Learn how</span>
-			</Link>
-		</div>
+		<FooterPwa />
 		<FooterBadges />
 		<nav aria-labelledby='secondary-navigation' className={styles.secondaryNav}>
 			<h2 id='secondary-navigation' className={styles.visuallyHidden}>

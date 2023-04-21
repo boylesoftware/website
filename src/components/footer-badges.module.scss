@@ -3,14 +3,18 @@
 .footerBadges {
 	ul {
 		list-style-type: none;
+		margin-top: 2.625rem;
 		padding-left: 0;
+		@include desktop {
+			margin-top: 0;
+		}
 	}
 	li {
 		display: inline;
 		margin-right: 1.5rem;
 	}
 	@include desktop {
-		grid-column: 8 / 13;
+		grid-column: 10 / 13;
 		grid-row: 1;
 	}
 }
