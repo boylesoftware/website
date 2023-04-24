@@ -9,6 +9,9 @@
 		margin-bottom: 4rem;
 	}
 	.gridStudies {
+		& > div {
+			margin-bottom: 4.375rem;
+		}
 		@include desktop {
 			display: grid;
 			gap: 4.375rem;

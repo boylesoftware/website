@@ -2,9 +2,6 @@
 
 .textColumns {
 	column-gap: 1rem;
-
-	column-rule-style: solid;
-	column-rule-color: $grey-light;
 	@include tablet {
 		column-count: 2;
 	}
@@ -19,7 +16,7 @@
 		li {
 			font-size: 1.5rem;
 			letter-spacing: -1px;
-			line-height: 2rem;
+			line-height: 54px;
 			margin-bottom: 1rem;
 		}
 		p {
