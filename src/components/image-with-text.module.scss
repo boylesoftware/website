@@ -18,6 +18,15 @@
 	}
 }
 
+.sectionText {
+	font-size: 1rem;
+	line-height: 1.3125rem;
+	@include desktop {
+		font-size: 1.5rem;
+		line-height: 1.9375rem;
+	}
+}
+
 .button a {
 	@include ctaButton;
 }

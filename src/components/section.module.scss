@@ -116,14 +116,16 @@
 }
 
 .postalAddress .sectionContent {
-	display: grid;
-	gap: 0 1fr;
-	grid-template-columns: repeat(12, 1fr);
-	& > :first-of-type {
-		grid-column: 1 / 4;
-	}
-	& > :last-of-type {
-		grid-column: 5 / 10;
+	@include desktop {
+		display: grid;
+		gap: 0 1fr;
+		grid-template-columns: repeat(12, 1fr);
+		& > :first-of-type {
+			grid-column: 1 / 4;
+		}
+		& > :last-of-type {
+			grid-column: 5 / 10;
+		}
 	}
 }
 
