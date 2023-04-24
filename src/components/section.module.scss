@@ -139,6 +139,7 @@
 		font-family: 'West';
 		font-size: 3.5625rem;
 		line-height: 4.6875rem;
+		margin: 0;
 	}
 	@include desktop {
 		display: grid;
@@ -152,9 +153,6 @@
 			grid-column: 1/7;
 			grid-row: 2;
 			letter-spacing: 1px;
-			p {
-				margin: 0;
-			}
 		}
 		& > div:last-of-type {
 			grid-column: 8/13;
