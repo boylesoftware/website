@@ -48,7 +48,7 @@ nav.primaryNav {
 		font-weight: 500;
 		text-decoration: none;
 	}
-	@include tablet-and-desktop {
+	@include desktop {
 		grid-column: 6 / 13;
 		li {
 			display: inline;
@@ -130,7 +130,7 @@ nav.primaryNav {
 		height: calc(100% - 10vh);
 		width: 100%;
 		justify-content: flex-start;
-		padding-top: 0 0 0 10vh;
+		// padding-top: 10vh;
 		transition: all 0.3s ease-in;
 		top: 100px;
 		left: -10000px;

@@ -3,6 +3,15 @@
 .gridHeading {
 	@extend %section-title;
 }
+
+.gridIntro {
+	p {
+		font-size: 1.25rem;
+		line-height: 1.625rem;
+		margin-top: 0;
+		max-width: $text-width;
+	}
+}
 // layout for the grid section
 .selectClients,
 .technologies {
@@ -15,21 +24,6 @@
 	}
 
 	@include desktop {
-		// display: grid;
-		// gap: 1rem;
-		// grid-template-columns: repeat(12, 1fr);
-		// .gridHeading {
-		// 	grid-column: 1 / 6;
-		// 	margin-top: 0;
-		// }
-		.gridIntro {
-			// grid-column: 7 / 13;
-			p {
-				font-size: 1.25rem;
-				line-height: 1.625rem;
-				margin-top: 0;
-			}
-		}
 		.grid {
 			grid-column: 1 / 13;
 		}
@@ -73,7 +67,8 @@
 .leadership {
 	background-color: $grey-light;
 	.grid div img {
-		width: 280px;
+		max-width: 100%;
+		width: 17.5rem;
 	}
 }
 

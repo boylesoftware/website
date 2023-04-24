@@ -5,6 +5,9 @@
 		display: grid;
 		gap: 1rem;
 		grid-template-columns: repeat(12, 1fr);
+		@include tablet-and-desktop {
+			gap: 0 3rem;
+		}
 	}
 }
 .sectionHeading {
@@ -26,7 +29,7 @@
 	}
 
 	.sectionText {
-		grid-column: 8 / 13;
+		grid-column: 7 / 13;
 		grid-row: 1;
 	}
 }
@@ -37,15 +40,18 @@
 		grid-row: 1;
 	}
 	.sectionImage {
-		grid-column: 8 / 13 !important;
+		grid-column: 7 / 13 !important;
 		grid-row: 1;
 	}
 }
 
 .imgFull {
 	.sectionText {
-		grid-column: 1 / 9;
+		grid-column: 1 / 13;
 		grid-row: 1;
+		p {
+			max-width: $text-width;
+		}
 	}
 	.sectionImage {
 		grid-column: 1 / 13;

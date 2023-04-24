@@ -29,7 +29,6 @@ function ArticleTemplate({ data: { contentfulArticle } }) {
 					</div>
 				) : null}
 				<div
-					className={styles.articleBody}
 					dangerouslySetInnerHTML={{
 						__html: contentfulArticle.body.childMarkdownRemark.html,
 					}}
