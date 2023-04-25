@@ -134,4 +134,4 @@ export const query = graphql`
 
 export default PageTemplate;
 
-export const Head = () => <SEO title='TODO: page title!' />;
+export const Head = () => <SEO title='Boyle Software, Inc.' />;
