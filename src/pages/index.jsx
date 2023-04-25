@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { ContainerFactory } from '../components/container-factory';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import Layout from '../components/layout';
+import { SEO } from '../components/seo';
 
 // import type { HeadFC, PageProps } from 'gatsby';
 import * as styles from './index.module.scss';
@@ -93,3 +94,5 @@ export const query = graphql`
 `;
 
 export default IndexPage;
+
+export const Head = () => <SEO />;

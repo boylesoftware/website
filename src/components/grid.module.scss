@@ -20,7 +20,8 @@
 .selectClients,
 .technologies {
 	// h3 is only present for screen readers
-	h3 {
+	h3,
+	.itemTitle {
 		@extend %visually-hidden;
 	}
 	.gridIntro {

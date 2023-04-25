@@ -4,6 +4,8 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { Link } from 'gatsby';
 import Layout from '../components/layout';
+import { SEO } from '../components/seo';
+
 import * as styles from './article.module.scss';
 
 function ArticleTemplate({ data: { contentfulArticle } }) {
@@ -60,3 +62,5 @@ export const query = graphql`
 `;
 
 export default ArticleTemplate;
+
+export const Head = () => <SEO title='Article' />;

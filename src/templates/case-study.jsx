@@ -2,6 +2,7 @@ import * as React from 'react';
 import { graphql, Link } from 'gatsby';
 import { ContainerFactory } from '../components/container-factory';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import { SEO } from '../components/seo';
 
 import Layout from '../components/layout';
 
@@ -133,3 +134,5 @@ export const query = graphql`
 `;
 
 export default CaseStudyTemplate;
+
+export const Head = () => <SEO title='Case study' />;
