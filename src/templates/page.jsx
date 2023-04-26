@@ -44,6 +44,9 @@ export const query = graphql`
 	query ($slug: String!) {
 		contentfulPage(slug: { eq: $slug }) {
 			title
+			slug
+			seoTitle
+			seoDescription
 			intro {
 				raw
 			}
@@ -134,4 +137,9 @@ export const query = graphql`
 
 export default PageTemplate;
 
-export const Head = () => <SEO title='Boyle Software, Inc.' />;
+export const Head = ({ data: { contentfulPage } }) => (
+	<SEO
+		title={contentfulPage.seoTitle}
+		description={contentfulPage.seoDescription}
+	/>
+);

@@ -23,9 +23,7 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
 				<div></div> {/* Keep this empty div for layout puropose */}
 			</div>
 			{contentfulCaseStudy.overview ? (
-				<section className={styles.overview}>
-					{renderRichText(contentfulCaseStudy.overview)}
-				</section>
+				<section>{renderRichText(contentfulCaseStudy.overview)}</section>
 			) : null}
 			{contentfulCaseStudy.metrics ? (
 				<section className={styles.metrics}>
@@ -47,6 +45,8 @@ export const query = graphql`
 		contentfulCaseStudy(slug: { eq: $slug }) {
 			title
 			slug
+			seoTitle
+			seoDescription
 			overview {
 				raw
 			}
@@ -135,4 +135,9 @@ export const query = graphql`
 
 export default CaseStudyTemplate;
 
-export const Head = () => <SEO title='Case study' />;
+export const Head = ({ data: { contentfulCaseStudy } }) => (
+	<SEO
+		title={contentfulCaseStudy.seoTitle}
+		description={contentfulCaseStudy.seoDescription}
+	/>
+);

@@ -36,6 +36,8 @@ export const query = graphql`
 	query {
 		contentfulHomepage(contentful_id: { eq: "49ydOphXmgEVDUS2M9TyZg" }) {
 			title
+			seoTitle
+			seoDescription
 			intro {
 				raw
 			}
@@ -95,4 +97,9 @@ export const query = graphql`
 
 export default IndexPage;
 
-export const Head = () => <SEO />;
+// export const Head = ({ data: { contentfulHomepage } }) => (
+// 	<SEO
+// 		title={contentfulHomepage.seoTitle}
+// 		description={contentfulHomepage.seoDescription}
+// 	/>
+// );

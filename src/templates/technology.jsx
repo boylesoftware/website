@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import { SEO } from '../components/seo';
 
 import Layout from '../components/layout';
 
@@ -74,6 +75,9 @@ export const query = graphql`
 	query ($slug: String!) {
 		contentfulTechnology(slug: { eq: $slug }) {
 			title
+			slug
+			seoTitle
+			seoDescription
 			image {
 				id
 				gatsbyImageData(
@@ -122,3 +126,10 @@ export const query = graphql`
 `;
 
 export default TechnologyTemplate;
+
+export const Head = ({ data: { contentfulTechnology } }) => (
+	<SEO
+		title={contentfulTechnology.seoTitle}
+		description={contentfulTechnology.seoDescription}
+	/>
+);

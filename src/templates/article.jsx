@@ -44,6 +44,9 @@ export const query = graphql`
 	query ($slug: String!) {
 		contentfulArticle(slug: { eq: $slug }) {
 			title
+			slug
+			seoTitle
+			seoDescription
 			image {
 				gatsbyImageData(width: 250, placeholder: BLURRED)
 				description
@@ -63,4 +66,10 @@ export const query = graphql`
 
 export default ArticleTemplate;
 
-export const Head = () => <SEO title='Article' />;
+export const Head = ({ data: { contentfulArticle } }) => (
+	<SEO
+		title={contentfulArticle.seoTitle}
+		description={contentfulArticle.seoDescription}
+		image={contentfulArticle.image}
+	/>
+);

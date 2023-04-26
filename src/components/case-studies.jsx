@@ -12,7 +12,7 @@ export function CaseStudies({ title, content }) {
 			{title ? <h2 className={styles.sectionHeading}>{title}</h2> : null}
 			<div className={classnames(styles.gridStudies)}>
 				{content.map((c) => (
-					<div className={styles.item} key={c.id}>
+					<div key={c.id}>
 						{c.image?.gatsbyImageData ? (
 							<Link to={`/case-study/${c.slug}`}>
 								<Image media={c.image} alt={c.image.description} />
@@ -23,9 +23,7 @@ export function CaseStudies({ title, content }) {
 							<Link to={`/case-study/${c.slug}`}>{c.title}</Link>
 						</h3>
 
-						{c.intro ? (
-							<div className={styles.intro}>{renderRichText(c.intro)}</div>
-						) : null}
+						{c.intro ? renderRichText(c.intro) : null}
 					</div>
 				))}
 			</div>
