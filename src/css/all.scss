@@ -29,10 +29,43 @@ $grey-light: rgba(217, 217, 217, 0.5);
 	}
 }
 
+@mixin display-lrg {
+	font-family: 'DMSans';
+	font-size: 3.5625rem;
+	font-weight: 500;
+	line-height: 4rem;
+}
+
+@mixin display-med {
+	font-family: 'West';
+	font-size: 2.875rem;
+	font-weight: 500;
+	line-height: 3.25rem;
+}
+
+@mixin display-sm {
+	font-family: 'DMSans';
+	font-size: 2.25rem;
+	font-weight: 400;
+	line-height: 2.75rem;
+}
+
+@mixin heading-sm {
+	font-family: 'DMSans';
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+
+@mixin body-sm {
+	font-family: 'DMSans';
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+
 @mixin defaultPadding {
 	padding: 0.875rem 1.25rem;
-	@include tablet-and-desktop() {
-		padding: 1.6875rem 7.75rem;
+	@include desktop() {
+		padding: 0.875rem 7.75rem;
 	}
 }
 

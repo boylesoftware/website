@@ -9,8 +9,6 @@ import Layout from '../components/layout';
 import * as styles from './case-study.module.scss';
 
 function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
-	console.log(contentfulCaseStudy.content);
-
 	return (
 		<Layout>
 			<div className={styles.pageHeader}>
@@ -23,11 +21,14 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
 				<div></div> {/* Keep this empty div for layout puropose */}
 			</div>
 			{contentfulCaseStudy.overview ? (
-				<section>{renderRichText(contentfulCaseStudy.overview)}</section>
+				<section>
+					<h2 className={styles.sectionHeading}>Overview</h2>
+					{renderRichText(contentfulCaseStudy.overview)}
+				</section>
 			) : null}
 			{contentfulCaseStudy.metrics ? (
 				<section className={styles.metrics}>
-					<h2 className={styles.metricsHeading}>Project Outcome Metrics</h2>
+					<h2 className={styles.sectionHeading}>Project Outcome Metrics</h2>
 					{renderRichText(contentfulCaseStudy.metrics)}
 				</section>
 			) : null}
@@ -60,6 +61,7 @@ export const query = graphql`
 					id
 					title
 					cssClass
+					layout
 					content {
 						... on ContentfulText {
 							id
@@ -82,26 +84,26 @@ export const query = graphql`
 						}
 					}
 				}
-				... on ContentfulImageWithText {
-					__typename
-					title
-					ctaLink
-					ctaLabel
-					cssClass
-					layout
-					image {
-						id
-						gatsbyImageData(
-							width: 564
-							placeholder: BLURRED
-							formats: [AUTO, WEBP, AVIF]
-						)
-						description
-					}
-					text {
-						raw
-					}
-				}
+				# ... on ContentfulImageWithText {
+				# 	__typename
+				# 	title
+				# 	ctaLink
+				# 	ctaLabel
+				# 	cssClass
+				# 	layout
+				# 	image {
+				# 		id
+				# 		gatsbyImageData(
+				# 			width: 564
+				# 			placeholder: BLURRED
+				# 			formats: [AUTO, WEBP, AVIF]
+				# 		)
+				# 		description
+				# 	}
+				# 	text {
+				# 		raw
+				# 	}
+				# }
 				... on ContentfulMedia {
 					__typename
 					id

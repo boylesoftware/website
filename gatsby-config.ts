@@ -7,7 +7,7 @@ const config: GatsbyConfig = {
 	siteMetadata: {
 		title: `Boyle Software, Inc.`,
 		description: `Boyle Software creates technology solutions for Fortune 1000 clients across several industries.`,
-		// image: `/icon-bs.png`,
+		image: `/icon-bs.png`,
 		siteUrl: `https://boylesoftware.com`,
 		twitterUsername: `@BoyleSoftware`,
 	},

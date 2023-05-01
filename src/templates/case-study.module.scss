@@ -11,7 +11,11 @@
 		padding-left: 1rem;
 	}
 }
-.metricsHeading {
+.sectionHeading {
+	@include heading-sm;
+}
+
+.csChallengeHeading {
 	font-family: 'West';
 	font-size: 1.5rem;
 }

@@ -31,42 +31,42 @@
 	@include ctaButton;
 }
 
-.imgLeft {
-	.sectionImage {
-		grid-column: 1 / 7;
-		grid-row: 1;
-	}
+// .imgLeft {
+// 	.sectionImage {
+// 		grid-column: 1 / 7;
+// 		grid-row: 1;
+// 	}
 
-	.sectionText {
-		grid-column: 7 / 13;
-		grid-row: 1;
-	}
-}
+// 	.sectionText {
+// 		grid-column: 7 / 13;
+// 		grid-row: 1;
+// 	}
+// }
 
-.imgRight {
-	.sectionText {
-		grid-column: 1 / 7 !important;
-		grid-row: 1;
-	}
-	.sectionImage {
-		grid-column: 7 / 13 !important;
-		grid-row: 1;
-	}
-}
+// .imgRight {
+// 	.sectionText {
+// 		grid-column: 1 / 7 !important;
+// 		grid-row: 1;
+// 	}
+// 	.sectionImage {
+// 		grid-column: 7 / 13 !important;
+// 		grid-row: 1;
+// 	}
+// }
 
-.imgFull {
-	.sectionText {
-		grid-column: 1 / 13;
-		grid-row: 1;
-		p {
-			max-width: $text-width;
-		}
-	}
-	.sectionImage {
-		grid-column: 1 / 13;
-		grid-row: 2;
-	}
-}
+// .imgFull {
+// 	.sectionText {
+// 		grid-column: 1 / 13;
+// 		grid-row: 1;
+// 		p {
+// 			max-width: $text-width;
+// 		}
+// 	}
+// 	.sectionImage {
+// 		grid-column: 1 / 13;
+// 		grid-row: 2;
+// 	}
+// }
 
 .csSolution {
 	background-color: $bs-blue;

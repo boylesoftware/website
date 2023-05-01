@@ -17,6 +17,9 @@ main {
 section,
 article {
 	@include defaultPadding;
+	p {
+		max-width: 820px;
+	}
 }
 
 a {

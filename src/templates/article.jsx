@@ -70,6 +70,6 @@ export const Head = ({ data: { contentfulArticle } }) => (
 	<SEO
 		title={contentfulArticle.seoTitle}
 		description={contentfulArticle.seoDescription}
-		image={contentfulArticle.image}
+		cmsImage={contentfulArticle.image}
 	/>
 );

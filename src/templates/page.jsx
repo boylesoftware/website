@@ -9,7 +9,6 @@ import Layout from '../components/layout';
 import * as styles from './page.module.scss';
 
 function PageTemplate({ data: { contentfulPage } }) {
-	console.log(contentfulPage);
 	const category =
 		contentfulPage.category?.charAt(0).toUpperCase() +
 		contentfulPage.category?.slice(1);
@@ -61,26 +60,26 @@ export const query = graphql`
 						...contentfulText
 					}
 				}
-				... on ContentfulImageWithText {
-					__typename
-					title
-					ctaLink
-					ctaLabel
-					cssClass
-					layout
-					image {
-						id
-						gatsbyImageData(
-							width: 564
-							placeholder: BLURRED
-							formats: [AUTO, WEBP, AVIF]
-						)
-						description
-					}
-					text {
-						raw
-					}
-				}
+				# ... on ContentfulImageWithText {
+				# 	__typename
+				# 	title
+				# 	ctaLink
+				# 	ctaLabel
+				# 	cssClass
+				# 	layout
+				# 	image {
+				# 		id
+				# 		gatsbyImageData(
+				# 			width: 564
+				# 			placeholder: BLURRED
+				# 			formats: [AUTO, WEBP, AVIF]
+				# 		)
+				# 		description
+				# 	}
+				# 	text {
+				# 		raw
+				# 	}
+				# }
 				... on ContentfulService {
 					__typename
 					id
