@@ -15,7 +15,7 @@ function TechnologyTemplate({ data: { contentfulTechnology } }) {
 			<div className={styles.pageHeader}>
 				<div className={styles.crumbs}>
 					<Link to='/services/'>Services</Link> &gt;&nbsp;
-					<Link to={`/services/${contentfulTechnology.service.slug}`}>
+					<Link to={`/${contentfulTechnology.service.slug}`}>
 						{contentfulTechnology.service.title}
 					</Link>
 				</div>

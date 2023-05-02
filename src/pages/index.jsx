@@ -62,6 +62,7 @@ export const query = graphql`
 					cssClass
 					content {
 						... on ContentfulArticle {
+							__typename
 							id
 							title
 							slug
@@ -74,6 +75,7 @@ export const query = graphql`
 							}
 						}
 						... on ContentfulService {
+							__typename
 							id
 							title
 							slug
