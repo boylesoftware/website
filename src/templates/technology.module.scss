@@ -5,7 +5,7 @@
 }
 
 .sectionHeading {
-	@extend %section-title;
+	@include display-med;
 	@include desktop {
 		padding-bottom: 3.125rem;
 	}

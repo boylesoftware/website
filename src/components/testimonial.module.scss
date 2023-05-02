@@ -1,8 +1,14 @@
 @import 'src/css/all.scss';
 
-.testimonial {
+section.testimonial {
 	background-color: black;
 	color: white;
+	margin-bottom: 0;
+	margin-top: 0;
+	@include desktop {
+		padding-top: 10.625rem;
+		padding-bottom: 10.625rem;
+	}
 	.quote {
 		font-size: 2.25rem;
 		font-weight: 500;
@@ -12,7 +18,7 @@
 			font-size: 4.1875rem;
 			font-weight: 500;
 			line-height: 5.4375rem;
-			margin: 11.375rem 0 9.125rem;
+			margin: 0 0 9.125rem;
 		}
 	}
 	.name,

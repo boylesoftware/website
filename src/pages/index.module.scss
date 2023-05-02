@@ -17,5 +17,8 @@
 	@include desktop {
 		font-size: 2.25rem;
 		line-height: 2.9375rem;
+		p {
+			max-width: 1000px;
+		}
 	}
 }

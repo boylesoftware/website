@@ -1,7 +1,7 @@
 @import 'src/css/all.scss';
 
 .outcomes {
-	margin-bottom: 3rem;
+	@include defaultPadding;
 	& > div:last-of-type {
 		display: flex;
 		flex-direction: column;

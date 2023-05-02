@@ -1,7 +1,7 @@
 @import 'src/css/all.scss';
 
 .sectionHeading {
-	@extend %section-title;
+	@include display-med;
 	margin-top: 0;
 
 	& + p {
@@ -12,6 +12,9 @@
 // applies to all section content
 
 .sectionContent {
+	h2 {
+		@include display-med;
+	}
 	@include desktop {
 		display: flex;
 		flex-direction: row;
@@ -46,11 +49,16 @@
 		#008cf1 58.72%
 	);
 	color: white;
+	padding-bottom: 6.25rem;
+	padding-top: 10.625rem;
+	margin-bottom: 0;
+	margin-top: 0;
 	@include desktop {
 		background: linear-gradient(91.06deg, #3dc55d 38.38%, #008cf1 70.07%);
 	}
 	h2 {
-		@extend %section-title;
+		@include display-med;
+		margin-top: 0;
 	}
 	.intro > p {
 		font-size: 1.125rem;
@@ -197,10 +205,13 @@
 .csSolution {
 	background-color: $bs-blue;
 	color: white;
-	padding-bottom: 7.625rem;
+	padding-bottom: 6.25rem;
+	padding-top: 10.625rem;
+	margin-bottom: 0;
+	margin-top: 0;
 	.sectionContent {
 		h2 {
-			color: black;
+			color: rgba(0, 0, 0, 0.6);
 			font-family: 'DMSans';
 			font-size: 1.125rem;
 			font-weight: 500;

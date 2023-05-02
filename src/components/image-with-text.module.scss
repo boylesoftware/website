@@ -11,7 +11,7 @@
 	}
 }
 .sectionHeading {
-	@extend %section-title;
+	@include display-med;
 	margin-top: 0;
 	& + p {
 		margin-bottom: 4rem;

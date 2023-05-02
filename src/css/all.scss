@@ -3,7 +3,7 @@
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1224px;
 $layout-max: 1920px;
-$text-width: 780px;
+$text-width: 800px;
 
 $bs-blue: #157efa;
 $bs-green: #3dc55d;
@@ -63,9 +63,10 @@ $grey-light: rgba(217, 217, 217, 0.5);
 }
 
 @mixin defaultPadding {
-	padding: 0.875rem 1.25rem;
-	@include desktop() {
-		padding: 0.875rem 7.75rem;
+	padding: 2rem 1.25rem;
+	@include desktop {
+		margin: 10.625rem 0;
+		padding: 0 7.75rem;
 	}
 }
 
@@ -163,17 +164,6 @@ $grey-light: rgba(217, 217, 217, 0.5);
 		& > div:first-of-type {
 			padding-bottom: 2rem;
 		}
-	}
-}
-
-%section-title {
-	font-family: 'West';
-	font-size: 1.5rem;
-	font-weight: 500;
-	line-height: 3.875rem;
-	@include desktop {
-		font-size: 2.875rem;
-		line-height: 3.25rem;
 	}
 }
 

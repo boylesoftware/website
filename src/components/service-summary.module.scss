@@ -24,7 +24,8 @@
 }
 
 .pageHeading {
-	margin-bottom: 1rem;
+	@include display-med;
+	// margin-bottom: 1rem;
 	@include desktop {
 		margin-top: 0;
 	}
