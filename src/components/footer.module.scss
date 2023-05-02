@@ -5,6 +5,9 @@ footer {
 	color: white;
 	font-family: 'DMSans';
 	padding: 50px 18px;
+	@include desktop {
+		padding: 71px 7.75rem;
+	}
 
 	a {
 		color: inherit;
@@ -17,10 +20,10 @@ footer {
 		margin: 0;
 		padding: 0;
 		li {
-			font-size: 2rem;
+			@include headline-sm;
 			font-weight: 700;
-			line-height: 4rem;
 			list-style-type: none;
+			margin-bottom: 1.5rem;
 		}
 	}
 }
