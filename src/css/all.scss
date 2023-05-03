@@ -70,6 +70,15 @@ $grey-light: rgba(217, 217, 217, 0.5);
 	}
 }
 
+@mixin coloredBgPadding {
+	@include desktop() {
+		padding-bottom: 6.25rem;
+		padding-top: 10.625rem;
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+}
+
 @mixin grid {
 	display: grid;
 	gap: 1rem;

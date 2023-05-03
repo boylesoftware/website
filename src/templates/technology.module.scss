@@ -51,6 +51,7 @@
 }
 
 .relatedCaseStudies {
+	@include coloredBgPadding;
 	background-color: $bs-blue;
 	color: white;
 
