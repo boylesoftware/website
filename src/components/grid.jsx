@@ -35,7 +35,7 @@ export function Grid({
 						{item.jobTitle ? (
 							<div className={styles.jobTitle}>{item.jobTitle}</div>
 						) : null}
-						{item.url ? <Link to={item.url}>Learn more</Link> : null}
+						{/* {item.url ? <Link to={item.url}>Learn more</Link> : null} */}
 					</div>
 				))}
 			</div>
