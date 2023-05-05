@@ -69,6 +69,7 @@
 	margin-top: 0;
 	.grid {
 		margin-bottom: 0;
+		align-items: start;
 		div img {
 			max-width: 100%;
 			width: 17.5rem;
@@ -78,6 +79,7 @@
 		font-size: 1.25rem;
 		font-weight: 700;
 		margin-top: 0.25rem;
+		text-align: center;
 	}
 	.jobTitle {
 		font-size: 0.78rem;
