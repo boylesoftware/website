@@ -146,6 +146,7 @@
 .postalAddress .sectionContent {
 	h2 {
 		@include display-med;
+		margin-top: 0.5rem;
 	}
 	p {
 		margin: 0;
@@ -159,7 +160,7 @@
 			width: calc(100% - 54px);
 		}
 		& > :last-of-type {
-			grid-column: 5 / 10;
+			grid-column: 5 / 13;
 		}
 	}
 }

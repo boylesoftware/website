@@ -1,15 +1,42 @@
 import * as React from 'react';
 import { graphql, Link } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import { INLINES, BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { SEO } from '../components/seo';
+import { RichTextRenderer } from '../components/richtext-renderer';
 
 import Layout from '../components/layout';
 
 import * as styles from './solution.module.scss';
 
 function SolutionTemplate({ data: { contentfulSolution } }) {
+	const image = getImage(contentfulSolution.image);
+	// const options = {
+	// 	renderMark: {
+	// 		[MARKS.BOLD]: (text) => <b className='font-bold'>{text}</b>,
+	// 	},
+	// 	renderNode: {
+	// 		[INLINES.HYPERLINK]: (node, children) => {
+	// 			const { uri } = node.data;
+	// 			return (
+	// 				<a href={uri} className='underline'>
+	// 					{children}
+	// 				</a>
+	// 			);
+	// 		},
+	// 		[BLOCKS.HEADING_2]: (node, children) => {
+	// 			return <h2>{children}</h2>;
+	// 		},
+	// 		[BLOCKS.EMBEDDED_ASSET]: (node) => {
+	// 			const { gatsbyImageData, description } = node.data.target;
+	// 			return (
+	// 				<GatsbyImage image={getImage(gatsbyImageData)} alt={description} />
+	// 			);
+	// 		},
+	// 	},
+	// };
 	return (
 		<Layout>
 			<div className={styles.pageHeader}>
@@ -32,7 +59,11 @@ function SolutionTemplate({ data: { contentfulSolution } }) {
 						src={contentfulSolution.image?.file.url}
 					/>
 				)}
-				{renderRichText(contentfulSolution.text)}
+				{/* {renderRichText(contentfulSolution.text, options)} */}
+				<RichTextRenderer
+					raw={contentfulSolution.text.raw}
+					references={contentfulSolution.text.references}
+				/>
 			</section>
 		</Layout>
 	);
@@ -59,6 +90,22 @@ export const query = graphql`
 			}
 			text {
 				raw
+				references {
+					... on ContentfulAsset {
+						contentful_id
+						title
+						description
+						gatsbyImageData(width: 600)
+						__typename
+						file {
+							contentType
+							url
+						}
+						svg {
+							content
+						}
+					}
+				}
 			}
 		}
 	}
