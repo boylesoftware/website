@@ -1,6 +1,7 @@
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import React from 'react';
 import { Image } from './image';
+import { Link } from './link';
 
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
@@ -12,11 +13,7 @@ export function RichTextRenderer(text) {
 		renderNode: {
 			[INLINES.HYPERLINK]: (node, children) => {
 				const { uri } = node.data;
-				return (
-					<a href={uri} className='underline'>
-						{children}
-					</a>
-				);
+				return <Link to={uri}>{children}</Link>;
 			},
 			[BLOCKS.HEADING_2]: (node, children) => {
 				return <h2>{children}</h2>;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Image } from './image';
+import { Link } from './link';
 
 import * as styles from './footer-badges.module.scss';
 
@@ -25,7 +26,9 @@ const FooterBadges = () => {
 			<ul>
 				{data.logos.content.map((logo) => (
 					<li key={logo.id} className={styles.logo}>
-						<Image media={logo.media} alt={logo.media.description} />
+						<Link to={logo.url}>
+							<Image media={logo.media} alt={logo.media.description} />
+						</Link>
 					</li>
 				))}
 			</ul>
