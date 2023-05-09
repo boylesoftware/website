@@ -14,7 +14,9 @@ export function ServiceList({ title, image, slug, intro, highlights }) {
 				</Link>
 			</div>
 			<div className={styles.summaryContent}>
-				<h2 className={styles.pageHeading}>{title}</h2>
+				<h2 className={styles.pageHeading}>
+					<Link to={slug}>{title}</Link>
+				</h2>
 
 				<div className={styles.intro}>
 					{intro ? renderRichText(intro) : null}
@@ -24,7 +26,7 @@ export function ServiceList({ title, image, slug, intro, highlights }) {
 					<div className={styles.highlights}>{renderRichText(highlights)}</div>
 				) : null}
 
-				<Link to={slug} className={styles.cta}>
+				<Link to={slug} cssClass={styles.cta}>
 					<span>Learn more</span>
 				</Link>
 			</div>

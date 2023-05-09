@@ -9,7 +9,7 @@ const Header = ({ siteTitle }) => {
 	const [navbarOpen, setNavbarOpen] = useState(false);
 	return (
 		<header>
-			<Link to='/' className={styles.logo}>
+			<Link to='/' cssClass={styles.logo}>
 				<div className={styles.logoType}>
 					Boyle
 					<br /> Software

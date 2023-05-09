@@ -25,9 +25,11 @@
 
 .pageHeading {
 	@include display-med;
-	// margin-bottom: 1rem;
 	@include desktop {
 		margin-top: 0;
+	}
+	a {
+		text-decoration: none;
 	}
 }
 

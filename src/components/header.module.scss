@@ -12,9 +12,6 @@ header {
 .logo {
 	grid-column: 1 / 3;
 	text-decoration: none;
-	// @include desktop {
-	// 	grid-column: 1 / 4;
-	// }
 }
 .logoType {
 	color: black;
