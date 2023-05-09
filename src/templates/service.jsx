@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
-import { Link } from 'gatsby';
+import { Link } from '../components/link';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { ContainerFactory } from '../components/container-factory';
 

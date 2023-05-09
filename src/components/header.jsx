@@ -1,4 +1,4 @@
-import { Link } from 'gatsby';
+import { Link } from './link';
 import React, { useState } from 'react';
 import NavLinks from './nav-links';
 import classnames from 'classnames';

@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Link } from 'gatsby';
+import { Link } from './link';
 import { Image } from './image';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 

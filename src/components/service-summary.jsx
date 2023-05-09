@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from './image';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
-import { Link } from 'gatsby';
+import { Link } from './link';
 
 import * as styles from './service-summary.module.scss';
 

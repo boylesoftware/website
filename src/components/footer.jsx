@@ -1,4 +1,4 @@
-import { Link } from 'gatsby';
+import { Link } from './link';
 import React from 'react';
 import NavLinks from './nav-links';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Image } from './image';
-import { Link } from 'gatsby';
+import { Link } from './link';
 
 import * as styles from './footer-pwa.module.scss';
 

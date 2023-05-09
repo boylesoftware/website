@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from './image';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
-import { Link } from 'gatsby';
+import { Link } from './link';
 
 import * as styles from './grid.module.scss';
 
@@ -40,7 +40,7 @@ export function Grid({
 				))}
 			</div>
 			{ctaLink ? (
-				<Link to={ctaLink} className={styles.cta}>
+				<Link to={ctaLink} cssClass={styles.cta}>
 					<span>{ctaLabel}</span>
 				</Link>
 			) : null}

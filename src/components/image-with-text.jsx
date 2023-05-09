@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { Image } from './image';
-import { Link } from 'gatsby';
+import { Link } from './link';
 
 import * as styles from './image-with-text.module.scss';
 

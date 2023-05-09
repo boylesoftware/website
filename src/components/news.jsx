@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { Image } from './image';
-import { Link } from 'gatsby';
+import { Link } from './link';
 // import { toKabobCase } from '../utils/strings';
 
 import * as styles from './news.module.scss';
