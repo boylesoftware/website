@@ -16,8 +16,8 @@ function ArticleTemplate({ data: { contentfulArticle } }) {
 				<div className={styles.crumbs}>
 					<Link to='/news/'>News</Link>
 				</div>
-				<h1 className={styles.heading}>{contentfulArticle.title}</h1>
-				<div className={styles.published}>{contentfulArticle.publishDate}</div>
+				<h1>{contentfulArticle.title}</h1>
+				<div>{contentfulArticle.publishDate}</div>
 			</div>
 			<article>
 				<GatsbyImage

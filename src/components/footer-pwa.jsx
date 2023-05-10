@@ -20,9 +20,7 @@ const FooterPwa = () => {
 	const data = useStaticQuery(query);
 	return (
 		<div className={styles.pwa}>
-			{data.pwa.title ? (
-				<h2 className={styles.logosHeading}>{data.pwa.title}</h2>
-			) : null}
+			{data.pwa.title ? <h2>{data.pwa.title}</h2> : null}
 			{data.pwa.content.map((icon) => (
 				<div key={icon.id} className={styles.icon}>
 					<Link to='/pwa-shortcut-instructions'>

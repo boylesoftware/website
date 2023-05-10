@@ -39,4 +39,9 @@
 			text-decoration: none;
 		}
 	}
+	.cta {
+		@include ctaButton;
+		border: 1px solid rgba(255, 255, 255, 0.5);
+		color: white;
+	}
 }

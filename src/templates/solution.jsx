@@ -47,7 +47,7 @@ function SolutionTemplate({ data: { contentfulSolution } }) {
 				<h1>{contentfulSolution.title}</h1>
 				<div></div> {/* Keep this empty div for layout puropose */}
 			</div>
-			<section className={styles.text}>
+			<section>
 				{contentfulSolution.image?.gatsbyImageData ? (
 					<GatsbyImage
 						image={contentfulSolution.image?.gatsbyImageData}

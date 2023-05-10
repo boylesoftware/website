@@ -54,7 +54,7 @@ const NewsPage = ({ data: { allContentfulArticle } }) => (
 								<h2 className={styles.articleTitle}>
 									<Link to={`/news/${article.slug}`}>{article.title}</Link>
 								</h2>
-								<div className={styles.intro}>
+								<div>
 									{article.intro ? renderRichText(article.intro) : null}
 								</div>
 							</div>

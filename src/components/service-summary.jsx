@@ -9,13 +9,13 @@ export function ServiceList({ title, image, slug, intro, highlights }) {
 	return (
 		<section className={styles.service}>
 			<div className={styles.summaryImage}>
-				<Link to={slug}>
+				<Link to={`/services/${slug}`}>
 					<Image media={image} alt={image.description} />
 				</Link>
 			</div>
 			<div className={styles.summaryContent}>
 				<h2 className={styles.pageHeading}>
-					<Link to={slug}>{title}</Link>
+					<Link to={`/services/${slug}`}>{title}</Link>
 				</h2>
 
 				<div className={styles.intro}>
@@ -26,7 +26,7 @@ export function ServiceList({ title, image, slug, intro, highlights }) {
 					<div className={styles.highlights}>{renderRichText(highlights)}</div>
 				) : null}
 
-				<Link to={slug} cssClass={styles.cta}>
+				<Link to={`/services/${slug}`} cssClass={styles.cta}>
 					<span>Learn more</span>
 				</Link>
 			</div>

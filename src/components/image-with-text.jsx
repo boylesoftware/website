@@ -18,7 +18,7 @@ export function ImageWithText({
 	return (
 		<section className={styles[cssClass]}>
 			<div className={classnames(styles.sectionContent, styles[layout])}>
-				<div className={styles.sectionImage}>
+				<div>
 					{image?.gatsbyImageData ? (
 						<Image media={image} alt={image.description} />
 					) : null}

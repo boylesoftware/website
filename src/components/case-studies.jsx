@@ -27,6 +27,9 @@ export function CaseStudies({ title, content }) {
 					</div>
 				))}
 			</div>
+			<Link to='/work/case-studies' cssClass={styles.cta}>
+				<span>View all case studies</span>
+			</Link>
 		</section>
 	);
 }

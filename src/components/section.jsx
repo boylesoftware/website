@@ -5,7 +5,6 @@ import { Image } from './image';
 import * as styles from './section.module.scss';
 
 export function Section({ title, cssClass, layout, content }) {
-	console.log(layout);
 	return (
 		<section className={styles[cssClass]}>
 			{title ? <h2>{title}</h2> : null}

@@ -14,7 +14,7 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
 			<div className={styles.pageHeader}>
 				<div className={styles.crumbs}>
 					<Link to='/work'>Work</Link> &gt;{' '}
-					<Link to='/case-studies'>Case Studies</Link>
+					<Link to='/work/case-studies'>Case Studies</Link>
 				</div>{' '}
 				{/* Keep this empty div for layout puropose */}
 				<h1>{contentfulCaseStudy.title}</h1>
@@ -34,6 +34,7 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
 			) : null}
 			{contentfulCaseStudy.content?.map((section) => (
 				<div key={section.id}>
+					{console.log(section)}
 					<ContainerFactory content={section} key={section.id} />
 				</div>
 			))}
@@ -73,6 +74,7 @@ export const query = graphql`
 						... on ContentfulMedia {
 							id
 							title
+							cssClass
 							media {
 								gatsbyImageData(width: 600, placeholder: BLURRED)
 								description
@@ -108,6 +110,7 @@ export const query = graphql`
 					__typename
 					id
 					title
+					cssClass
 					media {
 						gatsbyImageData(width: 1900, placeholder: BLURRED)
 						description

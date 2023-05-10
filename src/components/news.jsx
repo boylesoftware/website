@@ -24,31 +24,13 @@ export function News() {
 								<Image media={article.image} alt={article.image.description} />
 							</Link>
 						) : null}
-
-						{/* <div className={styles.tags}>
-							<label htmlFor='tags-list'>Tags</label>
-							<ul id='tags-list'>
-								{article.tags?.map((tag) => (
-									<li key={tag}>
-										<Link
-											to={
-												// @ts-ignore
-												`/tag/${toKabobCase(tag)}`
-											}>
-											{tag}
-										</Link>
-										<span>•</span>
-									</li>
-								))}
-							</ul>
-						</div> */}
 						<h3>
 							<Link to={`/news/${article.slug}`}>{article.title}</Link>
 						</h3>
 					</li>
 				))}
 			</ul>
-			<Link to='/news' className={styles.cta}>
+			<Link to='/news' cssClass={styles.cta}>
 				<span>More news</span>
 			</Link>
 		</section>
