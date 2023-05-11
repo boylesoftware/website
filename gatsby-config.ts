@@ -36,7 +36,19 @@ const config: GatsbyConfig = {
 		{
 			resolve: 'gatsby-plugin-manifest',
 			options: {
-				icon: 'src/images/favicon.png',
+				icon: 'src/images/favicon.svg',
+				name: `Boyle Software, Inc.`,
+				short_name: `Boyle Software`,
+				start_url: `/`,
+				background_color: `#157efa`,
+				theme_color: `#3dc55d`,
+				display: `standalone`,
+			},
+		},
+		{
+			resolve: `gatsby-plugin-offline`,
+			options: {
+				precachePages: [`/about`, `/work/*`],
 			},
 		},
 		{

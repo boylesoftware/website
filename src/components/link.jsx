@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 
-export function Link({ children, to, cssClass }) {
+export function Link({ children, to, cssClass, ariaLabel }) {
 	const internal = /^\/(?!\/)/.test(to);
 
 	// Use Gatsby Link for internal links, and <a> for others
@@ -13,7 +13,11 @@ export function Link({ children, to, cssClass }) {
 		);
 	}
 	return (
-		<a href={to} target='_blank' rel='nofollow' className={cssClass}>
+		<a
+			href={to}
+			target='_blank'
+			rel='nofollow noopener noreferrer'
+			className={cssClass}>
 			{children}
 		</a>
 	);
