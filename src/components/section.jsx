@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
-import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import { RichTextRenderer } from '../components/richtext-renderer';
+
 import { Image } from './image';
 import * as styles from './section.module.scss';
 
@@ -17,7 +18,12 @@ export function Section({ title, cssClass, layout, content }) {
 						) : null}
 
 						{c.text ? (
-							<div className={c.cssClass}>{renderRichText(c.text)}</div>
+							<div className={c.cssClass}>
+								<RichTextRenderer
+									raw={c.text.raw}
+									references={c.text.references}
+								/>
+							</div>
 						) : null}
 					</div>
 				))}
