@@ -37,6 +37,9 @@ const config: GatsbyConfig = {
 			resolve: 'gatsby-plugin-manifest',
 			options: {
 				icon: 'src/images/favicon.svg',
+				icon_options: {
+					purpose: `any maskable`,
+				},
 				name: `Boyle Software, Inc.`,
 				short_name: `Boyle Software`,
 				start_url: `/`,
