@@ -5,24 +5,21 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import Layout from '../components/layout';
 import { SEO } from '../components/seo';
 
-// import type { HeadFC, PageProps } from 'gatsby';
 import * as styles from './index.module.scss';
 
-const IndexPage = () => {
-	const {
-		contentfulHomepage: { title, intro, content },
-	} = useStaticQuery(query);
-
+function IndexPage({ data: { contentfulHomepage } }) {
 	return (
 		<Layout>
 			<>
 				<section>
-					<h1 className={styles.pageHeading}>{title}</h1>
+					<h1 className={styles.pageHeading}>{contentfulHomepage.title}</h1>
 					<div className={styles.intro}>
-						{intro ? renderRichText(intro) : null}
+						{contentfulHomepage.intro
+							? renderRichText(contentfulHomepage.intro)
+							: null}
 					</div>
 				</section>
-				{content.map((section) => (
+				{contentfulHomepage.content.map((section) => (
 					<div key={section.id}>
 						<ContainerFactory content={section} />
 					</div>
@@ -30,7 +27,7 @@ const IndexPage = () => {
 			</>
 		</Layout>
 	);
-};
+}
 
 export const query = graphql`
 	query {
@@ -99,9 +96,9 @@ export const query = graphql`
 
 export default IndexPage;
 
-// export const Head = ({ data: { contentfulHomepage } }) => (
-// 	<SEO
-// 		title={contentfulHomepage.seoTitle}
-// 		description={contentfulHomepage.seoDescription}
-// 	/>
-// );
+export const Head = ({ data: { contentfulHomepage } }) => (
+	<SEO
+		title={contentfulHomepage.seoTitle}
+		description={contentfulHomepage.seoDescription}
+	/>
+);

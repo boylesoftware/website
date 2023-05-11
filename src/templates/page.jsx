@@ -137,8 +137,11 @@ export const query = graphql`
 export default PageTemplate;
 
 export const Head = ({ data: { contentfulPage } }) => (
-	<SEO
-		title={contentfulPage.seoTitle}
-		description={contentfulPage.seoDescription}
-	/>
+	<>
+		<body className='page' />
+		<SEO
+			title={contentfulPage.seoTitle}
+			description={contentfulPage.seoDescription}
+		/>
+	</>
 );

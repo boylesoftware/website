@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { Image } from '../components/image';
-import { toKabobCase } from '../utils/strings';
 
 import * as styles from './news.module.scss';
 import Layout from '../components/layout';

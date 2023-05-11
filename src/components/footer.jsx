@@ -10,8 +10,10 @@ import * as styles from './footer.module.scss';
 
 const Footer = () => (
 	<footer>
-		<nav aria-labelledby='primary-navigation' className={styles.primaryNav}>
-			<h2 id='primary-navigation' className={styles.visuallyHidden}>
+		<nav
+			aria-labelledby='primary-navigation-footer'
+			className={styles.primaryNav}>
+			<h2 id='primary-navigation-footer' className={styles.visuallyHidden}>
 				Primary navigation
 			</h2>
 			<NavLinks />
