@@ -54,41 +54,41 @@ export const query = graphql`
 					}
 				}
 				...contentfulGrid
-				... on ContentfulFeaturedList {
-					title
-					cssClass
-					content {
-						... on ContentfulArticle {
-							__typename
-							id
-							title
-							slug
-							image {
-								gatsbyImageData(width: 400, placeholder: BLURRED)
-								description
-								file {
-									url
-								}
-							}
-						}
-						... on ContentfulService {
-							__typename
-							id
-							title
-							slug
-							intro {
-								raw
-							}
-							image {
-								gatsbyImageData(width: 400, placeholder: BLURRED)
-								description
-								file {
-									url
-								}
-							}
-						}
-					}
-				}
+				# ... on ContentfulFeaturedList {
+				# 	title
+				# 	cssClass
+				# 	content {
+				# 		... on ContentfulArticle {
+				# 			__typename
+				# 			id
+				# 			title
+				# 			slug
+				# 			image {
+				# 				gatsbyImageData(width: 400, placeholder: BLURRED)
+				# 				description
+				# 				file {
+				# 					url
+				# 				}
+				# 			}
+				# 		}
+				# 		... on ContentfulService {
+				# 			__typename
+				# 			id
+				# 			title
+				# 			slug
+				# 			intro {
+				# 				raw
+				# 			}
+				# 			image {
+				# 				gatsbyImageData(width: 400, placeholder: BLURRED)
+				# 				description
+				# 				file {
+				# 					url
+				# 				}
+				# 			}
+				# 		}
+				# 	}
+				# }
 			}
 		}
 	}
