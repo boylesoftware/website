@@ -104,7 +104,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 	// Create case studies
 	caseStudies.forEach(({ node }) => {
 		createPage({
-			path: `/case-study/${node.slug}`,
+			path: `/work/case-studies/${node.slug}`,
 			component: CaseStudyTemplate,
 			context: {
 				slug: node.slug,

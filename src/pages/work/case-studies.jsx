@@ -18,46 +18,19 @@ const CaseStudiesPage = ({ data: { allContentfulCaseStudy } }) => (
 			</div>
 			<section>
 				<ul className={styles.articleList}>
-					{allContentfulCaseStudy.edges.map(({ node: article }) => (
-						<li key={article.id} className={styles.article}>
+					{allContentfulCaseStudy.edges.map(({ node: cs }) => (
+						<li key={cs.id} className={styles.article}>
 							<div className={styles.articleImage}>
-								{article.image && (
-									<Link to={`/case-study/${article.slug}`}>
-										<Image
-											media={article.image}
-											alt={article.image.description}
-										/>
+								{cs.image && (
+									<Link to={`/work/case-studies/${cs.slug}`}>
+										<Image media={cs.image} alt={cs.image.description} />
 									</Link>
 								)}
 							</div>
 							<div className={styles.articleInfo}>
-								<span className={styles.published}>{article.publishDate}</span>
-								{/* <div className={styles.tags}>
-									<label htmlFor='tags-list'>Tags</label>
-									<ul id='tags-list'>
-										{article.tags?.map((tag) => (
-											<li key={tag}>
-												<Link
-													className={styles.tag}
-													to={
-														// @ts-ignore
-														`/tag/${toKabobCase(tag)}`
-													}>
-													{tag}
-												</Link>
-												<span>•</span>
-											</li>
-										))}
-									</ul>
-								</div> */}
 								<h2 className={styles.articleTitle}>
-									<Link to={`/case-study/${article.slug}`}>
-										{article.title}
-									</Link>
+									<Link to={`/work/case-studies/${cs.slug}`}>{cs.title}</Link>
 								</h2>
-								{/* <div className={styles.intro}>
-									{article.intro ? renderRichText(article.intro) : null}
-								</div> */}
 							</div>
 						</li>
 					))}

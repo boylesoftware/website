@@ -14,13 +14,13 @@ export function CaseStudies({ title, content }) {
 				{content.map((c) => (
 					<div key={c.id}>
 						{c.image?.gatsbyImageData ? (
-							<Link to={`/case-study/${c.slug}`}>
+							<Link to={`/work/case-studies/${c.slug}`}>
 								<Image media={c.image} alt={c.image.description} />
 							</Link>
 						) : null}
 
 						<h3 className={styles.studyTitle}>
-							<Link to={`/case-study/${c.slug}`}>{c.title}</Link>
+							<Link to={`/work/case-studies/${c.slug}`}>{c.title}</Link>
 						</h3>
 
 						{c.intro ? renderRichText(c.intro) : null}
