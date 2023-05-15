@@ -142,6 +142,7 @@ export const Head = ({ data: { contentfulPage } }) => (
 		<SEO
 			title={contentfulPage.seoTitle}
 			description={contentfulPage.seoDescription}
+			pathname={contentfulPage.slug}
 		/>
 	</>
 );
