@@ -9,7 +9,7 @@ const toKabobCase = (string) =>
 		.replace(/-$/, '');
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
-	const { createPage } = actions;
+	const { createPage, createRedirect } = actions;
 
 	const ArticleTemplate = path.resolve('src/templates/article.jsx');
 	const CaseStudyTemplate = path.resolve('src/templates/case-study.jsx');
@@ -164,4 +164,5 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 	// 		},
 	// 	});
 	// });
+	createRedirect({ fromPath: '/blog', toPath: '/news', isPermanent: true });
 };

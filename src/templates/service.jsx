@@ -20,11 +20,11 @@ function ServiceTemplate({ data: { contentfulService } }) {
 				<div></div> {/* Keep this empty div for layout puropose */}
 			</div>
 			<section className={styles.serviceMain}>
-				{contentfulService.intro ? (
+				{/* {contentfulService.intro ? (
 					<div className={styles.serviceIntro}>
 						{renderRichText(contentfulService.intro)}
 					</div>
-				) : null}
+				) : null} */}
 				{contentfulService.description ? (
 					<div className={styles.serviceDescription}>
 						{renderRichText(contentfulService.description)}

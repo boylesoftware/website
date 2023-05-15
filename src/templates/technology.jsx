@@ -49,7 +49,7 @@ function TechnologyTemplate({ data: { contentfulTechnology } }) {
 			</section>
 			{contentfulTechnology.relatedCaseStudies ? (
 				<section className={styles.relatedCaseStudies}>
-					<h2 className={styles.sectionHeading}>Related case studies</h2>
+					<h2 className={styles.sectionHeading}>Related Case Studies</h2>
 					<div className={styles.gridStudies}>
 						{contentfulTechnology.relatedCaseStudies.map((study) => (
 							<div className={styles.study} key={study.id}>

@@ -1,7 +1,14 @@
 import React from 'react';
 import { useSiteMetadata } from '../hooks/use-site-metadata';
 
-export const SEO = ({ title, description, cmsImage, pathname, children }) => {
+export const SEO = ({
+	title,
+	description,
+	cmsImage,
+	pathname,
+	children,
+	canonical,
+}) => {
 	const {
 		title: defaultTitle,
 		description: defaultDescription,
@@ -15,7 +22,9 @@ export const SEO = ({ title, description, cmsImage, pathname, children }) => {
 		image: cmsImage || `${siteUrl}${image}`,
 		url: `${siteUrl}${pathname || ``}`,
 		twitterUsername,
+		canonical: canonical,
 	};
+	console.log('Canonical', canonical);
 
 	return (
 		<>
@@ -29,6 +38,7 @@ export const SEO = ({ title, description, cmsImage, pathname, children }) => {
 			<meta name='twitter:description' content={seo.description} />
 			<meta name='twitter:image' content={seo.image} />
 			<meta name='twitter:creator' content={seo.twitterUsername} />
+			<link rel='canonical' href={`${canonical || ``}`} />
 			<link
 				rel='icon'
 				href='data:image/svg+xml<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -34,7 +34,6 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
 			) : null}
 			{contentfulCaseStudy.content?.map((section) => (
 				<div key={section.id}>
-					{console.log(section)}
 					<ContainerFactory content={section} key={section.id} />
 				</div>
 			))}
@@ -47,6 +46,7 @@ export const query = graphql`
 		contentfulCaseStudy(slug: { eq: $slug }) {
 			title
 			slug
+			canonicalUrl
 			seoTitle
 			seoDescription
 			overview {
@@ -144,5 +144,6 @@ export const Head = ({ data: { contentfulCaseStudy } }) => (
 	<SEO
 		title={contentfulCaseStudy.seoTitle}
 		description={contentfulCaseStudy.seoDescription}
+		canonical={contentfulCaseStudy.canonicalUrl}
 	/>
 );
