@@ -11,7 +11,7 @@ function IndexPage({ data: { contentfulHomepage } }) {
 	return (
 		<Layout>
 			<>
-				<section>
+				<section className={styles.mainSection}>
 					<h1 className={styles.pageHeading}>{contentfulHomepage.title}</h1>
 					<div className={styles.intro}>
 						{contentfulHomepage.intro

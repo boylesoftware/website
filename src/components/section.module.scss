@@ -42,6 +42,7 @@
 // Individual components //
 
 .gradgreenblue {
+	@include spacingColor;
 	background: linear-gradient(
 		180deg,
 		#3dc55d 30.01%,
@@ -49,9 +50,6 @@
 		#008cf1 58.72%
 	);
 	color: white;
-	padding-top: 6rem;
-	margin-bottom: 0;
-	margin-top: 0;
 	@include desktop {
 		background: linear-gradient(91.06deg, #3dc55d 38.38%, #008cf1 70.07%);
 	}

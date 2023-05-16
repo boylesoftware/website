@@ -1,7 +1,7 @@
 @import 'src/css/all.scss';
 
 .newsSection {
-	@include coloredBgPadding;
+	@include spacingColor;
 	background-color: #9743ff;
 	color: white;
 	h2 {
