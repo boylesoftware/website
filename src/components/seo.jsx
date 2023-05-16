@@ -24,7 +24,6 @@ export const SEO = ({
 		twitterUsername,
 		canonical: canonical,
 	};
-	console.log('Canonical', canonical);
 
 	return (
 		<>
