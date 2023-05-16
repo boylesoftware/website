@@ -56,7 +56,7 @@
 		justify-content: center;
 		svg,
 		img {
-			width: 180px;
+			width: 140px;
 		}
 	}
 }
@@ -88,6 +88,7 @@
 }
 
 .associations {
+	padding-top: 6rem;
 	.grid {
 		grid-template-columns: 1fr 1fr;
 		gap: 3rem;
