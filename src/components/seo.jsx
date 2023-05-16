@@ -37,7 +37,7 @@ export const SEO = ({
 			<meta name='twitter:description' content={seo.description} />
 			<meta name='twitter:image' content={seo.image} />
 			<meta name='twitter:creator' content={seo.twitterUsername} />
-			<link rel='canonical' href={`${canonical || seo.url}`} />
+			{canonical ? <link rel='canonical' href={canonical} /> : null}
 			<link
 				rel='icon'
 				href='data:image/svg+xml<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -4,6 +4,7 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { Link } from '../components/link';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { ContainerFactory } from '../components/container-factory';
+import { SEO } from '../components/seo';
 
 import Layout from '../components/layout';
 
@@ -20,11 +21,6 @@ function ServiceTemplate({ data: { contentfulService } }) {
 				<div></div> {/* Keep this empty div for layout puropose */}
 			</div>
 			<section className={styles.serviceMain}>
-				{/* {contentfulService.intro ? (
-					<div className={styles.serviceIntro}>
-						{renderRichText(contentfulService.intro)}
-					</div>
-				) : null} */}
 				{contentfulService.description ? (
 					<div className={styles.serviceDescription}>
 						{renderRichText(contentfulService.description)}
@@ -50,6 +46,8 @@ export const query = graphql`
 	query ($slug: String!) {
 		contentfulService(slug: { eq: $slug }) {
 			title
+			seoTitle
+			seoDescription
 			intro {
 				raw
 			}
@@ -74,3 +72,10 @@ export const query = graphql`
 `;
 
 export default ServiceTemplate;
+
+export const Head = ({ data: { contentfulService } }) => (
+	<SEO
+		title={contentfulService.seoTitle}
+		description={contentfulService.seoDescription}
+	/>
+);
