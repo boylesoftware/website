@@ -36,8 +36,16 @@ const Footer = () => (
 			</ul>
 		</nav>
 		<div className={styles.copyright}>
-			© 1988-{new Date().getFullYear()} Boyle Software.Inc., All Rights
-			Reserved.
+			© 1988-{new Date().getFullYear()} Boyle Software.Inc., a subsidiary
+			of&nbsp;
+			<a
+				href='https://www.beyondsoft.com/'
+				target='_blank'
+				rel='noreferrer'
+				className={styles.beyondsoft}>
+				Beyondsoft
+			</a>
+			. All Rights Reserved.
 		</div>
 	</footer>
 );

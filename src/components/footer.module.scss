@@ -55,6 +55,10 @@ footer {
 	padding-top: 3rem;
 }
 
+.beyondsoft {
+	text-decoration: underline;
+}
+
 @include desktop {
 	footer {
 		display: grid;
