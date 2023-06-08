@@ -53,14 +53,16 @@ function TechnologyTemplate({ data: { contentfulTechnology } }) {
 					<div className={styles.gridStudies}>
 						{contentfulTechnology.relatedCaseStudies.map((study) => (
 							<div className={styles.study} key={study.id}>
-								<Link to={`/case-study/${study.slug}`}>
+								<Link to={`/work/case-studies/${study.slug}`}>
 									<GatsbyImage
 										image={study.image?.gatsbyImageData}
 										alt={study.image?.description}
 									/>
 								</Link>
 								<h3 className={styles.studyTitle}>
-									<Link to={`/case-study/${study.slug}`}>{study.title}</Link>
+									<Link to={`/work/case-studies/${study.slug}`}>
+										{study.title}
+									</Link>
 								</h3>
 							</div>
 						))}
