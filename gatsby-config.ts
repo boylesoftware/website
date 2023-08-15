@@ -102,7 +102,7 @@ const config: GatsbyConfig = {
 			options: {
 				// You can add multiple tracking ids and a pageview event will be fired for all of them.
 				trackingIds: [
-					'G-7NJ030KMFM', // Google Analytics / GA
+					'G-KS8SCLRT3X', // Google Analytics / GA
 				],
 				// This object is used for configuration specific to this plugin
 				pluginConfig: {
