@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { graphql, Link } from 'gatsby';
 import { ContainerFactory } from '../components/container-factory';
-import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { SEO } from '../components/seo';
+import { RichTextRenderer } from '../components/richtext-renderer';
 
 import Layout from '../components/layout';
 
@@ -27,7 +27,10 @@ function PageTemplate({ data: { contentfulPage } }) {
 			</div>
 			{contentfulPage.intro ? (
 				<section className={styles.intro}>
-					{renderRichText(contentfulPage.intro)}
+					<RichTextRenderer
+						raw={contentfulPage.intro.raw}
+						references={contentfulPage.intro.references}
+					/>
 				</section>
 			) : null}
 			{contentfulPage.content?.map((section) => (
