@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { graphql, Link } from 'gatsby';
-import { ContainerFactory } from '../components/container-factory';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
-import { SEO } from '../components/seo';
-
+import { Image } from '../components/image';
+import IconProblem from '../images/icon-communications.svg';
+import IconGoals from '../images/icon-bullseye.svg';
+import { Seo } from '../components/seo';
 import Layout from '../components/layout';
 
 import * as styles from './case-study.module.scss';
@@ -15,28 +16,98 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
 				<div className={styles.crumbs}>
 					<Link to='/work'>Work</Link> &gt;{' '}
 					<Link to='/work/case-studies'>Case Studies</Link>
-				</div>{' '}
-				{/* Keep this empty div for layout puropose */}
-				<h1>{contentfulCaseStudy.title}</h1>
-				<div></div> {/* Keep this empty div for layout puropose */}
-			</div>
-			{contentfulCaseStudy.overview ? (
-				<section>
-					<h2 className={styles.sectionHeading}>Overview</h2>
-					{renderRichText(contentfulCaseStudy.overview)}
-				</section>
-			) : null}
-			{contentfulCaseStudy.metrics ? (
-				<section className={styles.metrics}>
-					<h2 className={styles.sectionHeading}>Project Outcome Metrics</h2>
-					{renderRichText(contentfulCaseStudy.metrics)}
-				</section>
-			) : null}
-			{contentfulCaseStudy.content?.map((section) => (
-				<div key={section.id}>
-					<ContainerFactory content={section} key={section.id} />
 				</div>
-			))}
+				<h1>{contentfulCaseStudy.title}</h1>
+				{contentfulCaseStudy.caseStudyPdf && (
+					<div className={styles.pill}>
+						<a href={contentfulCaseStudy.caseStudyPdf.url}>
+							Download Case Study
+						</a>
+					</div>
+				)}
+			</div>
+
+			<section>
+				<h2 className={styles.sectionHeading}>Context</h2>
+				<div className={styles.sectionContent}>
+					{renderRichText(contentfulCaseStudy.context)}
+				</div>
+				<Image
+					media={contentfulCaseStudy.image}
+					alt={contentfulCaseStudy.image.description}
+				/>
+			</section>
+
+			<section
+				className={styles.withBgImage}
+				style={{
+					backgroundImage: `url(${contentfulCaseStudy.backgroundImage.file.url})`,
+					backgroundPosition: 'bottom',
+					backgroundSize: 'cover',
+				}}>
+				<div>
+					<IconProblem />
+					<h3>Business problem</h3>
+					{renderRichText(contentfulCaseStudy.businessProblem)}
+				</div>
+				<div>
+					<IconGoals />
+					<h3>Expected goals</h3>
+					{renderRichText(contentfulCaseStudy.expectedGoals)}
+				</div>
+			</section>
+
+			<section className={styles.solution}>
+				<h2 className={styles.sectionHeading}>Solution</h2>
+				<h3 className={styles.sectionContentHeading}>
+					{contentfulCaseStudy.solutionHeading}
+				</h3>
+				<div className={styles.solutionText}>
+					<div>{renderRichText(contentfulCaseStudy.solutionText1)}</div>
+					<div>{renderRichText(contentfulCaseStudy.solutionText2)}</div>
+				</div>
+
+				<Image
+					media={contentfulCaseStudy.solutionImage}
+					alt={contentfulCaseStudy.solutionImage.description}
+				/>
+			</section>
+
+			<section className={styles.outcomes}>
+				<h2 className={styles.sectionHeading}>Outcomes of the Engagement</h2>
+				<h3 className={styles.sectionContentHeading}>
+					{contentfulCaseStudy.outcomesHeading}
+				</h3>
+				<Image
+					media={contentfulCaseStudy.outcomesImage}
+					alt={contentfulCaseStudy.outcomesImage.description}
+				/>
+				<div className={styles.outcomesText}>
+					<div>{renderRichText(contentfulCaseStudy.outcomesText)}</div>
+				</div>
+			</section>
+
+			{contentfulCaseStudy.caseStudyPdf && (
+				<section className={styles.pdfBlue}>
+					<h2>Save this case study for future reference</h2>
+					<div className={styles.pill}>
+						<a href={contentfulCaseStudy.caseStudyPdf.url}>
+							Download Case Study
+						</a>
+					</div>
+				</section>
+			)}
+			{contentfulCaseStudy.metrics && (
+				<section className={styles.metrics}>
+					<h2 className={styles.sectionHeading}>
+						Key project outcome metrics:
+					</h2>
+
+					{contentfulCaseStudy.outcomeMetrics?.map((metric) => (
+						<div key={metric.id}>Metric</div>
+					))}
+				</section>
+			)}
 		</Layout>
 	);
 }
@@ -49,8 +120,60 @@ export const query = graphql`
 			canonicalUrl
 			seoTitle
 			seoDescription
-			overview {
+			caseStudyPdf {
+				url
+			}
+			image {
+				gatsbyImageData(width: 740, placeholder: BLURRED)
+				description
+				file {
+					contentType
+					url
+				}
+			}
+			context {
 				raw
+			}
+			backgroundImage {
+				gatsbyImageData(width: 1366, placeholder: BLURRED)
+				description
+				file {
+					contentType
+					url
+				}
+			}
+			businessProblem {
+				raw
+			}
+			expectedGoals {
+				raw
+			}
+			solutionHeading
+			solutionText1 {
+				raw
+			}
+			solutionText2 {
+				raw
+			}
+			solutionImage {
+				gatsbyImageData(width: 1366, placeholder: BLURRED)
+				description
+				file {
+					contentType
+					url
+				}
+			}
+			outcomesHeading
+			outcomesText {
+				raw
+			}
+			outcomesImage {
+				gatsbyImageData(width: 1366, placeholder: BLURRED)
+				description
+				file {
+					contentType
+					url
+				}
 			}
 			metrics {
 				raw
@@ -86,26 +209,6 @@ export const query = graphql`
 						}
 					}
 				}
-				# ... on ContentfulImageWithText {
-				# 	__typename
-				# 	title
-				# 	ctaLink
-				# 	ctaLabel
-				# 	cssClass
-				# 	layout
-				# 	image {
-				# 		id
-				# 		gatsbyImageData(
-				# 			width: 564
-				# 			placeholder: BLURRED
-				# 			formats: [AUTO, WEBP, AVIF]
-				# 		)
-				# 		description
-				# 	}
-				# 	text {
-				# 		raw
-				# 	}
-				# }
 				... on ContentfulMedia {
 					__typename
 					id
@@ -141,7 +244,7 @@ export const query = graphql`
 export default CaseStudyTemplate;
 
 export const Head = ({ data: { contentfulCaseStudy } }) => (
-	<SEO
+	<Seo
 		title={contentfulCaseStudy.seoTitle}
 		description={contentfulCaseStudy.seoDescription}
 		canonical={contentfulCaseStudy.canonicalUrl}

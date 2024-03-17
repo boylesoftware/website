@@ -2,20 +2,113 @@
 
 .pageHeader {
 	@extend %page-header;
-	margin-bottom: 2rem;
+	margin-bottom: 0;
 }
 
-.metrics {
-	ul {
-		margin: 2rem 0 4rem;
-		padding-left: 1rem;
+.pill {
+	a {
+		border: 1px solid #7f7f7f;
+		border-radius: 2rem;
+		color: white;
+		display: inline-block;
+		margin: 1.5rem 0;
+		padding: 0.4rem 1.25rem;
+		text-decoration: none;
 	}
 }
+
+// .metrics {
+// 	ul {
+// 		margin: 2rem 0 4rem;
+// 		padding-left: 1rem;
+// 	}
+// }
 .sectionHeading {
-	@include headline-sm;
+	color: $grey-med;
+	font-size: 1.25rem;
+	font-weight: 400;
+	line-height: 1.625rem;
+}
+
+.sectionContent h3,
+.sectionContentHeading {
+	color: $bs-blue;
+	font-size: 2.5rem;
+	font-weight: 400;
+	line-height: 3.25rem;
+	margin: 0;
 }
 
 .csChallengeHeading {
 	font-family: 'West';
 	font-size: 1.5rem;
+}
+
+.withBgImage {
+	color: white;
+	padding: 2.5rem 1.25rem;
+	h3 {
+		font-size: 1.5rem;
+		line-height: 2rem;
+	}
+	& > div {
+		flex: 1;
+	}
+	div:first-of-type {
+		margin-bottom: 5rem;
+	}
+	@include tablet {
+		display: flex;
+		gap: 4rem;
+	}
+	@include desktop {
+		display: flex;
+		gap: 10rem;
+		padding: 5rem 7.75rem;
+	}
+}
+
+.solutionText {
+	ul:first-of-type {
+		margin-bottom: 2rem;
+	}
+	@include tablet {
+		display: flex;
+		gap: 4rem;
+		margin-bottom: 2rem;
+		& > div {
+			flex: 1;
+		}
+	}
+	@include desktop {
+		display: flex;
+		gap: 10rem;
+		margin-bottom: 4rem;
+	}
+}
+
+.outcomes {
+	img {
+		margin: 2rem 0;
+	}
+	h4 {
+		font-size: 1.25rem;
+		font-weight: 400;
+		margin-bottom: 0;
+	}
+}
+
+.pdfBlue {
+	background-color: $bs-blue;
+	color: white;
+	text-align: center;
+	h2 {
+		font-size: 1.875rem;
+		font-weight: 400;
+		line-height: 2.5rem;
+		margin-bottom: 0;
+	}
+	.pill a {
+		border: 1px solid #fff;
+	}
 }

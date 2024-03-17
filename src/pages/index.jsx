@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { ContainerFactory } from '../components/container-factory';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import Layout from '../components/layout';
-import { SEO } from '../components/seo';
+import { Seo } from '../components/seo';
 
 import * as styles from './index.module.scss';
 
@@ -97,7 +97,7 @@ export const query = graphql`
 export default IndexPage;
 
 export const Head = ({ data: { contentfulHomepage } }) => (
-	<SEO
+	<Seo
 		title={contentfulHomepage.seoTitle}
 		description={contentfulHomepage.seoDescription}
 	/>
