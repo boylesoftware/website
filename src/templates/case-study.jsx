@@ -41,49 +41,66 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
 			<section
 				className={styles.withBgImage}
 				style={{
-					backgroundImage: `url(${contentfulCaseStudy.backgroundImage.file.url})`,
+					backgroundImage: `url(${contentfulCaseStudy.backgroundImage?.file.url})`,
 					backgroundPosition: 'bottom',
 					backgroundSize: 'cover',
 				}}>
 				<div>
 					<IconProblem />
 					<h3>Business problem</h3>
-					{renderRichText(contentfulCaseStudy.businessProblem)}
+					{contentfulCaseStudy.businessProblem &&
+						renderRichText(contentfulCaseStudy.businessProblem)}
 				</div>
 				<div>
 					<IconGoals />
 					<h3>Expected goals</h3>
-					{renderRichText(contentfulCaseStudy.expectedGoals)}
+					{contentfulCaseStudy.expectedGoals &&
+						renderRichText(contentfulCaseStudy.expectedGoals)}
 				</div>
 			</section>
 
 			<section className={styles.solution}>
 				<h2 className={styles.sectionHeading}>Solution</h2>
 				<h3 className={styles.sectionContentHeading}>
-					{contentfulCaseStudy.solutionHeading}
+					{contentfulCaseStudy.solutionHeading &&
+						contentfulCaseStudy.solutionHeading}
 				</h3>
 				<div className={styles.solutionText}>
-					<div>{renderRichText(contentfulCaseStudy.solutionText1)}</div>
-					<div>{renderRichText(contentfulCaseStudy.solutionText2)}</div>
+					<div>
+						{contentfulCaseStudy.solutionText1 &&
+							renderRichText(contentfulCaseStudy.solutionText1)}
+					</div>
+					<div>
+						{contentfulCaseStudy.solutionText2 &&
+							renderRichText(contentfulCaseStudy.solutionText2)}
+					</div>
 				</div>
 
-				<Image
-					media={contentfulCaseStudy.solutionImage}
-					alt={contentfulCaseStudy.solutionImage.description}
-				/>
+				{contentfulCaseStudy.solutionImage && (
+					<Image
+						media={contentfulCaseStudy.solutionImage}
+						alt={contentfulCaseStudy.solutionImage.description}
+					/>
+				)}
 			</section>
 
 			<section className={styles.outcomes}>
 				<h2 className={styles.sectionHeading}>Outcomes of the Engagement</h2>
 				<h3 className={styles.sectionContentHeading}>
-					{contentfulCaseStudy.outcomesHeading}
+					{contentfulCaseStudy.outcomesHeading &&
+						contentfulCaseStudy.outcomesHeading}
 				</h3>
-				<Image
-					media={contentfulCaseStudy.outcomesImage}
-					alt={contentfulCaseStudy.outcomesImage.description}
-				/>
+				{contentfulCaseStudy.outcomesImage && (
+					<Image
+						media={contentfulCaseStudy.outcomesImage}
+						alt={contentfulCaseStudy.outcomesImage.description}
+					/>
+				)}
 				<div className={styles.outcomesText}>
-					<div>{renderRichText(contentfulCaseStudy.outcomesText)}</div>
+					<div>
+						{contentfulCaseStudy.outcomesText &&
+							renderRichText(contentfulCaseStudy.outcomesText)}
+					</div>
 				</div>
 			</section>
 
