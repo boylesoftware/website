@@ -27,7 +27,7 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
 				)}
 			</div>
 
-			<section>
+			<section className={styles.sectionContext}>
 				<h2 className={styles.sectionHeading}>Context</h2>
 				<div className={styles.sectionContent}>
 					{renderRichText(contentfulCaseStudy.context)}
@@ -90,39 +90,52 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
 					{contentfulCaseStudy.outcomesHeading &&
 						contentfulCaseStudy.outcomesHeading}
 				</h3>
-				{contentfulCaseStudy.outcomesImage && (
-					<Image
-						media={contentfulCaseStudy.outcomesImage}
-						alt={contentfulCaseStudy.outcomesImage.description}
-					/>
-				)}
-				<div className={styles.outcomesText}>
-					<div>
-						{contentfulCaseStudy.outcomesText &&
-							renderRichText(contentfulCaseStudy.outcomesText)}
+				<div className={styles.outcomesContent}>
+					{contentfulCaseStudy.outcomesImage && (
+						<Image
+							media={contentfulCaseStudy.outcomesImage}
+							alt={contentfulCaseStudy.outcomesImage.description}
+						/>
+					)}
+					<div className={styles.outcomesText}>
+						<div>
+							{contentfulCaseStudy.outcomesText &&
+								renderRichText(contentfulCaseStudy.outcomesText)}
+						</div>
 					</div>
 				</div>
 			</section>
 
 			{contentfulCaseStudy.caseStudyPdf && (
-				<section className={styles.pdfBlue}>
-					<h2>Save this case study for future reference</h2>
-					<div className={styles.pill}>
-						<a href={contentfulCaseStudy.caseStudyPdf.url}>
-							Download Case Study
-						</a>
+				<section>
+					<div className={styles.pdfBlue}>
+						<h2>Save this case study for future reference</h2>
+						<div className={styles.pill}>
+							<a href={contentfulCaseStudy.caseStudyPdf.url}>
+								Download Case Study
+							</a>
+						</div>
 					</div>
 				</section>
 			)}
-			{contentfulCaseStudy.metrics && (
-				<section className={styles.metrics}>
+			{contentfulCaseStudy.outcomesMetrics && (
+				<section className={styles.sectionMetrics}>
 					<h2 className={styles.sectionHeading}>
 						Key project outcome metrics:
 					</h2>
-
-					{contentfulCaseStudy.outcomeMetrics?.map((metric) => (
-						<div key={metric.id}>Metric</div>
-					))}
+					<div className={styles.metricsContent}>
+						{contentfulCaseStudy.outcomesMetrics?.map((metric) => (
+							<div key={metric.id} className={styles.metric}>
+								<Image media={metric.icon} alt={metric.icon.description} />
+								<div className={styles.metricInfo}>
+									<div className={styles.metricValue}>{metric.metricValue}</div>
+									<div className={styles.metricDescription}>
+										{renderRichText(metric.metricDescription)}
+									</div>
+								</div>
+							</div>
+						))}
+					</div>
 				</section>
 			)}
 		</Layout>
@@ -190,6 +203,25 @@ export const query = graphql`
 				file {
 					contentType
 					url
+				}
+			}
+			outcomesMetrics {
+				__typename
+				... on ContentfulMetric {
+					__typename
+					id
+					metricDescription {
+						raw
+					}
+					metricValue
+					icon {
+						gatsbyImageData(width: 78, placeholder: BLURRED)
+						description
+						file {
+							contentType
+							url
+						}
+					}
 				}
 			}
 			metrics {
