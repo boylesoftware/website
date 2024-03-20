@@ -39,9 +39,15 @@
 }
 
 .sectionContext {
-	& > div:nth-of-type(2) {
-		display: inline-block;
-		text-align: right;
+	.sectionContent {
+		@include desktop {
+			width: 60%;
+		}
+	}
+	.contextImage {
+		display: flex;
+		justify-content: end;
+		margin-top: 4rem;
 	}
 }
 

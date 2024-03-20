@@ -28,14 +28,17 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
 			</div>
 
 			<section className={styles.sectionContext}>
-				<h2 className={styles.sectionHeading}>Context</h2>
 				<div className={styles.sectionContent}>
+					<h2 className={styles.sectionHeading}>Context</h2>
+
 					{renderRichText(contentfulCaseStudy.context)}
 				</div>
-				<Image
-					media={contentfulCaseStudy.image}
-					alt={contentfulCaseStudy.image.description}
-				/>
+				<div className={styles.contextImage}>
+					<Image
+						media={contentfulCaseStudy.image}
+						alt={contentfulCaseStudy.image.description}
+					/>
+				</div>
 			</section>
 
 			<section
