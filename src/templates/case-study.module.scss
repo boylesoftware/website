@@ -7,13 +7,12 @@
 
 .pill {
 	a {
-		border: 1px solid #7f7f7f;
-		border-radius: 2rem;
+		@include ctaButton;
 		color: white;
-		display: inline-block;
 		margin: 1.5rem 0;
-		padding: 0.4rem 1.25rem;
-		text-decoration: none;
+		span::after {
+			content: ' ↓';
+		}
 	}
 }
 

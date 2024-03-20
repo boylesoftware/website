@@ -21,7 +21,7 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
 				{contentfulCaseStudy.caseStudyPdf && (
 					<div className={styles.pill}>
 						<a href={contentfulCaseStudy.caseStudyPdf.url}>
-							Download Case Study
+							<span>Download Case Study</span>
 						</a>
 					</div>
 				)}
