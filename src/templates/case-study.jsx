@@ -31,7 +31,7 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
 				<div className={styles.sectionContent}>
 					<h2 className={styles.sectionHeading}>Context</h2>
 
-					{renderRichText(contentfulCaseStudy.context)}
+					{renderRichText(contentfulCaseStudy.overview)}
 				</div>
 				<div className={styles.contextImage}>
 					<Image
@@ -164,7 +164,7 @@ export const query = graphql`
 					url
 				}
 			}
-			context {
+			overview {
 				raw
 			}
 			backgroundImage {
