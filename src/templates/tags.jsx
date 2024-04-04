@@ -2,7 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 // Components
-import { useStaticQuery, Link, graphql } from "gatsby"
+import { useStaticQuery, Link, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import { Image } from '../components/image';
 
