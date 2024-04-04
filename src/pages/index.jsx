@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import { ContainerFactory } from '../components/container-factory';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import Layout from '../components/layout';

@@ -2,13 +2,41 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 // Components
-import { Link, graphql } from 'gatsby';
+import { useStaticQuery, Link, graphql } from "gatsby"
 import Layout from '../components/layout';
 import { Image } from '../components/image';
 
 import * as styles from './tags.module.scss';
 
-function TagsTemplate({ pageContext, data }) {
+function TagsTemplate({ pageContext }) {
+	const data = useStaticQuery(graphql`
+    query ($tag: String) {
+		allContentfulArticle(
+			limit: 2000
+			sort: { publishDate: DESC }
+			filter: { tags: { in: [$tag] } }
+		) {
+			totalCount
+			edges {
+				node {
+					id
+					slug
+					title
+					publishDate
+					image {
+						id
+						gatsbyImageData(
+							width: 564
+							placeholder: BLURRED
+							formats: [AUTO, WEBP, AVIF]
+						)
+						description
+					}
+				}
+			}
+		}
+	}
+  `);
 	const { tag } = pageContext;
 	const { edges } = data.allContentfulArticle;
 	const tagHeader = `${tag}`;
@@ -24,8 +52,6 @@ function TagsTemplate({ pageContext, data }) {
 			<section>
 				<ul className={styles.articleList}>
 					{edges.map(({ node }) => {
-						const { slug, title, image } = node;
-
 						return (
 							<li key={node.id} className={styles.article}>
 								<div className={styles.articleImage}>
@@ -69,32 +95,3 @@ function TagsTemplate({ pageContext, data }) {
 // };
 
 export default TagsTemplate;
-
-export const pageQuery = graphql`
-	query ($tag: String) {
-		allContentfulArticle(
-			limit: 2000
-			sort: { publishDate: DESC }
-			filter: { tags: { in: [$tag] } }
-		) {
-			totalCount
-			edges {
-				node {
-					id
-					slug
-					title
-					publishDate
-					image {
-						id
-						gatsbyImageData(
-							width: 564
-							placeholder: BLURRED
-							formats: [AUTO, WEBP, AVIF]
-						)
-						description
-					}
-				}
-			}
-		}
-	}
-`;
