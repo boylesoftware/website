@@ -1,65 +1,86 @@
-import React from 'react';
-import { graphql, Link } from 'gatsby';
-import { Image } from '../../components/image';
+import React from "react";
+import { graphql, Link } from "gatsby";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
+import { Image } from "../../components/image";
+import Layout from "../../components/layout";
+import CaseStudiesListWithFilter from "../../components/case-studies-list-with-filter";
 
-import * as styles from '../news.module.scss';
-import Layout from '../../components/layout';
+import * as styles from "../news.module.scss";
 
-const CaseStudiesPage = ({ data: { allContentfulCaseStudy } }) => (
-	<Layout>
-		<>
-			<div className={styles.pageHeader}>
-				<div className={styles.crumbs}>
-					<Link to='/work'>Work</Link>
-				</div>
-				{/* Keep the empty crumbs div for layout puropose */}
-				<h1>Case Studies</h1>
-				<div></div> {/* Keep this empty div for layout puropose */}
-			</div>
-			<section>
-				<ul className={styles.articleList}>
-					{allContentfulCaseStudy.edges.map(({ node: cs }) => (
-						<li key={cs.id} className={styles.article}>
-							<div className={styles.articleImage}>
-								{cs.image && (
-									<Link to={`/work/case-studies/${cs.slug}`}>
-										<Image media={cs.image} alt={cs.image.description} />
-									</Link>
-								)}
-							</div>
-							<div className={styles.articleInfo}>
-								<h2 className={styles.articleTitle}>
-									<Link to={`/work/case-studies/${cs.slug}`}>{cs.title}</Link>
-								</h2>
-							</div>
-						</li>
-					))}
-				</ul>
-			</section>
-		</>
-	</Layout>
+const CaseStudiesPage = ({ data: { contentfulCaseStudies } }) => (
+  <Layout>
+    <div className={styles.pageHeader}>
+      <div className={styles.crumbs}>
+        <Link to="/work">Work</Link>
+      </div>
+      {/* Keep the empty crumbs div for layout purpose */}
+      <h1>{contentfulCaseStudies.title}</h1>
+      <div></div> {/* Keep this empty div for layout purpose */}
+    </div>
+    <section>
+      {contentfulCaseStudies.intro &&
+        renderRichText(contentfulCaseStudies.intro)}
+      <div>
+        <h2 className={styles.sectionContentHeading}>Featured Case Studies</h2>
+        <ul className={styles.featuredCaseStudies}>
+          {contentfulCaseStudies.content.map((featuredCaseStudy) => (
+            <li key={featuredCaseStudy.id}>
+              <h3 className={styles.caseStudyCategory}>
+                {featuredCaseStudy.mainServicetechnology}
+              </h3>
+
+              <div className={styles.caseStudyImage}>
+                {featuredCaseStudy.image && (
+                  <Link to={`/work/case-studies/${featuredCaseStudy.slug}`}>
+                    <Image
+                      media={featuredCaseStudy.image}
+                      alt={featuredCaseStudy.image.description}
+                    />
+                  </Link>
+                )}
+              </div>
+
+              <div>
+                <h4 className={styles.caseStudyTitle}>
+                  {featuredCaseStudy.title && (
+                    <Link to={`/work/case-studies/${featuredCaseStudy.slug}`}>
+                      {featuredCaseStudy.title}
+                    </Link>
+                  )}
+                </h4>
+                {featuredCaseStudy.overview &&
+                  renderRichText(featuredCaseStudy.overview)}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <CaseStudiesListWithFilter />
+    </section>
+  </Layout>
 );
 
 export const query = graphql`
-	{
-		allContentfulCaseStudy(sort: { updatedAt: DESC }) {
-			edges {
-				node {
-					id
-					updatedAt
-					title
-					slug
-					image {
-						gatsbyImageData(width: 325, placeholder: BLURRED)
-						description
-						file {
-							url
-						}
-					}
-				}
-			}
-		}
-	}
+  query CaseStudiesLandingPage {
+    contentfulCaseStudies {
+      title
+      intro {
+        raw
+      }
+      content {
+        id
+        title
+        mainServicetechnology
+        slug
+        overview {
+          raw
+        }
+        image {
+          gatsbyImageData(width: 325, placeholder: BLURRED)
+        }
+      }
+    }
+  }
 `;
 
 export default CaseStudiesPage;

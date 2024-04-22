@@ -9,21 +9,21 @@ import * as styles from './case-studies.module.scss';
 export function CaseStudies({ title, content }) {
 	return (
 		<section className={styles.sectionStudies}>
-			{title ? <h2 className={styles.sectionHeading}>{title}</h2> : null}
+			{title && <h2 className={styles.sectionHeading}>{title}</h2>}
 			<div className={classnames(styles.gridStudies)}>
 				{content.map((c) => (
 					<div key={c.id}>
-						{c.image?.gatsbyImageData ? (
+						{c.image?.gatsbyImageData && (
 							<Link to={`/work/case-studies/${c.slug}`}>
 								<Image media={c.image} alt={c.image.description} />
 							</Link>
-						) : null}
+						)}
 
 						<h3 className={styles.studyTitle}>
 							<Link to={`/work/case-studies/${c.slug}`}>{c.title}</Link>
 						</h3>
 
-						{c.intro ? renderRichText(c.intro) : null}
+						{c.intro && renderRichText(c.intro)}
 					</div>
 				))}
 			</div>
