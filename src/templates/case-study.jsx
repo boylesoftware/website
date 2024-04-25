@@ -38,7 +38,7 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
           <div className={classNames(styles.caseStudyTags, styles.articleFilters)}>
             <div className="filter-industries">
               <div className={styles.filters}>
-                {contentfulCaseStudy.industries.map((industry, idx) => (
+                {contentfulCaseStudy.industries?.map((industry, idx) => (
                   <Link
                     key={`caseStudyIndustry-${idx}`}
                     to={`/work/case-studies#cslist--${industry}--INDUSTRIES`}
@@ -50,7 +50,7 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
             </div>
             <div className="filter-services">
               <div className={styles.filters}>
-                {contentfulCaseStudy.servicestechnologies.map(
+                {contentfulCaseStudy.servicestechnologies?.map(
                   (serviceTechnology, idx) => (
                     <Link
                       key={`caseStudyServiceTechnology-${idx}`}
