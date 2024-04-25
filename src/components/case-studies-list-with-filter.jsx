@@ -1,13 +1,13 @@
-import React, { useRef, useState } from "react";
-import { renderRichText } from "gatsby-source-contentful/rich-text";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import classNames from "classnames";
+
 import { useCaseStudies, filterCaseStudies } from "./hooks/use-case-studies";
 import { Link } from "./link";
 import { Image } from "./image";
 
 import * as styles from "./case-studies-list-with-filter.module.scss";
-import classNames from "classnames";
 
-const CaseStudiesListWithFilter = () => {
+const CaseStudiesListWithFilter = ({ location }) => {
   const {
     caseStudies = [],
     industries = [],
@@ -20,7 +20,7 @@ const CaseStudiesListWithFilter = () => {
 
   const filterRefs = useRef([]);
 
-  const filterResults = (ev) => {
+  const filterResults = useCallback((ev) => {
     ev?.preventDefault();
 
     const { value: term = "", name: field = "" } = ev?.target;
@@ -28,7 +28,7 @@ const CaseStudiesListWithFilter = () => {
 
     const results = filterCaseStudies(term, caseStudies, field);
     setFilteredCaseStudies(results);
-  };
+  }, [caseStudies]);
 
   const resetFilter = (ev) => {
     ev?.preventDefault();
@@ -41,21 +41,44 @@ const CaseStudiesListWithFilter = () => {
     return selectedFilter === filterRefs[i]?.value;
   };
 
+  useEffect(() => {
+    const { hash } = location;
+
+    if (hash) {
+      const params = hash.split("--"); // params[0] is div id 
+      const term = decodeURIComponent(params[1]).trim();
+
+      const ev = {
+        target: {
+          value: term,
+          name: params[2],
+        },
+        preventDefault: () => {},
+      };
+
+      if (params.length > 1) {
+        filterResults(ev);
+        setIsOpen(true);
+      }
+    }
+
+    return () => false;
+  }, [location, filterResults]);
+
   return (
-    <div className={styles.caseStudiesWithFilter}>
+    <div className={styles.caseStudiesWithFilter} id="cslist">
       <nav className={styles.articleFilters}>
-        {/* <div className={styles.filterHeader}>
+        <div className={styles.filterHeader}>
           <button
             className={styles.filterResultsBtn}
             onClick={() => setIsOpen(!isOpen)}
           >
             <span>Filter Case Studies</span>
           </button>
-        </div> */}
+        </div>
         <form
           className={classNames(styles.filterCaseStudiesForm, {
-            [styles.showAllFilters]: isOpen
-            // [styles.showFilterHeaders]: isOpen
+            [styles.showAllFilters]: isOpen,
           })}
         >
           <div className="filter-all">
@@ -70,7 +93,6 @@ const CaseStudiesListWithFilter = () => {
             </div>
           </div>
           <div className="filter-industries">
-            <h2>Industries</h2>
             <div className={styles.filters}>
               {industries.map((industry, idx) => (
                 <button
@@ -89,7 +111,6 @@ const CaseStudiesListWithFilter = () => {
             </div>
           </div>
           <div className="filter-services">
-            <h2>Services / Technologies</h2>
             <div className={styles.filters}>
               {servicesTechnologies.map((serviceTechnology, idx) => (
                 <button
@@ -124,9 +145,6 @@ const CaseStudiesListWithFilter = () => {
               <h2 className={styles.articleTitle}>
                 <Link to={`/work/case-studies/${cs.slug}`}>{cs.title}</Link>
               </h2>
-              <div className={styles.articleCopy}>
-                {cs.overview && renderRichText(cs.overview)}
-              </div>
             </div>
           </li>
         ))}

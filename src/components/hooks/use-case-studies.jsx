@@ -5,6 +5,14 @@ const fields = {
   SERVICES: "servicestechnologies",
 };
 
+const sortArray = (arr) =>
+  arr.sort(function (a, b) {
+    a = a.toLowerCase();
+    b = b.toLowerCase();
+    if (a === b) return 0;
+    return a < b ? -1 : 1;
+  });
+
 const getAllFilters = (caseStudies) => {
   let industries = [],
     servicesTechnologies = [];
@@ -37,11 +45,8 @@ export const useCaseStudies = () => {
               slug
               servicestechnologies
               industries
-              overview {
-                raw
-              }
               image {
-                gatsbyImageData(width: 264, placeholder: BLURRED)
+                gatsbyImageData(width: 464, placeholder: BLURRED)
                 description
                 file {
                   url
@@ -57,7 +62,11 @@ export const useCaseStudies = () => {
   const caseStudies = allContentfulCaseStudy.edges;
   const { industries, servicesTechnologies } = getAllFilters(caseStudies);
 
-  return { caseStudies, industries, servicesTechnologies };
+  return {
+    caseStudies,
+    industries: sortArray(industries),
+    servicesTechnologies: sortArray(servicesTechnologies),
+  };
 };
 
 export const filterCaseStudies = (filterTerm, caseStudies, field) => {

@@ -5,9 +5,9 @@ import { Image } from "../../components/image";
 import Layout from "../../components/layout";
 import CaseStudiesListWithFilter from "../../components/case-studies-list-with-filter";
 
-import * as styles from "../news.module.scss";
+import * as styles from "./case-studies.module.scss";
 
-const CaseStudiesPage = ({ data: { contentfulCaseStudies } }) => (
+const CaseStudiesPage = ({ data: { contentfulCaseStudies }, location }) => (
   <Layout>
     <div className={styles.pageHeader}>
       <div className={styles.crumbs}>
@@ -17,16 +17,18 @@ const CaseStudiesPage = ({ data: { contentfulCaseStudies } }) => (
       <h1>{contentfulCaseStudies.title}</h1>
       <div></div> {/* Keep this empty div for layout purpose */}
     </div>
-    <section>
-      {contentfulCaseStudies.intro &&
-        renderRichText(contentfulCaseStudies.intro)}
-      <div>
+
+    <section className={styles.caseStudiesLandingPage}>
+      {contentfulCaseStudies.intro && (
+        <div className={styles.caseStudiesLandingIntro}>{renderRichText(contentfulCaseStudies.intro)}</div>
+      )}
+      <div className={styles.featuredCaseStudiesContainer}>
         <h2 className={styles.sectionContentHeading}>Featured Case Studies</h2>
         <ul className={styles.featuredCaseStudies}>
           {contentfulCaseStudies.content.map((featuredCaseStudy) => (
             <li key={featuredCaseStudy.id}>
               <h3 className={styles.caseStudyCategory}>
-                {featuredCaseStudy.mainServicetechnology}
+                {featuredCaseStudy.mainServicetechnology}&nbsp;
               </h3>
 
               <div className={styles.caseStudyImage}>
@@ -40,7 +42,7 @@ const CaseStudiesPage = ({ data: { contentfulCaseStudies } }) => (
                 )}
               </div>
 
-              <div>
+              <div className={styles.caseStudiesDetails}>
                 <h4 className={styles.caseStudyTitle}>
                   {featuredCaseStudy.title && (
                     <Link to={`/work/case-studies/${featuredCaseStudy.slug}`}>
@@ -55,7 +57,7 @@ const CaseStudiesPage = ({ data: { contentfulCaseStudies } }) => (
           ))}
         </ul>
       </div>
-      <CaseStudiesListWithFilter />
+      <CaseStudiesListWithFilter location={location} />
     </section>
   </Layout>
 );
@@ -76,7 +78,7 @@ export const query = graphql`
           raw
         }
         image {
-          gatsbyImageData(width: 325, placeholder: BLURRED)
+          gatsbyImageData(width: 626, placeholder: BLURRED)
         }
       }
     }

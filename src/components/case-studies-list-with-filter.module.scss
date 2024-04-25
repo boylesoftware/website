@@ -7,9 +7,25 @@
   color: #fff;
 }
 
+%filterBtn {
+  background-color: transparent;
+  border: 0.0625rem solid $grey;
+  font-size: 1rem;
+  line-height: 1rem;
+  font-family: "DMSans";
+  padding: 0.625rem;
+  text-wrap: nowrap;
+
+  &:hover,
+  &.active {
+    @extend %hover;
+  }
+}
+
 .caseStudiesWithFilter {
   margin-top: 6.75rem;
 }
+
 .filterHeader {
   overflow: hidden;
   position: relative;
@@ -17,47 +33,94 @@
   background-color: #fff;
 }
 
+.articleFilters {
+  display: block;
+  padding: 0;
+  margin: 6.75rem 0 2.5rem;
+  overflow: hidden;
+
+  .filterResultsBtn {
+    @include ctaButton;
+
+    background-color: transparent;
+    border-color: $bs-blue;
+    color: $bs-blue;
+    font-family: "DMSans";
+    font-size: 1rem;
+
+    span::after {
+      content: " ↓";
+    }
+
+    &:hover {
+      @extend %hover;
+    }
+  }
+
+  .filters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+  }
+}
+
 .filterCaseStudiesForm {
   display: flex;
   flex-wrap: wrap;
+  margin: 0.625rem 0 0;
+  padding: 0;
   gap: 0.625rem;
-  margin-bottom: 2.5rem;
-  transform: translateY(-100%);
+  height: 0;
+  transform: translateY(-200%);
   transition: 0.4s ease-in-out;
 
-  h2 {
-    display: none;
+  button {
+    @extend %filterBtn;
+  }
+
+  @keyframes show-filters {
+    from {
+      height: 0;
+      transform: translateY(-200%);
+    }
+
+    to {
+      height: auto;
+      transform: translateY(0);
+    }
   }
 
   &.showAllFilters {
-    transform: translateY(0);
+    animation: show-filters 0.6s forwards;
+    transition: 0.4s ease-in-out;
   }
-
-//   &.showFilterHeaders {
-//     display: block;
-
-//     h2 {
-//       display: block;
-//     }
-
-//     .articleFilters {
-//         display: flex;
-//         flex-wrap: wrap;
-//     }
-//   }
 }
 
 .articleList {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.3125rem;
+  column-gap: 1.3125rem;
+  row-gap: 3.75rem;
   list-style-type: none;
   margin: 0;
   padding: 0;
+  grid-template-columns: 1fr;
+
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
 
   a {
     text-decoration: none;
   }
+}
+
+.articleImage {
+  width: 100%;
 }
 
 .articleTitle {
@@ -72,49 +135,16 @@
 
 .articleCopy {
   font-weight: 300;
+
   p {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
     text-overflow: ellipsis;
+
     & + * {
       display: none;
-    }
-  }
-}
-
-.articleFilters {
-  .filterResultsBtn {
-    @include ctaButton;
-
-    background-color: transparent;
-    border-color: $bs-blue;
-    color: $bs-blue;
-    margin: 1.5rem 0;
-
-    span::after {
-      content: " ↓";
-    }
-
-    &:hover {
-      @extend %hover;
-    }
-  }
-
-  .filters {
-    display: flex;
-    gap: 0.625rem;
-
-    button {
-      background-color: transparent;
-      border: 0.0625rem solid $grey;
-      padding: 0.625rem;
-
-      &:hover,
-      &.active {
-        @extend %hover;
-      }
     }
   }
 }
