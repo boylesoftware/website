@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { Link } from '../components/link';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { Seo } from '../components/seo';
+import { SEO } from '../components/seo';
 
 import Layout from '../components/layout';
 
@@ -130,7 +130,7 @@ export const query = graphql`
 export default TechnologyTemplate;
 
 export const Head = ({ data: { contentfulTechnology } }) => (
-	<Seo
+	<SEO
 		title={contentfulTechnology.seoTitle}
 		description={contentfulTechnology.seoDescription}
 	/>

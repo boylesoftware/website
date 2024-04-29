@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { graphql, Link } from 'gatsby';
 import { ContainerFactory } from '../components/container-factory';
-import { Seo } from '../components/seo';
+import { SEO } from '../components/seo';
 import { RichTextRenderer } from '../components/richtext-renderer';
 
 import Layout from '../components/layout';
@@ -142,7 +142,7 @@ export default PageTemplate;
 export const Head = ({ data: { contentfulPage } }) => (
 	<>
 		<body className='page' />
-		<Seo
+		<SEO
 			title={contentfulPage.seoTitle}
 			description={contentfulPage.seoDescription}
 		/>
