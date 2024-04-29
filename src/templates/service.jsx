@@ -4,7 +4,7 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { Link } from '../components/link';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { ContainerFactory } from '../components/container-factory';
-import { SEO } from '../components/seo';
+import { Seo } from '../components/seo';
 
 import Layout from '../components/layout';
 
@@ -74,7 +74,7 @@ export const query = graphql`
 export default ServiceTemplate;
 
 export const Head = ({ data: { contentfulService } }) => (
-	<SEO
+	<Seo
 		title={contentfulService.seoTitle}
 		description={contentfulService.seoDescription}
 	/>

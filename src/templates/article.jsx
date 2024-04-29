@@ -4,7 +4,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { Link } from '../components/link';
 import Layout from '../components/layout';
-import { SEO } from '../components/seo';
+import { Seo } from '../components/seo';
 
 import * as styles from './article.module.scss';
 
@@ -67,7 +67,7 @@ export const query = graphql`
 export default ArticleTemplate;
 
 export const Head = ({ data: { contentfulArticle } }) => (
-	<SEO
+	<Seo
 		title={contentfulArticle.seoTitle}
 		description={contentfulArticle.seoDescription}
 		cmsImage={contentfulArticle.image}
