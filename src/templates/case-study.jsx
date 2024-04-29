@@ -35,13 +35,16 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
           {renderRichText(contentfulCaseStudy.overview)}
         </div>
         <div className={styles.contextImage}>
-          <div className={classNames(styles.caseStudyTags, styles.articleFilters)}>
+          <div
+            className={classNames(styles.caseStudyTags, styles.articleFilters)}
+          >
             <div className="filter-industries">
+              <h3>Industries:</h3>
               <div className={styles.filters}>
                 {contentfulCaseStudy.industries?.map((industry, idx) => (
                   <Link
                     key={`caseStudyIndustry-${idx}`}
-                    to={`/work/case-studies#cslist--${industry}--INDUSTRIES`}
+                    to={`/work/case-studies?query=${industry}&type=INDUSTRIES#cslist`}
                   >
                     {industry}
                   </Link>
@@ -49,12 +52,13 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
               </div>
             </div>
             <div className="filter-services">
+              <h3>Services / Technology:</h3>
               <div className={styles.filters}>
                 {contentfulCaseStudy.servicestechnologies?.map(
                   (serviceTechnology, idx) => (
                     <Link
                       key={`caseStudyServiceTechnology-${idx}`}
-                      to={`/work/case-studies#cslist--${serviceTechnology}--SERVICES`}
+                      to={`/work/case-studies?query=${serviceTechnology}&type=SERVICES#cslist`}
                     >
                       {serviceTechnology}
                     </Link>

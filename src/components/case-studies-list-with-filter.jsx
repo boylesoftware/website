@@ -20,15 +20,18 @@ const CaseStudiesListWithFilter = ({ location }) => {
 
   const filterRefs = useRef([]);
 
-  const filterResults = useCallback((ev) => {
-    ev?.preventDefault();
+  const filterResults = useCallback(
+    (ev) => {
+      ev?.preventDefault();
 
-    const { value: term = "", name: field = "" } = ev?.target;
-    setSelectedFilter(term);
+      const { value: term = "", name: field = "" } = ev?.target;
+      setSelectedFilter(term);
 
-    const results = filterCaseStudies(term, caseStudies, field);
-    setFilteredCaseStudies(results);
-  }, [caseStudies]);
+      const results = filterCaseStudies(term, caseStudies, field);
+      setFilteredCaseStudies(results);
+    },
+    [caseStudies]
+  );
 
   const resetFilter = (ev) => {
     ev?.preventDefault();
@@ -42,21 +45,24 @@ const CaseStudiesListWithFilter = ({ location }) => {
   };
 
   useEffect(() => {
-    const { hash } = location;
+    const { search } = location;
 
-    if (hash) {
-      const params = hash.split("--"); // params[0] is div id 
-      const term = decodeURIComponent(params[1]).trim();
+    if (search) {
+      const params = new URLSearchParams(search);
+      const query = params.get("query");
+      const fieldType = params.get("type");
+
+      const term = decodeURIComponent(query).trim();
 
       const ev = {
         target: {
           value: term,
-          name: params[2],
+          name: fieldType,
         },
         preventDefault: () => {},
       };
 
-      if (params.length > 1) {
+      if (term && fieldType) {
         filterResults(ev);
         setIsOpen(true);
       }
@@ -93,6 +99,7 @@ const CaseStudiesListWithFilter = ({ location }) => {
             </div>
           </div>
           <div className="filter-industries">
+            <h3>Industries:</h3>
             <div className={styles.filters}>
               {industries.map((industry, idx) => (
                 <button
@@ -111,6 +118,7 @@ const CaseStudiesListWithFilter = ({ location }) => {
             </div>
           </div>
           <div className="filter-services">
+            <h3>Services / Technology:</h3>
             <div className={styles.filters}>
               {servicesTechnologies.map((serviceTechnology, idx) => (
                 <button

@@ -39,6 +39,10 @@
   margin: 6.75rem 0 2.5rem;
   overflow: hidden;
 
+  h3 {
+    margin: 1rem 0 0.3125rem;
+  }
+
   .filterResultsBtn {
     @include ctaButton;
 
@@ -62,6 +66,12 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 0.625rem;
+    margin-top: 0.625rem;
+
+    h3 {
+      margin: 0;
+      align-self: center;
+    }
   }
 }
 
