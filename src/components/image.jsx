@@ -1,7 +1,7 @@
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import React, { CSSProperties, ReactElement } from 'react';
+import React from 'react';
 
-export function Image({ alt = '', media, loading = 'lazy' }) {
+export function Image({ alt, media, loading = 'lazy' }) {
 	const img = Array.isArray(media) ? media[0] : media;
 
 	if (!img) {

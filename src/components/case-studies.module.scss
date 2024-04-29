@@ -1,47 +1,82 @@
-@import 'src/css/all.scss';
+@import "src/css/all.scss";
 
 .sectionStudies {
-	background-color: $bs-blue;
-	color: white;
-	padding-bottom: 6.25rem;
-	padding-top: 10.625rem;
-	margin-bottom: 0;
-	margin-top: 0;
-	h2 {
-		margin-top: 0;
-	}
+  background-color: $bs-blue;
+  color: #fff;
+  padding-bottom: 6.25rem;
+  padding-top: 10.625rem;
+  margin-bottom: 0;
+  margin-top: 0;
 
-	.sectionHeading {
-		@include display-med;
-		margin-bottom: 4rem;
-	}
-	.gridStudies {
-		& > div {
-			margin-bottom: 4.375rem;
-		}
-		@include desktop {
-			display: grid;
-			gap: 4.375rem;
-			grid-template-columns: 1fr 1fr 1fr;
-			justify-content: center;
-			align-items: start;
-		}
-	}
-	.study {
-		margin-bottom: 6rem;
-		grid-column: span 4;
-	}
-	.studyTitle {
-		font-size: 1.25rem;
-		font-weight: 500;
-		a {
-			color: white;
-			text-decoration: none;
-		}
-	}
-	.cta {
-		@include ctaButton;
-		border: 1px solid rgba(255, 255, 255, 0.5);
-		color: white;
-	}
+  h2 {
+    margin-top: 0;
+  }
+
+  .sectionHeading {
+    @include display-med;
+
+    margin-bottom: 4rem;
+  }
+
+  .gridStudies {
+    & > div {
+      margin-bottom: 4.375rem;
+    }
+
+    @include desktop {
+      display: grid;
+      gap: 4.375rem;
+      grid-template-columns: repeat(3, 1fr);
+      justify-content: center;
+      align-items: start;
+    }
+  }
+
+  .study {
+    margin-bottom: 6rem;
+    grid-column: span 4;
+  }
+
+  .studyTitle {
+    font-size: 1.25rem;
+    font-weight: 500;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  .cta {
+    @include ctaButton;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+  }
+
+  .caseStudyCategory {
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+  }
+
+  &.homepage {
+    background-color: #fff;
+    color: #000;
+
+    a,
+    p,
+    .cta {
+      color: #000;
+    }
+
+    .cta {
+      border-color: #000;
+    }
+
+    .caseStudyCategory {
+      color: $grey-med;
+    }
+  }
 }

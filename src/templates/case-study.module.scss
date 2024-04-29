@@ -1,21 +1,193 @@
-@import '/src/css/all.scss';
+@import "/src/css/all.scss";
+@import "/src/components/case-studies-list-with-filter.module.scss";
 
 .pageHeader {
-	@extend %page-header;
-	margin-bottom: 2rem;
+  @extend %page-header;
+  margin-bottom: 0;
 }
 
-.metrics {
-	ul {
-		margin: 2rem 0 4rem;
-		padding-left: 1rem;
-	}
+.pill {
+  a {
+    @include ctaButton;
+    color: white;
+    margin: 1.5rem 0;
+    span::after {
+      content: " ↓";
+    }
+  }
 }
+
 .sectionHeading {
-	@include headline-sm;
+  color: $grey-med;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.625rem;
+}
+
+.sectionContent h3,
+.sectionContentHeading,
+.sectionMetrics h2 {
+  color: $bs-blue;
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 3.25rem;
+  margin: 0 0 1rem;
 }
 
 .csChallengeHeading {
-	font-family: 'West';
-	font-size: 1.5rem;
+  font-family: "West";
+  font-size: 1.5rem;
+}
+
+.sectionContext {
+  .sectionContent {
+    @include desktop {
+      width: 60%;
+    }
+  }
+  .contextImage {
+    display: flex;
+	flex-direction: column;
+    margin-top: 4rem;
+    gap: 0.625rem;
+
+    @include tablet-and-desktop {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+  }
+}
+
+.withBgImage {
+  color: white;
+  padding: 2.5rem 1.25rem;
+  h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  & > div {
+    flex: 1;
+  }
+  div:first-of-type {
+    margin-bottom: 5rem;
+  }
+  @include tablet {
+    display: flex;
+    gap: 4rem;
+  }
+  @include desktop {
+    display: flex;
+    gap: 10rem;
+    padding: 5rem 7.75rem;
+  }
+}
+
+.solutionText {
+  ul:first-of-type {
+    margin-bottom: 2rem;
+  }
+  @include tablet {
+    display: flex;
+    gap: 4rem;
+    margin-bottom: 2rem;
+    & > div {
+      flex: 1;
+    }
+  }
+  @include desktop {
+    display: flex;
+    gap: 10rem;
+    margin-bottom: 4rem;
+  }
+}
+
+.outcomes {
+  img {
+    margin: 2rem 0;
+  }
+  h4 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 0;
+  }
+}
+
+.outcomesContent {
+  @include desktop {
+    display: flex;
+    gap: 4rem;
+    & > div {
+      width: 50%;
+    }
+  }
+}
+
+.pdfBlue {
+  background-color: $bs-blue;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  h2 {
+    font-size: 1.875rem;
+    font-weight: 400;
+    line-height: 2.5rem;
+    margin-bottom: 0;
+  }
+  .pill a {
+    border: 1px solid #fff;
+  }
+}
+
+.metricsContent {
+  @include tablet-and-desktop {
+    display: flex;
+    gap: 2rem;
+  }
+}
+
+.metric {
+  background-color: #f0f9f7;
+  display: flex;
+  margin-bottom: 1rem;
+  padding: 2rem;
+  img {
+    margin-right: 3rem;
+  }
+  @include tablet-and-desktop {
+    aspect-ratio: 1;
+    display: block;
+    width: 20%;
+    img {
+      margin-bottom: 2.5rem;
+    }
+  }
+}
+
+.metricValue {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 3rem;
+}
+
+.metricDescription {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.caseStudyTags {
+  &.articleFilters {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  a {
+    @extend %filterBtn;
+
+    text-decoration: none;
+  }
 }
