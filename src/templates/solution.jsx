@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { graphql, Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { Seo } from '../components/seo';
+import { SEO } from '../components/seo';
 import { RichTextRenderer } from '../components/richtext-renderer';
 
 import Layout from '../components/layout';
@@ -86,7 +86,7 @@ export const query = graphql`
 export default SolutionTemplate;
 
 export const Head = ({ data: { contentfulSolution } }) => (
-	<Seo
+	<SEO
 		title={contentfulSolution.seoTitle}
 		description={contentfulSolution.seoDescription}
 	/>

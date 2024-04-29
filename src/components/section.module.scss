@@ -181,6 +181,24 @@
 			line-height: 4.6875rem;
 		}
 	}
+	// @include desktop {
+	// 	display: grid;
+	// 	gap: 0 1rem;
+	// 	grid-template-columns: repeat(12, 1fr);
+	// 	h2 {
+	// 		grid-column: 1/12;
+	// 		grid-row: 1;
+	// 	}
+	// 	& > div:first-of-type {
+	// 		grid-column: 1/7;
+	// 		grid-row: 2;
+	// 		letter-spacing: 1px;
+	// 	}
+	// 	& > div:last-of-type {
+	// 		grid-column: 8/13;
+	// 		grid-row: 2;
+	// 	}
+	// }
 }
 
 .csSolution {
@@ -209,5 +227,19 @@
 				line-height: 52px;
 			}
 		}
+		// @include desktop {
+		// 	display: grid;
+		// 	gap: 1rem;
+		// 	grid-template-columns: repeat(12, 1fr);
+
+		// 	& > div:first-of-type {
+		// 		grid-column: 1/6;
+		// 		grid-row: 1;
+		// 	}
+		// 	& > div:last-of-type {
+		// 		grid-column: 7/13;
+		// 		grid-row: 1;
+		// 	}
+		// }
 	}
 }

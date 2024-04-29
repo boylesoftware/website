@@ -3,27 +3,27 @@
 	font-family: West;
 	font-weight: 400;
 	src: local(West-Regular),
-		url('/fonts/West-Regular.woff2') format('woff2');
+		url(../../static/fonts/West-Regular.woff2) format('woff2');
 }
 @font-face {
 	font-display: swap;
 	font-family: West;
 	font-weight: 500;
 	src: local(West-Medium),
-		url('/fonts/West-Medium.woff2') format('woff2');
+		url(../../static/fonts/West-Medium.woff2) format('woff2');
 }
 @font-face {
 	font-display: swap;
 	font-family: West;
 	font-weight: 700;
-	src: local(West-Bold), url('/fonts/West-Bold.woff2') format('woff2');
+	src: local(West-Bold), url(../../static/fonts/West-Bold.woff2) format('woff2');
 }
 @font-face {
 	font-display: swap;
 	font-family: West;
 	font-weight: 800;
 	src: local(West-ExtraBold),
-		url('/fonts/West-ExtraBold.woff2') format('woff2');
+		url(../../static/fonts/West-ExtraBold.woff2) format('woff2');
 }
 
 @font-face {
@@ -31,7 +31,7 @@
 	font-family: DMSans;
 	font-weight: 400;
 	src: local(DMSans-Regular),
-		url('/fonts/DMSans-Regular.ttf') format('truetype');
+		url(../../static/fonts/DMSans-Regular.ttf) format('truetype');
 }
 
 @font-face {
@@ -39,12 +39,12 @@
 	font-family: DMSans;
 	font-weight: 500;
 	src: local(DMSans-Medium),
-		url('/fonts/DMSans-Medium.ttf') format('truetype');
+		url(../../static/fonts/DMSans-Medium.ttf) format('truetype');
 }
 @font-face {
 	font-display: swap;
 	font-family: DMSans;
 	font-weight: 700;
 	src: local(DMSans-Bold),
-		url('/fonts/DMSans-Bold.ttf') format('truetype');
+		url(../../static/fonts/DMSans-Bold.ttf) format('truetype');
 }
