@@ -69,7 +69,7 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
           </div>
           <Image
             media={contentfulCaseStudy.image}
-            alt={contentfulCaseStudy.image.description}
+            alt={contentfulCaseStudy.image?.description}
           />
         </div>
       </section>
