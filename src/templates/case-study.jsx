@@ -44,7 +44,7 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
                 {contentfulCaseStudy.industries?.map((industry, idx) => (
                   <Link
                     key={`caseStudyIndustry-${idx}`}
-                    to={`/work/case-studies?query=${industry}&type=INDUSTRIES#cslist`}
+                    to={`/work/case-studies?query=${encodeURIComponent(industry)}&type=INDUSTRIES#cslist`}
                   >
                     {industry}
                   </Link>
@@ -58,7 +58,7 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
                   (serviceTechnology, idx) => (
                     <Link
                       key={`caseStudyServiceTechnology-${idx}`}
-                      to={`/work/case-studies?query=${serviceTechnology}&type=SERVICES#cslist`}
+                      to={`/work/case-studies?query=${encodeURIComponent(serviceTechnology)}&type=SERVICES#cslist`}
                     >
                       {serviceTechnology}
                     </Link>
