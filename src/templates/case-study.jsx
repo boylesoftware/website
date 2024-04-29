@@ -190,7 +190,7 @@ export const query = graphql`
 		contentfulCaseStudy(slug: { eq: $slug }) {
 			title
 			slug
-			canonicalUrl
+			# canonicalUrl
 			seoTitle
 			seoDescription
 			caseStudyPdf {
@@ -269,68 +269,68 @@ export const query = graphql`
 					}
 				}
 			}
-			metrics {
-				raw
-			}
-			content {
-				__typename
-				... on ContentfulSection {
-					__typename
-					id
-					title
-					cssClass
-					layout
-					content {
-						... on ContentfulText {
-							id
-							cssClass
-							text {
-								raw
-							}
-						}
-						... on ContentfulMedia {
-							id
-							title
-							cssClass
-							media {
-								gatsbyImageData(width: 600, placeholder: BLURRED)
-								description
-								file {
-									contentType
-									url
-								}
-							}
-						}
-					}
-				}
-				... on ContentfulMedia {
-					__typename
-					id
-					title
-					cssClass
-					media {
-						gatsbyImageData(width: 1900, placeholder: BLURRED)
-						description
-						file {
-							contentType
-							url
-						}
-					}
-				}
-				... on ContentfulOutcomes {
-					__typename
-					id
-					text {
-						raw
-					}
-					highlights {
-						id
-						text {
-							raw
-						}
-					}
-				}
-			}
+			# metrics {
+			# 	raw
+			# }
+			# content {
+			# 	__typename
+			# 	... on ContentfulSection {
+			# 		__typename
+			# 		id
+			# 		title
+			# 		cssClass
+			# 		layout
+			# 		content {
+			# 			... on ContentfulText {
+			# 				id
+			# 				cssClass
+			# 				text {
+			# 					raw
+			# 				}
+			# 			}
+			# 			... on ContentfulMedia {
+			# 				id
+			# 				title
+			# 				cssClass
+			# 				media {
+			# 					gatsbyImageData(width: 600, placeholder: BLURRED)
+			# 					description
+			# 					file {
+			# 						contentType
+			# 						url
+			# 					}
+			# 				}
+			# 			}
+			# 		}
+			# 	}
+			# 	... on ContentfulMedia {
+			# 		__typename
+			# 		id
+			# 		title
+			# 		cssClass
+			# 		media {
+			# 			gatsbyImageData(width: 1900, placeholder: BLURRED)
+			# 			description
+			# 			file {
+			# 				contentType
+			# 				url
+			# 			}
+			# 		}
+			# 	}
+			# 	... on ContentfulOutcomes {
+			# 		__typename
+			# 		id
+			# 		text {
+			# 			raw
+			# 		}
+			# 		highlights {
+			# 			id
+			# 			text {
+			# 				raw
+			# 			}
+			# 		}
+			# 	}
+			# }
 		}
 	}
 `;
