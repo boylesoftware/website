@@ -64,7 +64,11 @@ $grey-light: rgba(217, 217, 217, 0.5);
 }
 
 @mixin defaultPadding {
+<<<<<<< HEAD
 	padding: 2.5rem 1.25rem;
+=======
+	padding: 2.5rem 2rem;
+>>>>>>> ce74c97031dcc60f87a66b6a8ae1268bbb44240b
 	@include desktop {
 		margin: 5rem 0;
 		padding: 0 7.75rem;

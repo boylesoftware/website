@@ -1,0 +1,160 @@
+@import "./case-studies.module.scss";
+
+%hover {
+  cursor: pointer;
+  background-color: $bs-blue;
+  border-color: $bs-blue;
+  color: #fff;
+}
+
+%filterBtn {
+  background-color: transparent;
+  border: 0.0625rem solid $grey;
+  font-size: 1rem;
+  line-height: 1rem;
+  font-family: "DMSans";
+  padding: 0.625rem;
+  text-wrap: nowrap;
+
+  &:hover,
+  &.active {
+    @extend %hover;
+  }
+}
+
+.caseStudiesWithFilter {
+  margin-top: 6.75rem;
+}
+
+.filterHeader {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  background-color: #fff;
+}
+
+.articleFilters {
+  display: block;
+  padding: 0;
+  margin: 6.75rem 0 2.5rem;
+  overflow: hidden;
+
+  h3 {
+    margin: 1rem 0 0.3125rem;
+  }
+
+  .filterResultsBtn {
+    @include ctaButton;
+
+    background-color: transparent;
+    border-color: $bs-blue;
+    color: $bs-blue;
+    font-family: "DMSans";
+    font-size: 1rem;
+
+    span::after {
+      content: " ↓";
+    }
+
+    &:hover {
+      @extend %hover;
+    }
+  }
+
+  .filters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    margin-top: 0.625rem;
+
+    h3 {
+      margin: 0;
+      align-self: center;
+    }
+  }
+}
+
+.filterCaseStudiesForm {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.625rem 0 0;
+  padding: 0;
+  gap: 0.625rem;
+  height: 0;
+  transform: translateY(-200%);
+  transition: 0.4s ease-in-out;
+
+  button {
+    @extend %filterBtn;
+  }
+
+  @keyframes show-filters {
+    from {
+      height: 0;
+      transform: translateY(-200%);
+    }
+
+    to {
+      height: auto;
+      transform: translateY(0);
+    }
+  }
+
+  &.showAllFilters {
+    animation: show-filters 0.6s forwards;
+    transition: 0.4s ease-in-out;
+  }
+}
+
+.articleList {
+  display: grid;
+  column-gap: 1.3125rem;
+  row-gap: 3.75rem;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: 1fr;
+
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.articleImage {
+  width: 100%;
+}
+
+.articleTitle {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+
+  a:hover {
+    color: $bs-blue;
+  }
+}
+
+.articleCopy {
+  font-weight: 300;
+
+  p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    & + * {
+      display: none;
+    }
+  }
+}
