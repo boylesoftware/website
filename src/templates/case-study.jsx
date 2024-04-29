@@ -21,7 +21,7 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
         <h1>{contentfulCaseStudy.title}</h1>
         {contentfulCaseStudy.caseStudyPdf && (
           <div className={styles.pill}>
-            <a href={contentfulCaseStudy.caseStudyPdf.url}>
+            <a href={contentfulCaseStudy.caseStudyPdf.url} target="_blank" rel="noreferrer">
               <span>Download Case Study</span>
             </a>
           </div>
@@ -148,8 +148,8 @@ function CaseStudyTemplate({ data: { contentfulCaseStudy } }) {
           <div className={styles.pdfBlue}>
             <h2>Save this case study for future reference</h2>
             <div className={styles.pill}>
-              <a href={contentfulCaseStudy.caseStudyPdf.url}>
-                Download Case Study
+              <a href={contentfulCaseStudy.caseStudyPdf.url} target="_blank" rel="noreferrer">
+                <span>Download Case Study</span>
               </a>
             </div>
           </div>
