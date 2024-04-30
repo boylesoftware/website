@@ -117,6 +117,7 @@ export const query = graphql`
 							id
 							title
 							slug
+							mainServicetechnology
 							image {
 								id
 								gatsbyImageData(
