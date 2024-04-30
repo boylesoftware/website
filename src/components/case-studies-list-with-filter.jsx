@@ -72,7 +72,7 @@ const CaseStudiesListWithFilter = ({ location }) => {
   }, [location, filterResults]);
 
   return (
-    <div className={styles.caseStudiesWithFilter} id="cslist">
+    <div className={styles.caseStudiesWithFilter}>
       <nav className={styles.articleFilters}>
         <div className={styles.filterHeader}>
           <button
@@ -139,7 +139,7 @@ const CaseStudiesListWithFilter = ({ location }) => {
         </form>
       </nav>
 
-      <ul className={styles.articleList}>
+      <ul className={styles.articleList} id="cslist">
         {filteredCaseStudies.map(({ node: cs }) => (
           <li key={cs.id} className={styles.article}>
             <div className={styles.articleImage}>
