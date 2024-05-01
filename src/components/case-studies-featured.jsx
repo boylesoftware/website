@@ -11,7 +11,7 @@ const CaseStudiesFeatured = () => {
   const { featuredCaseStudies } = useFeaturedCaseStudies();
 
   return (
-    <div className={styles.featuredCaseStudiesContainer}>
+    <section className={styles.featuredCaseStudiesContainer}>
       <h2 className={styles.sectionContentHeading}>Featured Case Studies</h2>
       <ul className={styles.featuredCaseStudies}>
         {featuredCaseStudies.map((featuredCaseStudy) => (
@@ -45,7 +45,7 @@ const CaseStudiesFeatured = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 };
 

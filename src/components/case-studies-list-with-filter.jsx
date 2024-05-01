@@ -29,6 +29,8 @@ const CaseStudiesListWithFilter = ({ location }) => {
 
       const results = filterCaseStudies(term, caseStudies, field);
       setFilteredCaseStudies(results);
+
+      setIsOpen(false);
     },
     [caseStudies]
   );
@@ -38,6 +40,7 @@ const CaseStudiesListWithFilter = ({ location }) => {
 
     setFilteredCaseStudies(caseStudies);
     setSelectedFilter(null);
+    setIsOpen(false);
   };
 
   const isActive = (i) => {
@@ -64,7 +67,6 @@ const CaseStudiesListWithFilter = ({ location }) => {
 
       if (term && fieldType) {
         filterResults(ev);
-        setIsOpen(true);
       }
     }
 
@@ -72,15 +74,18 @@ const CaseStudiesListWithFilter = ({ location }) => {
   }, [location, filterResults]);
 
   return (
-    <div className={styles.caseStudiesWithFilter}>
+    <section className={styles.caseStudiesWithFilter}>
       <nav className={styles.articleFilters}>
-        <div className={styles.filterHeader}>
+        <div className={styles.filterHeader} id="cslist">
           <button
             className={styles.filterResultsBtn}
             onClick={() => setIsOpen(!isOpen)}
           >
             <span>Filter Case Studies</span>
           </button>
+          <h2>
+            Case Studies: <span>{selectedFilter ? selectedFilter : "All"}</span>
+          </h2>
         </div>
         <form
           className={classNames(styles.filterCaseStudiesForm, {
@@ -138,8 +143,7 @@ const CaseStudiesListWithFilter = ({ location }) => {
           </div>
         </form>
       </nav>
-
-      <ul className={styles.articleList} id="cslist">
+      <ul className={styles.articleList}>
         {filteredCaseStudies.map(({ node: cs }) => (
           <li key={cs.id} className={styles.article}>
             <div className={styles.articleImage}>
@@ -150,14 +154,14 @@ const CaseStudiesListWithFilter = ({ location }) => {
               )}
             </div>
             <div className={styles.articleInfo}>
-              <h2 className={styles.articleTitle}>
+              <h4 className={styles.articleTitle}>
                 <Link to={`/work/case-studies/${cs.slug}`}>{cs.title}</Link>
-              </h2>
+              </h4>
             </div>
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 };
 

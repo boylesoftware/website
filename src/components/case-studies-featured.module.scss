@@ -1,5 +1,9 @@
 @import "/src/css/all.scss";
 
+.featuredCaseStudiesContainer {
+  padding: 0;
+}
+
 .featuredCaseStudies {
   display: grid;
   column-gap: 1.25rem;
