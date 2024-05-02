@@ -29,7 +29,9 @@ export function Grid({
 								<Image media={item.media} alt={item.media?.description} />
 							</Link>
 						) : (
+              <div className={styles.imageContainer}>
 							<Image media={item.media} alt={item.media?.description} />
+              </div>
 						)}
 						<div className={styles.itemTitle}>{item.title}</div>
 						{item.jobTitle ? (
