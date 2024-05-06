@@ -31,25 +31,6 @@ const NewsPage = ({ data: { allContentfulArticle } }) => (
 							</div>
 							<div className={styles.articleInfo}>
 								<span className={styles.published}>{article.publishDate}</span>
-								{/* <span>|</span>
-								<div className={styles.tags}>
-									<label htmlFor='tags-list'>Tags</label>
-									<ul id='tags-list'>
-										{article.tags?.map((tag) => (
-											<li key={tag}>
-												<Link
-													className={styles.tag}
-													to={
-														// @ts-ignore
-														`/tag/${toKabobCase(tag)}`
-													}>
-													{tag}
-												</Link>
-												<span>•</span>
-											</li>
-										))}
-									</ul>
-								</div> */}
 								<h2 className={styles.articleTitle}>
 									<Link to={`/news/${article.slug}`}>{article.title}</Link>
 								</h2>
