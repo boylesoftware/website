@@ -33,7 +33,6 @@ const config: GatsbyConfig = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sitemap",
     "gatsby-transformer-inline-svg",
-    "gatsby-plugin-remove-serviceworker",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -49,12 +48,12 @@ const config: GatsbyConfig = {
         display: `standalone`,
       },
     },
-    // {
-    // 	resolve: `gatsby-plugin-offline`,
-    // 	options: {
-    // 		precachePages: [`/about`, `/work/*`],
-    // 	},
-    // },
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/about`, `/work/*`],
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
