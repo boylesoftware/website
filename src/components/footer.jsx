@@ -38,11 +38,7 @@ const Footer = () => (
 		<div className={styles.copyright}>
 			© 1988-{new Date().getFullYear()} Boyle Software.Inc., a subsidiary
 			of&nbsp;
-			<a
-				href='https://www.beyondsoft.com/'
-				target='_blank'
-				rel='noreferrer'
-				className={styles.beyondsoft}>
+			<a href='https://www.beyondsoft.com/' className={styles.beyondsoft}>
 				Beyondsoft
 			</a>
 			. All Rights Reserved.
