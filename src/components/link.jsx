@@ -13,11 +13,7 @@ export function Link({ children, to, cssClass, ariaLabel }) {
 		);
 	}
 	return (
-		<a
-			href={to}
-			target='_blank'
-			rel='nofollow noopener noreferrer'
-			className={cssClass}>
+		<a href={to} rel='noreferrer' className={cssClass}>
 			{children}
 		</a>
 	);

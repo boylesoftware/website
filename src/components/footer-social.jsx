@@ -25,7 +25,7 @@ const FooterSocial = () => {
 			<ul>
 				{data.icons.content.map((icon) => (
 					<li key={icon.id} className={styles.icon}>
-						<a href={icon.url} target='_blank'>
+						<a href={icon.url}>
 							<Image media={icon.media} alt={icon.media.description} />
 						</a>
 					</li>
