@@ -42,7 +42,7 @@ export const query = graphql`
 		contentfulNews(contentful_id: { eq: "48QQxlsN2qU7hHu50FS6Av" }) {
 			title
 		}
-		NEWS: allContentfulArticle(limit: 6, sort: { publishDate: DESC }) {
+		NEWS: allContentfulArticle(limit: 3, sort: { publishDate: DESC }) {
 			nodes {
 				id
 				title
