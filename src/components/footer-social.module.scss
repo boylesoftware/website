@@ -37,3 +37,7 @@
 		margin-top: 0;
 	}
 }
+
+.socialIcon {
+	@extend %visually-hidden;
+}

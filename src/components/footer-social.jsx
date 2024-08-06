@@ -27,6 +27,9 @@ const FooterSocial = () => {
 					<li key={icon.id} className={styles.icon}>
 						<a href={icon.url}>
 							<Image media={icon.media} alt={icon.media.description} />
+							<span className={styles.socialIcon}>
+								{icon.media.description}
+							</span>
 						</a>
 					</li>
 				))}
