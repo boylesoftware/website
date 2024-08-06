@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 import * as React from "react";
 import { graphql } from "gatsby";
 import { ContainerFactory } from "../components/container-factory";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import Layout from "../components/layout";
 import { Seo } from "../components/seo";
+=======
+import * as React from 'react';
+import { graphql } from 'gatsby';
+import { ContainerFactory } from '../components/container-factory';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import Layout from '../components/layout';
+import { Seo } from '../components/seo';
+>>>>>>> origin/minor-updates
 
 import * as styles from "./index.module.scss";
 
