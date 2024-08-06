@@ -1,25 +1,25 @@
-@import "/src/css/all.scss";
-@import "/src/components/case-studies-list-with-filter.module.scss";
+@import '/src/css/all.scss';
+@import '/src/components/case-studies-list-with-filter.module.scss';
 
 .pageHeader {
 	@extend %page-header;
 
 	margin-bottom: 0;
 
-  @media (max-width: #{$breakpoint-tablet - 1}) {
-	padding: 1rem 1rem 1rem 1.5rem;
+	@media (max-width: #{$breakpoint-tablet - 1}) {
+		padding: 1rem 1rem 1rem 1.5rem;
 
-    h1 {
-      font-size: 1.3125rem;
-      line-height: 1.5625rem;
-    }
+		h1 {
+			font-size: 1.3125rem;
+			line-height: 1.5625rem;
+		}
 
-	& > div:last-of-type {
-		a {
-			margin: 1rem 0;
+		& > div:last-of-type {
+			a {
+				margin: 1rem 0;
+			}
 		}
 	}
-  }
 }
 
 .pill {
@@ -34,7 +34,7 @@
 }
 
 .sectionHeading {
-	color: $grey-med;
+	color: #666;
 	font-size: 1.25rem;
 	font-weight: 400;
 	line-height: 1.625rem;
@@ -204,7 +204,6 @@
 
 	a {
 		@extend %filterBtn;
-
 		text-decoration: none;
 	}
 }

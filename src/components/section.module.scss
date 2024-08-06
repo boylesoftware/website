@@ -131,7 +131,7 @@
 		@include display-med;
 	}
 	p {
-		margin: 0;
+		margin: 0.5rem;
 	}
 	& > div {
 		margin-bottom: 5rem;
@@ -149,7 +149,7 @@
 		margin-top: 0.5rem;
 	}
 	p {
-		margin: 0;
+		margin: 0.25rem;
 	}
 	@include desktop {
 		display: grid;
