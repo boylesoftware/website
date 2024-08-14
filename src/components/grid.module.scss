@@ -49,7 +49,7 @@
 	}
 
 	@include desktop {
-		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr;
 	}
 
 	div {
@@ -58,15 +58,15 @@
 		align-items: center;
 		justify-content: center;
 
-    .imageContainer {
-      width: 8.75rem;
-      overflow: hidden;
-      position: relative;
-    }
+		.imageContainer {
+			// width: 8.75rem;
+			overflow: hidden;
+			position: relative;
+		}
 
-    svg {
-      display: block;
-      width: 100%;
+		svg {
+			display: block;
+			width: 100%;
 		}
 	}
 }
