@@ -80,8 +80,10 @@
 	.grid {
 		margin-bottom: 0;
 		align-items: start;
+		grid-template-columns: 1fr;
 		.imageContainer {
 			width: 17.5rem;
+			max-width: 100%;
 		}
 		div img {
 			max-width: 100%;
